@@ -1,7 +1,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "string_custom.h"
+#include "../headers/string_custom.h"
+#include "../headers/safe_memory.h"
 
 /**
  * Creates a new String.
@@ -11,9 +12,9 @@
  */
 string* new_string(char* str){
     if(!str) return NULL;
-    string * new_str = calloc(1, sizeof(string));
+    string * new_str = s_calloc(1, sizeof(string));
     new_str->length = strlen(str);
-    new_str->str = calloc(1, new_str->length);
+    new_str->str = s_calloc(1, new_str->length);
     memcpy(new_str, str, new_str->length);
     new_str->clear = __string_clear;
     new_str->append = __string_append;
@@ -22,7 +23,7 @@ string* new_string(char* str){
 void __string_append(string* dst, string* src){
     unsigned long total_len = dst->length + src->length + 1;
     dst->length = total_len;
-    realloc(dst->str, total_len);
+    if(!s_realloc(dst->str, total_len)) abort();
     strncat(dst->str, src->str, total_len);
 }
 
