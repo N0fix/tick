@@ -58,7 +58,7 @@
 #define HOOK "[% 5lu] [%s] "
 #define RESET "\e[m\n"
 #define preload_log(FORMAT, ...) \
-    do { logger(__func__, __VA_ARGS__); } while(0)
+    do { logger(__func__, FORMAT, __VA_ARGS__); } while(0)
 
 
 

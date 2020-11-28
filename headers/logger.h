@@ -37,7 +37,7 @@ enum colors{
 
 #endif  /* _COLORS_ */
 
-void logger(const char* func_name, const char* format);
+void logger(const char* func_name, const char* format, ...);
 
 
 #endif

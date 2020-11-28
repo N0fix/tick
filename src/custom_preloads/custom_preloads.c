@@ -10,7 +10,7 @@ pid_t fork(void){
     int (*o_fork)(void);
     o_fork = dlsym(RTLD_NEXT, "fork");
     
-    // shm_lock();
+    shm_lock();
     logger(__func__, "%s");
     shm_add_pid(getpid());
     pid_t ret_pid = o_fork();
@@ -19,7 +19,7 @@ pid_t fork(void){
         self_pid = getpid(); // gets the new pid for logging 
         self_childid++;
     }
-    // shm_unlock();
+    shm_unlock();
 
     return ret_pid;
 }

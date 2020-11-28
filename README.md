@@ -3,7 +3,7 @@ Tick - An LD_PRELOAD logging utility
 Beta currently working.
 
 TODO : 
-* Solve the linkage problem that would allow to use sem_open to synchronise prints and informations between processes. (!important)
+* Solve the linkage problem that would allow to use sem_open to synchronise prints and informations between processes. (!important. linking with -pthread makes binary crash, some preload must be responsible for this, I need to investigate which preload causes the crash)
 * Print formated arguments for functions
 * finish README
 

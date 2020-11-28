@@ -117,7 +117,7 @@ void* __shm_get_shared_memory(){
  * 
  */
 void __shm_create_lock(){
-    semaphore = sem_open(SEM_ID, O_CREAT | O_RDWR, 0600, SEM_INITIAL_VALUE_UNLOCKED);
+    // semaphore = sem_open(SEM_ID, O_CREAT | O_RDWR, 0600, SEM_INITIAL_VALUE_UNLOCKED);
     // File will be deleted upon program termination
     // but is still opened till then (see unlink man)
     sem_unlink(SEM_ID);
@@ -201,8 +201,8 @@ char __is_pid_in_shm_pid_list(pid_t pid){
  * @return A copied pid_list the caller has to free.
  */
 shm_pid_list* shm_get_pid_list_copy(){
-    shm_pid_list* p = s_calloc(1, sizeof(shm_pid_list));
-    // shm_pid_list* p = calloc(1, sizeof(shm_pid_list));
+    // shm_pid_list* p = s_calloc(1, sizeof(shm_pid_list));
+    shm_pid_list* p = calloc(1, sizeof(shm_pid_list));
     shm_pid_list* shm = __shm_get_shared_memory();
     printf("Getting pid list with %ld pids\n", shm->number_of_pid);
     memcpy(p, shm, sizeof(shm->number_of_pid) + sizeof(pid_t) * shm->number_of_pid);

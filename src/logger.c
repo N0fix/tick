@@ -12,9 +12,9 @@
 #define HOOK "[% 5ld] [%s] [%d]"
 #define RESET "\e[m\n"
 
-void logger(const char* func_name, const char* format) {
-    // va_list args;
-    // va_start(args, format);
+void logger(const char* func_name, const char* format, ...) {
+    va_list args;
+    va_start(args, format);
     // for (size_t i = 0; i < getchildid_singleton(); i++)
     // {
     //     printf("  ");
@@ -45,7 +45,10 @@ void logger(const char* func_name, const char* format) {
     default:
         break;
     }
-    // printf(HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+    // printf(HOOK , getpid_singleton(), func_name, getchildid_singleton());
+    vprintf(format, args);
+
+
     // fprintf(stdout, HOOK format RESET, getpid(), func_name, __VA_ARGS__);
-    // va_end(args);
+    va_end(args);
 }

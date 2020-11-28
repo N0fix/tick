@@ -1266,6 +1266,7 @@ typedef void (*sighandler_t)(int);
 #define utimes h_utimes
 #define utmpname h_utmpname
 #define utmpxname h_utmpxname
+#define vprintf h_vprintf
 #define valloc h_valloc
 #define versionsort h_versionsort
 #define versionsort64 h_versionsort64
@@ -2551,6 +2552,7 @@ int h_utime (const char *filename, const struct utimbuf *times);
 int h_utimes (const char *filename, const struct timeval tvp[2]);
 int h_utmpname (const char *file);
 int h_utmpxname (const char *file);
+int h_vprintf (const char *template, va_list ap);
 void * h_valloc (size_t size);
 int h_versionsort (const struct dirent **a, const struct dirent **b);
 int h_versionsort64 (const struct dirent64 **a, const struct dirent64 **b);
