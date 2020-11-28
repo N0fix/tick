@@ -1,20 +1,26 @@
-.PHONY: help compile32 compile64
-.DEFAULT_GOAL= help
-CC=gcc
-CFLAGS_OBJECT=-O3 -c -fPIC
-CFLAGS_SHARED=-shared -ldl
-src=$(wildcard src/*.c)
-deps=$(wildcard src/*.h)
-obj=$(src:.c=.o)
+_OBJS= logger.o generated_preload.o wrapper.o pid_handling.o custom_preloads.o
+HEADER_DIR=./headers/
+CFLAGS+= -w -m32 -lpthread -lrt -ldl -lcrypt -pthread
+INCLUDES=-I$(HEADER_DIR)
 
-compile32:
-	$(CC) preload.c -m32 -c -fPIC -o preload.o
-	$(CC) -m32 preload.o -shared -o libcu.so -ldl
+SHARED_LIB=libcu.so
+SRC=src
+PRELOAD=default_preloads
+CU_PRELOAD=custom_preloads
 
-compile64:
-	$(CC) preload.c  -c -fPIC -o preload.o
-	$(CC) preload.o -shared -o libcu.so -ldl
+.PHONY: all
+all:	delete $(SHARED_LIB) clean
 
+clean:
+	-@rm *.o
 
-help:
-	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-10s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
+delete:
+	-@rm $(SHARED_LIB)
+
+$(SHARED_LIB): 
+	$(CC) -fPIC -c ./$(SRC)/logger.c -o logger.o $(CFLAGS) $(INCLUDES)
+	$(CC) -fPIC -c ./$(SRC)/pid_handling.c -o pid_handling.o -m32 $(CFLAGS) $(INCLUDES)
+	$(CC) -fPIC -c ./$(SRC)/$(CU_PRELOAD)/custom_preloads.c -o custom_preloads.o $(CFLAGS) $(INCLUDES)
+	$(CC) -fPIC -c ./$(SRC)/$(PRELOAD)/generated_preload.c -o generated_preload.o $(CFLAGS) $(INCLUDES)
+	$(CC) -fPIC -c ./$(SRC)/$(PRELOAD)/wrapper.c -o wrapper.o $(CFLAGS) $(INCLUDES)
+	$(CC)  -m32 -static -shared $(_OBJS) -o $(SHARED_LIB)  
