@@ -107,6 +107,10 @@ char* getsig(int sig){
         return "UNKN";
     }
 }
+enum what{
+    1= "SIGILL",
+    "SIGCONT" = 2
+};
 
 pid_t fork(void){
     int (*o_fork)(void);
@@ -243,10 +247,10 @@ pid_t waitpid(pid_t pid, int *wstatus, int options){
         original_ptrace(PTRACE_GETREGS, pid, 0, &regs);
         int first = peekdata(pid, regs.esp, 4);
         int third_arg = peekdata(pid, regs.esp, 12);
-        if(first == 0x6B4E102C || first == 0x44DE7A30 || first == 0x5816452E){
-            // fprintf(stdout, " [7] = %08X\n[19] = %08X\n[41] = %08X\n", peekdata(pid, ptr, 7*4), peekdata(pid, ptr, 12 * 4), peekdata(pid, ptr, 34 * 4));
-            // fprintf(stdout, "%08X\n", third_arg);
-        }
+        // if(first == 0x6B4E102C || first == 0x44DE7A30 || first == 0x5816452E){
+        //     // fprintf(stdout, " [7] = %08X\n[19] = %08X\n[41] = %08X\n", peekdata(pid, ptr, 7*4), peekdata(pid, ptr, 12 * 4), peekdata(pid, ptr, 34 * 4));
+        //     // fprintf(stdout, "%08X\n", third_arg);
+        // }
         break;
     case SIGSTOP:
         break;

@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 #include "logger.h"
 /* Mandatory wrapper to use functions as is without having to call the wrapper
  * */
@@ -9,46 +8,51 @@
 
 #include "pid_handling.h"
 
-#define HOOK "[% 5ld] [%s] [%d]"
-#define RESET "\e[m\n"
+
+
+
 
 void logger(const char* func_name, const char* format, ...) {
+    shm_lock();
     va_list args;
     va_start(args, format);
     // for (size_t i = 0; i < getchildid_singleton(); i++)
     // {
     //     printf("  ");
     // }
+    #ifdef COLOR
     switch (getchildid_singleton() % 7)
     {
     case RED:
-        printf(KRED  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KRED);
         break;
     case GRN:
-        printf(KGRN  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KGRN);
         break;
     case YEL:
-        printf(KYEL  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KYEL);
         break;
     case BLU:
-        printf(KBLU  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KBLU);
         break;
     case MAG:
-        printf(KMAG  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KMAG);
         break;
     case CYN:
-        printf(KCYN  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KCYN);
         break;
     case WHT:
-        printf(KWHT  HOOK RESET, getpid_singleton(), func_name, getchildid_singleton());
+        printf(KWHT);
         break;
     default:
         break;
     }
-    // printf(HOOK , getpid_singleton(), func_name, getchildid_singleton());
+    #endif
+    printf(HOOK, getpid_singleton(), func_name);
     vprintf(format, args);
+    printf(RESET);
+    shm_unlock();
 
-
-    // fprintf(stdout, HOOK format RESET, getpid(), func_name, __VA_ARGS__);
+    // fprintf(stdout);
     va_end(args);
 }

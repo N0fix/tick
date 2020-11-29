@@ -523,7 +523,7 @@ int aio_error64 (const struct aiocb64 *aiocbp){
     return original_func(aiocbp);
 }
 
-#endif
+#endif 
 #ifndef aio_fsync_OVERRIDE
 #define aio_fsync_OVERRIDE
 
@@ -578,7 +578,7 @@ int aio_read64 (struct aiocb64 *aiocbp){
     return original_func(aiocbp);
 }
 
-#endif
+#endif 
 #ifndef aio_return_OVERRIDE
 #define aio_return_OVERRIDE
 
@@ -1162,7 +1162,7 @@ int backtrace (void **buffer, int size){
     return original_func(buffer,size);
 }
 
-#endif
+#endif 
 #ifndef backtrace_symbols_OVERRIDE
 #define backtrace_symbols_OVERRIDE
 
@@ -1184,7 +1184,7 @@ void backtrace_symbols_fd (void *const *buffer, int size, int fd){
     original_func(buffer,size,fd);
 }
 
-#endif
+#endif 
 #ifndef basename_OVERRIDE
 #define basename_OVERRIDE
 
@@ -1250,7 +1250,7 @@ char * bind_textdomain_codeset (const char *domainname, const char *codeset){
     return original_func(domainname,codeset);
 }
 
-#endif
+#endif 
 
 #ifndef brk_OVERRIDE
 #define brk_OVERRIDE
@@ -1262,7 +1262,7 @@ int brk (void *addr){
     return original_func(addr);
 }
 
-#endif
+#endif 
 
 #ifndef bsearch_OVERRIDE
 #define bsearch_OVERRIDE
@@ -1296,7 +1296,7 @@ void bzero (void *block, size_t size){
     original_func(block,size);
 }
 
-#endif
+#endif 
 #ifndef cabs_OVERRIDE
 #define cabs_OVERRIDE
 
@@ -1395,18 +1395,18 @@ complex long double cacosl (complex long double z){
     return original_func(z);
 }
 
-#endif
-#ifndef calloc_OVERRIDE
-#define calloc_OVERRIDE
+#endif 
+// #ifndef calloc_OVERRIDE
+// #define calloc_OVERRIDE
 
-void * calloc (size_t count, size_t eltsize){
-    void *  (*original_func)(size_t count, size_t eltsize);
-    original_func = dlsym(RTLD_NEXT, "calloc");
-    preload_log("%s", "");
-    return original_func(count,eltsize);
-}
+// void * calloc (size_t count, size_t eltsize){
+//     void *  (*original_func)(size_t count, size_t eltsize);
+//     original_func = dlsym(RTLD_NEXT, "calloc");
+//     preload_log("%s", "");
+//     return original_func(count,eltsize);
+// }
 
-#endif
+// #endif
 #ifndef canonicalize_OVERRIDE
 #define canonicalize_OVERRIDE
 
@@ -1428,7 +1428,7 @@ int canonicalizef (float *cx, const float *x){
     return original_func(cx,x);
 }
 
-#endif
+#endif 
 #ifndef canonicalizel_OVERRIDE
 #define canonicalizel_OVERRIDE
 
@@ -1450,7 +1450,7 @@ char * canonicalize_file_name (const char *name){
     return original_func(name);
 }
 
-#endif
+#endif 
 #ifndef carg_OVERRIDE
 #define carg_OVERRIDE
 
@@ -1461,7 +1461,7 @@ double carg (complex double z){
     return original_func(z);
 }
 
-#endif
+#endif  
 #ifndef cargf_OVERRIDE
 #define cargf_OVERRIDE
 
@@ -1494,7 +1494,7 @@ complex double casin (complex double z){
     return original_func(z);
 }
 
-#endif
+#endif 
 #ifndef casinf_OVERRIDE
 #define casinf_OVERRIDE
 
@@ -2286,7 +2286,7 @@ long double cosl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef cpow_OVERRIDE
 #define cpow_OVERRIDE
 
@@ -2979,7 +2979,7 @@ void endutent (void){
     return original_func();
 }
 
-#endif
+#endif 
 #ifndef endutxent_OVERRIDE
 #define endutxent_OVERRIDE
 
@@ -3274,10 +3274,11 @@ int execve (const char *filename, char *const argv[], char *const env[]){
     int  (*original_func)(const char *filename, char *const argv[], char *const env[]);
     original_func = dlsym(RTLD_NEXT, "execve");
     preload_log("%s", "");
+    preload_log("%s", "OUIOUOIUOIU");
     return original_func(filename,argv,env);
 }
 
-#endif
+#endif 
 
 #ifndef execvp_OVERRIDE
 #define execvp_OVERRIDE
@@ -3635,7 +3636,7 @@ long double fdiml (long double x, long double y){
     return original_func(x,y);
 }
 
-#endif
+#endif 
 #ifndef fdiv_OVERRIDE
 #define fdiv_OVERRIDE
 
@@ -4175,7 +4176,7 @@ void flockfile (FILE *stream){
     return original_func(stream);
 }
 
-#endif
+#endif 
 #ifndef floor_OVERRIDE
 #define floor_OVERRIDE
 
@@ -4496,6 +4497,7 @@ FILE * fopen64 (const char *filename, const char *opentype){
     // }
 
     // #endif
+
 #ifndef fork_OVERRIDE
 #define fork_OVERRIDE
 
@@ -4506,7 +4508,7 @@ pid_t fork (void){
     return original_func();
 }
 
-#endif
+#endif 
 #ifndef forkpty_OVERRIDE
 #define forkpty_OVERRIDE
 
@@ -4982,7 +4984,7 @@ int ftrylockfile (FILE *stream){
     return original_func(stream);
 }
 
-#endif
+#endif 
 #ifndef ftw_OVERRIDE
 #define ftw_OVERRIDE
 
@@ -5199,7 +5201,7 @@ int getcpu (unsigned int *cpu, unsigned int *node){
     return original_func(cpu,node);
 }
 
-#endif
+#endif 
 #ifndef getcwd_OVERRIDE
 #define getcwd_OVERRIDE
 
@@ -5694,7 +5696,7 @@ int getopt_long (int argc, char *const *argv, const char *shortopts, const struc
     return original_func(argc,argv,shortopts,longopts,indexptr);
 }
 
-#endif
+#endif 
 #ifndef getopt_long_only_OVERRIDE
 #define getopt_long_only_OVERRIDE
 
@@ -5727,7 +5729,7 @@ char * getpass (const char *prompt){
     return original_func(prompt);
 }
 
-#endif
+#endif 
 #ifndef getpayload_OVERRIDE
 #define getpayload_OVERRIDE
 
@@ -5761,7 +5763,7 @@ long double getpayloadl (const long double *x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef getpeername_OVERRIDE
 #define getpeername_OVERRIDE
 
@@ -6064,7 +6066,7 @@ int getsockopt (int socket, int level, int optname, void *optval, socklen_t *opt
     return original_func(socket,level,optname,optval,optlen_ptr);
 }
 
-#endif
+#endif 
 #ifndef getsubopt_OVERRIDE
 #define getsubopt_OVERRIDE
 
@@ -6295,7 +6297,7 @@ wint_t getwchar_unlocked (void){
     return original_func();
 }
 
-#endif
+#endif 
 #ifndef getwc_unlocked_OVERRIDE
 #define getwc_unlocked_OVERRIDE
 
@@ -6650,7 +6652,7 @@ char * if_indextoname (unsigned int ifindex, char *ifname){
     return original_func(ifindex,ifname);
 }
 
-#endif
+#endif 
 #ifndef if_nameindex_OVERRIDE
 #define if_nameindex_OVERRIDE
 
@@ -6672,7 +6674,7 @@ unsigned int if_nametoindex (const char *ifname){
     return original_func(ifname);
 }
 
-#endif
+#endif 
 #ifndef ilogb_OVERRIDE
 #define ilogb_OVERRIDE
 
@@ -6738,7 +6740,7 @@ char * index (const char *string, int c){
     return original_func(string,c);
 }
 
-#endif
+#endif 
 #ifndef inet_addr_OVERRIDE
 #define inet_addr_OVERRIDE
 
@@ -6782,7 +6784,7 @@ struct in_addr inet_makeaddr (uint32_t net, uint32_t local){
     return original_func(net,local);
 }
 
-#endif
+#endif 
 #ifndef inet_netof_OVERRIDE
 #define inet_netof_OVERRIDE
 
@@ -6848,7 +6850,7 @@ int initgroups (const char *user, gid_t group){
     return original_func(user,group);
 }
 
-#endif
+#endif 
 #ifndef initstate_OVERRIDE
 #define initstate_OVERRIDE
 
@@ -6881,7 +6883,7 @@ int innetgr (const char *netgroup, const char *host, const char *user, const cha
     return original_func(netgroup,host,user,domain);
 }
 
-#endif
+#endif 
 #ifndef ioctl_OVERRIDE
 #define ioctl_OVERRIDE
 
@@ -6952,7 +6954,7 @@ int iswalnum (wint_t wc){
     return original_func(wc);
 }
 
-#endif
+#endif 
 #ifndef iswalpha_OVERRIDE
 #define iswalpha_OVERRIDE
 
@@ -7228,7 +7230,7 @@ int killpg (int pgid, int signum){
     return original_func(pgid,signum);
 }
 
-#endif
+#endif 
 #ifndef l64a_OVERRIDE
 #define l64a_OVERRIDE
 
@@ -7239,7 +7241,7 @@ char * l64a (long int n){
     return original_func(n);
 }
 
-#endif
+#endif 
 #ifndef labs_OVERRIDE
 #define labs_OVERRIDE
 
@@ -7305,7 +7307,7 @@ long double ldexpl (long double value, int exponent){
     return original_func(value,exponent);
 }
 
-#endif
+#endif 
 #ifndef ldiv_OVERRIDE
 #define ldiv_OVERRIDE
 
@@ -7316,7 +7318,7 @@ ldiv_t ldiv (long int numerator, long int denominator){
     return original_func(numerator,denominator);
 }
 
-#endif
+#endif 
 #ifndef lfind_OVERRIDE
 #define lfind_OVERRIDE
 
@@ -7371,7 +7373,7 @@ long double lgammal (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef lgammal_r_OVERRIDE
 #define lgammal_r_OVERRIDE
 
@@ -7393,29 +7395,29 @@ double lgamma_r (double x, int *signp){
     return original_func(x,signp);
 }
 
-#endif
-#ifndef link_OVERRIDE
-#define link_OVERRIDE
+#endif 
+// #ifndef link_OVERRIDE
+// #define link_OVERRIDE
 
-int link (const char *oldname, const char *newname){
-    int  (*original_func)(const char *oldname, const char *newname);
-    original_func = dlsym(RTLD_NEXT, "link");
-    preload_log("%s", "");
-    return original_func(oldname,newname);
-}
+// int link (const char *oldname, const char *newname){
+//     int  (*original_func)(const char *oldname, const char *newname);
+//     original_func = dlsym(RTLD_NEXT, "link");
+//     preload_log("%s", "");
+//     return original_func(oldname,newname);
+// }
 
-#endif
+// #endif  
 #ifndef linkat_OVERRIDE
 #define linkat_OVERRIDE
 
 int linkat (int oldfd, const char *oldname, int newfd, const char *newname, int flags){
     int  (*original_func)(int oldfd, const char *oldname, int newfd, const char *newname, int flags);
     original_func = dlsym(RTLD_NEXT, "linkat");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(oldfd,oldname,newfd,newname,flags);
 }
 
-#endif
+#endif 
 #ifndef lio_listio_OVERRIDE
 #define lio_listio_OVERRIDE
 
@@ -7437,7 +7439,7 @@ int lio_listio64 (int mode, struct aiocb64 *const list[], int nent, struct sigev
     return original_func(mode,list,nent,sig);
 }
 
-#endif
+#endif  
 #ifndef listen_OVERRIDE
 #define listen_OVERRIDE
 
@@ -7459,7 +7461,7 @@ long long int llabs (long long int number){
     return original_func(number);
 }
 
-#endif
+#endif 
 #ifndef lldiv_OVERRIDE
 #define lldiv_OVERRIDE
 
@@ -7569,7 +7571,7 @@ long long int llroundl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef localeconv_OVERRIDE
 #define localeconv_OVERRIDE
 
@@ -7591,7 +7593,7 @@ struct tm * localtime (const time_t *time){
     return original_func(time);
 }
 
-#endif
+#endif 
 #ifndef localtime_r_OVERRIDE
 #define localtime_r_OVERRIDE
 
@@ -7613,7 +7615,7 @@ double log (double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef log10_OVERRIDE
 #define log10_OVERRIDE
 
@@ -7668,7 +7670,7 @@ float log1pf (float x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef log1pl_OVERRIDE
 #define log1pl_OVERRIDE
 
@@ -7734,7 +7736,7 @@ float logbf (float x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef logbl_OVERRIDE
 #define logbl_OVERRIDE
 
@@ -7745,7 +7747,7 @@ long double logbl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef logf_OVERRIDE
 #define logf_OVERRIDE
 
@@ -7789,7 +7791,7 @@ long double logl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef logout_OVERRIDE
 #define logout_OVERRIDE
 
@@ -8006,7 +8008,7 @@ void makecontext (ucontext_t *ucp, void (*func) (void), int argc, ...){
 }
 
 
-#endif
+#endif 
 #ifndef mallinfo_OVERRIDE
 #define mallinfo_OVERRIDE
 
@@ -8072,7 +8074,7 @@ size_t mbrtowc (wchar_t *restrict pwc, const char *restrict s, size_t n, mbstate
     return original_func(pwc,s,n,ps);
 }
 
-#endif
+#endif 
 #ifndef mbsinit_OVERRIDE
 #define mbsinit_OVERRIDE
 
@@ -8138,7 +8140,7 @@ int mcheck (void (*abortfn) (enum mcheck_status status)){
     return original_func(abortfn);
 }
 
-#endif
+#endif 
 #ifndef memalign_OVERRIDE
 #define memalign_OVERRIDE
 
@@ -8149,7 +8151,7 @@ void * memalign (size_t boundary, size_t size){
     return original_func(boundary,size);
 }
 
-#endif
+#endif 
 #ifndef memccpy_OVERRIDE
 #define memccpy_OVERRIDE
 
@@ -8182,18 +8184,18 @@ int memcmp (const void *a1, const void *a2, size_t size){
     return original_func(a1,a2,size);
 }
 
-#endif
+#endif 
 #ifndef memcpy_OVERRIDE
 #define memcpy_OVERRIDE
 
 void * memcpy (void *restrict to, const void *restrict from, size_t size){
     void *  (*original_func)(void *restrict to, const void *restrict from, size_t size);
     original_func = dlsym(RTLD_NEXT, "memcpy");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(to,from,size);
 }
 
-#endif
+#endif 
 #ifndef memfd_create_OVERRIDE
 #define memfd_create_OVERRIDE
 
@@ -8215,7 +8217,7 @@ void * memfrob (void *mem, size_t length){
     return original_func(mem,length);
 }
 
-#endif
+#endif 
 #ifndef memmem_OVERRIDE
 #define memmem_OVERRIDE
 
@@ -8248,7 +8250,7 @@ void * mempcpy (void *restrict to, const void *restrict from, size_t size){
     return original_func(to,from,size);
 }
 
-#endif
+#endif 
 #ifndef memrchr_OVERRIDE
 #define memrchr_OVERRIDE
 
@@ -8303,7 +8305,7 @@ int mkfifo (const char *filename, mode_t mode){
     return original_func(filename,mode);
 }
 
-#endif
+#endif 
 #ifndef mknod_OVERRIDE
 #define mknod_OVERRIDE
 
@@ -8336,7 +8338,7 @@ char * mktemp (char *template){
     return original_func(template);
 }
 
-#endif
+#endif 
 #ifndef mktime_OVERRIDE
 #define mktime_OVERRIDE
 
@@ -8358,7 +8360,7 @@ int mlock (const void *addr, size_t len){
     return original_func(addr,len);
 }
 
-#endif
+#endif  
 #ifndef mlock2_OVERRIDE
 #define mlock2_OVERRIDE
 
@@ -8380,7 +8382,7 @@ int mlockall (int flags){
     return original_func(flags);
 }
 
-#endif
+#endif 
 
 #ifndef mmap_OVERRIDE
 #define mmap_OVERRIDE
@@ -8388,11 +8390,11 @@ int mlockall (int flags){
 void * mmap (void *address, size_t length, int protect, int flags, int filedes, off_t offset){
     void *  (*original_func)(void *address, size_t length, int protect, int flags, int filedes, off_t offset);
     original_func = dlsym(RTLD_NEXT, "mmap");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(address,length,protect,flags,filedes,offset);
 }
 
-#endif
+#endif 
 
 // #ifndef mmap64_OVERRIDE
 // #define mmap64_OVERRIDE
@@ -8405,6 +8407,7 @@ void * mmap (void *address, size_t length, int protect, int flags, int filedes, 
 // }
 
 // #endif
+
 #ifndef modf_OVERRIDE
 #define modf_OVERRIDE
 
@@ -8448,7 +8451,7 @@ int mount (const char *special_file, const char *dir, const char *fstype, unsign
     return original_func(special_file,dir,fstype,options,data);
 }
 
-#endif
+#endif 
 #ifndef mprobe_OVERRIDE
 #define mprobe_OVERRIDE
 
@@ -8504,7 +8507,7 @@ void * mremap (void *address, size_t length, size_t new_length, int flag){
     return original_func(address,length,new_length,flag);
 }
 
-#endif
+#endif 
 #ifndef msync_OVERRIDE
 #define msync_OVERRIDE
 
@@ -8825,7 +8828,7 @@ int nice (int increment){
     return original_func(increment);
 }
 
-#endif
+#endif 
 #ifndef nl_langinfo_OVERRIDE
 #define nl_langinfo_OVERRIDE
 
@@ -9001,7 +9004,7 @@ void * obstack_finish (struct obstack *obstack_ptr){
     return original_func(obstack_ptr);
 }
 
-#endif
+#endif 
 #ifndef obstack_free_OVERRIDE
 #define obstack_free_OVERRIDE
 
@@ -9089,7 +9092,7 @@ int obstack_object_size (struct obstack *obstack_ptr){
     return original_func(obstack_ptr);
 }
 
-#endif
+#endif 
 
 #ifndef obstack_ptr_grow_OVERRIDE
 #define obstack_ptr_grow_OVERRIDE
@@ -9456,6 +9459,7 @@ ssize_t preadv2 (int fd, const struct iovec *iov, int iovcnt, off_t offset, int 
 
 // #endif
 
+
 #ifndef printf_OVERRIDE
 #define printf_OVERRIDE
 
@@ -9736,7 +9740,7 @@ struct utmp * pututline (const struct utmp *utmp){
     return original_func(utmp);
 }
 
-#endif
+#endif 
 #ifndef pututxline_OVERRIDE
 #define pututxline_OVERRIDE
 
@@ -9934,7 +9938,7 @@ void qsort (void *array, size_t count, size_t size, int(*compare)(const void *, 
     return original_func(array,count,size,compare);
 }
 
-#endif
+#endif 
 #ifndef raise_OVERRIDE
 #define raise_OVERRIDE
 
@@ -10143,7 +10147,7 @@ int regcomp (regex_t *restrict compiled, const char *restrict pattern, int cflag
     return original_func(compiled,pattern,cflags);
 }
 
-#endif
+#endif 
 #ifndef regerror_OVERRIDE
 #define regerror_OVERRIDE
 
@@ -10385,7 +10389,7 @@ int rpmatch (const char *response){
     return original_func(response);
 }
 
-#endif
+#endif 
 #ifndef scalb_OVERRIDE
 #define scalb_OVERRIDE
 
@@ -10800,10 +10804,10 @@ int sem_init (sem_t *sem, int pshared, unsigned int value){
 
 //     original_func = dlsym(RTLD_DEFAULT, "sem_open");
 //     #ifndef O_CREAT
-//     # define O_CREAT           0100        /* Not fcntl.  */
+//     # define O_CREAT           0100        
 //     #endif
 //     #ifndef O_EXCL
-//     # define O_EXCL                   0200        /* Not fcntl.  */
+//     # define O_EXCL                   0200        
 //     #endif
 //     if ((oflag & O_CREAT) == 0 || (oflag & O_EXCL) == 0){
 //         return original_func(name,oflag);      
@@ -10944,7 +10948,7 @@ int setdomainname (const char *name, size_t length){
     return original_func(name,length);
 }
 
-#endif
+#endif 
 #ifndef setegid_OVERRIDE
 #define setegid_OVERRIDE
 
@@ -11909,7 +11913,7 @@ void srand48 (long int seedval){
     return original_func(seedval);
 }
 
-#endif
+#endif 
 #ifndef srand48_r_OVERRIDE
 #define srand48_r_OVERRIDE
 
@@ -11968,7 +11972,7 @@ sighandler_t ssignal (int signum, sighandler_t action){
     return original_func(signum,action);
 }
 
-#endif
+#endif 
 #ifndef stat_OVERRIDE
 #define stat_OVERRIDE
 
@@ -12023,7 +12027,7 @@ char * stpncpy (char *restrict to, const char *restrict from, size_t size){
     return original_func(to,from,size);
 }
 
-#endif
+#endif  
 #ifndef strcasecmp_OVERRIDE
 #define strcasecmp_OVERRIDE
 
@@ -12056,18 +12060,18 @@ char * strcat (char *restrict to, const char *restrict from){
     return original_func(to,from);
 }
 
-#endif
+#endif 
 #ifndef strchr_OVERRIDE
 #define strchr_OVERRIDE
 
 char * strchr (const char *string, int c){
     char *  (*original_func)(const char *string, int c);
     original_func = dlsym(RTLD_NEXT, "strchr");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(string,c);
 }
 
-#endif
+#endif 
 #ifndef strchrnul_OVERRIDE
 #define strchrnul_OVERRIDE
 
@@ -12078,7 +12082,7 @@ char * strchrnul (const char *string, int c){
     return original_func(string,c);
 }
 
-#endif
+#endif 
 #ifndef strcmp_OVERRIDE
 #define strcmp_OVERRIDE
 
@@ -12089,7 +12093,7 @@ int strcmp (const char *s1, const char *s2){
     return original_func(s1,s2);
 }
 
-#endif
+#endif 
 #ifndef strcoll_OVERRIDE
 #define strcoll_OVERRIDE
 
@@ -12111,7 +12115,7 @@ char * strcpy (char *restrict to, const char *restrict from){
     return original_func(to,from);
 }
 
-#endif
+#endif 
 #ifndef strcspn_OVERRIDE
 #define strcspn_OVERRIDE
 
@@ -12177,7 +12181,7 @@ char * strerror_r (int errnum, char *buf, size_t n){
     return original_func(errnum,buf,n);
 }
 
-#endif
+#endif 
 #ifndef strfmon_OVERRIDE
 #define strfmon_OVERRIDE
 
@@ -12225,7 +12229,7 @@ int strfroml (char *restrict string, size_t size, const char *restrict format, l
     return original_func(string,size,format,value);
 }
 
-#endif
+#endif 
 #ifndef strfry_OVERRIDE
 #define strfry_OVERRIDE
 
@@ -12247,18 +12251,18 @@ size_t strftime (char *s, size_t size, const char *template, const struct tm *br
     return original_func(s,size,template,brokentime);
 }
 
-#endif
+#endif  
 #ifndef strlen_OVERRIDE
 #define strlen_OVERRIDE
 
 size_t strlen (const char *s){
     size_t  (*original_func)(const char *s);
     original_func = dlsym(RTLD_NEXT, "strlen");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(s);
 }
 
-#endif
+#endif 
 #ifndef strncasecmp_OVERRIDE
 #define strncasecmp_OVERRIDE
 
@@ -12269,7 +12273,7 @@ int strncasecmp (const char *s1, const char *s2, size_t n){
     return original_func(s1,s2,n);
 }
 
-#endif
+#endif 
 #ifndef strncat_OVERRIDE
 #define strncat_OVERRIDE
 
@@ -12324,7 +12328,7 @@ size_t strnlen (const char *s, size_t maxlen){
     return original_func(s,maxlen);
 }
 
-#endif
+#endif 
 #ifndef strpbrk_OVERRIDE
 #define strpbrk_OVERRIDE
 
@@ -12379,7 +12383,7 @@ char * strsignal (int signum){
     return original_func(signum);
 }
 
-#endif
+#endif 
 #ifndef strspn_OVERRIDE
 #define strspn_OVERRIDE
 
@@ -12672,7 +12676,7 @@ void syslog (int facility_priority, const char *format, ...){
 }
 
 
-#endif
+#endif 
 #ifndef system_OVERRIDE
 #define system_OVERRIDE
 
@@ -12771,7 +12775,7 @@ int tcdrain (int filedes){
     return original_func(filedes);
 }
 
-#endif
+#endif 
 #ifndef tcflow_OVERRIDE
 #define tcflow_OVERRIDE
 
@@ -12892,7 +12896,7 @@ long int telldir (DIR *dirstream){
     return original_func(dirstream);
 }
 
-#endif
+#endif 
 #ifndef tempnam_OVERRIDE
 #define tempnam_OVERRIDE
 
@@ -13057,7 +13061,7 @@ char * tmpnam_r (char *result){
     return original_func(result);
 }
 
-#endif
+#endif 
 
 #ifndef tolower_OVERRIDE
 #define tolower_OVERRIDE
@@ -13091,7 +13095,7 @@ wint_t towctrans (wint_t wc, wctrans_t desc){
     return original_func(wc,desc);
 }
 
-#endif
+#endif  
 #ifndef towlower_OVERRIDE
 #define towlower_OVERRIDE
 
@@ -13157,7 +13161,7 @@ float truncf (float x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef truncl_OVERRIDE
 #define truncl_OVERRIDE
 
@@ -13179,7 +13183,7 @@ void * tsearch (const void *key, void **rootp, int(*compar)(const void *, const 
     return original_func(key,rootp,compar);
 }
 
-#endif
+#endif 
 #ifndef ttyname_OVERRIDE
 #define ttyname_OVERRIDE
 
@@ -13234,7 +13238,7 @@ void tzset (void){
     return original_func();
 }
 
-#endif
+#endif 
 #ifndef ufromfp_OVERRIDE
 #define ufromfp_OVERRIDE
 
@@ -13267,7 +13271,7 @@ uintmax_t ufromfpl (long double x, int round, unsigned int width){
     return original_func(x,round,width);
 }
 
-#endif
+#endif 
 #ifndef ufromfpx_OVERRIDE
 #define ufromfpx_OVERRIDE
 
@@ -13378,18 +13382,18 @@ wint_t ungetwc (wint_t wc, FILE *stream){
     return original_func(wc,stream);
 }
 
-#endif
-#ifndef unlink_OVERRIDE
-#define unlink_OVERRIDE
+#endif 
+// #ifndef unlink_OVERRIDE
+// #define unlink_OVERRIDE
 
-int unlink (const char *filename){
-    int  (*original_func)(const char *filename);
-    original_func = dlsym(RTLD_NEXT, "unlink");
-    preload_log("%s", "");
-    return original_func(filename);
-}
+// int unlink (const char *filename){
+//     int  (*original_func)(const char *filename);
+//     original_func = dlsym(RTLD_NEXT, "unlink");
+//     preload_log("%s", "");
+//     return original_func(filename);
+// }
 
-#endif
+// #endif 
 #ifndef unlockpt_OVERRIDE
 #define unlockpt_OVERRIDE
 
@@ -13466,7 +13470,7 @@ int utmpxname (const char *file){
     return original_func(file);
 }
 
-#endif
+#endif 
 #ifndef valloc_OVERRIDE
 #define valloc_OVERRIDE
 
@@ -13719,7 +13723,7 @@ int vwprintf (const wchar_t *template, va_list ap){
     return original_func(template,ap);
 }
 
-#endif
+#endif 
 #ifndef vwscanf_OVERRIDE
 #define vwscanf_OVERRIDE
 
@@ -13730,7 +13734,7 @@ int vwscanf (const wchar_t *template, va_list ap){
     return original_func(template,ap);
 }
 
-#endif
+#endif 
 #ifndef wait_OVERRIDE
 #define wait_OVERRIDE
 
@@ -14367,7 +14371,7 @@ int wordexp (const char *words, wordexp_t *word_vector_ptr, int flags){
     return original_func(words,word_vector_ptr,flags);
 }
 
-#endif
+#endif 
 #ifndef wordfree_OVERRIDE
 #define wordfree_OVERRIDE
 
@@ -14431,7 +14435,7 @@ int wscanf (const wchar_t *template, ...){
     return ret_val;
 }
 
-#endif
+#endif 
 #ifndef y0_OVERRIDE
 #define y0_OVERRIDE
 

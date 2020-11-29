@@ -36,7 +36,12 @@ enum colors{
 };
 
 #endif  /* _COLORS_ */
-
+#define HOOK "[% 5ld] [%s] "
+#ifdef COLOR
+    #define RESET "\e[m\n"
+#else
+    #define RESET "\n"
+#endif
 void logger(const char* func_name, const char* format, ...);
 
 

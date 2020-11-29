@@ -88,7 +88,7 @@ void __shm_init_shared_memory(size_t size) {
         handle_error("shmat");
     }
     
-    printf("Creator ? %d\n", creator);
+    // printf("Creator ? %d\n", creator);
 
     // ftruncate(shm_id, size);
     // shm_ptr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, shm_id, 0);
@@ -117,7 +117,7 @@ void* __shm_get_shared_memory(){
  * 
  */
 void __shm_create_lock(){
-    // semaphore = sem_open(SEM_ID, O_CREAT | O_RDWR, 0600, SEM_INITIAL_VALUE_UNLOCKED);
+    semaphore = sem_open(SEM_ID, O_CREAT | O_RDWR, 0600, SEM_INITIAL_VALUE_UNLOCKED);
     // File will be deleted upon program termination
     // but is still opened till then (see unlink man)
     sem_unlink(SEM_ID);
@@ -159,8 +159,10 @@ void shm_lock(){
     if(semaphore == SEM_FAILED){
         __shm_create_lock();
     }
+    // while() in case the process gets interupted  by a signal (avoiding deadlocks)
+    // printf("%d trying to lock\n", getpid());
     sem_wait(semaphore);
-    printf("%d locked\n", getpid());
+    // printf("%d locked\n", getpid());
 }
 
 /**
@@ -172,10 +174,12 @@ void shm_lock(){
 
 void shm_unlock(){
     if(semaphore == SEM_FAILED){
+        sem_post(semaphore);
+        printf("%d SEMFAILED unlock\n", getpid());
         return;
     }
     sem_post(semaphore);
-    printf("%d unlocked\n", getpid());
+    // printf("%d unlocked\n", getpid());
 }
 
 /**
@@ -230,11 +234,13 @@ void shm_add_pid(pid_t p){
     if(__is_pid_in_shm_pid_list(p)){
         return;
     }
+    shm_lock();
     unsigned long n = 0;
     shm_pid_list* shm = __shm_get_shared_memory();
     n = shm->number_of_pid;
     shm->pids[n] = p;
     shm->number_of_pid++;
+    shm_unlock();
     // printf("Added pid %d cont is now %ld\n", getpid(), shm->number_of_pid);
 }
 

@@ -21,9 +21,12 @@
 
 
 #ifndef _FUNCTIONS_DEF_H
-#define _FUNCTIONS_DEF_H
+ #define _FUNCTIONS_DEF_H
 
-#define _GNU_SOURCE
+#include "custom_preloads/custom_preloads.h"
+
+
+ #define _GNU_SOURCE
 
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -82,1267 +85,3745 @@
 
 typedef void (*sighandler_t)(int);
 
-#define __fbufsize h___fbufsize
-#define __flbf h___flbf
-#define __fpending h___fpending
-#define __fpurge h___fpurge
-#define __freadable h___freadable
-#define __freading h___freading
-#define __fsetlocking h___fsetlocking
-#define __fwritable h___fwritable
-#define __fwriting h___fwriting
-#define __ppc_get_timebase h___ppc_get_timebase
-#define __ppc_get_timebase_freq h___ppc_get_timebase_freq
-#define __ppc_mdoio h___ppc_mdoio
-#define __ppc_mdoom h___ppc_mdoom
-#define __ppc_set_ppr_low h___ppc_set_ppr_low
-#define __ppc_set_ppr_med h___ppc_set_ppr_med
-#define __ppc_set_ppr_med_high h___ppc_set_ppr_med_high
-#define __ppc_set_ppr_med_low h___ppc_set_ppr_med_low
-#define __ppc_set_ppr_very_low h___ppc_set_ppr_very_low
-#define __ppc_yield h___ppc_yield
-#define __riscv_flush_icache h___riscv_flush_icache
-#define _exit h__exit
-#define _Exit h__Exit
-#define _flushlbf h__flushlbf
-#define a64l h_a64l
-#define abort h_abort
-#define abs h_abs
-#define accept h_accept
-#define access h_access
-#define acos h_acos
-#define acosf h_acosf
-#define acosh h_acosh
-#define acoshf h_acoshf
-#define acoshl h_acoshl
-#define acosl h_acosl
-#define addmntent h_addmntent
-#define addseverity h_addseverity
-#define adjtime h_adjtime
-#define adjtimex h_adjtimex
-#define aio_cancel h_aio_cancel
-#define aio_cancel64 h_aio_cancel64
-#define aio_error h_aio_error
-#define aio_error64 h_aio_error64
-#define aio_fsync h_aio_fsync
-#define aio_fsync64 h_aio_fsync64
-#define aio_init h_aio_init
-#define aio_read h_aio_read
-#define aio_read64 h_aio_read64
-#define aio_suspend h_aio_suspend
-#define aio_suspend64 h_aio_suspend64
-#define aio_write h_aio_write
-#define aio_write64 h_aio_write64
-#define alarm h_alarm
-#define aligned_alloc h_aligned_alloc
+#ifndef __fbufsize_OVERRIDE
+  #define __fbufsize h___fbufsize
+#endif
+#ifndef __flbf_OVERRIDE
+  #define __flbf h___flbf
+#endif
+#ifndef __fpending_OVERRIDE
+  #define __fpending h___fpending
+#endif
+#ifndef __fpurge_OVERRIDE
+  #define __fpurge h___fpurge
+#endif
+#ifndef __freadable_OVERRIDE
+  #define __freadable h___freadable
+#endif
+#ifndef __freading_OVERRIDE
+  #define __freading h___freading
+#endif
+#ifndef __fsetlocking_OVERRIDE
+  #define __fsetlocking h___fsetlocking
+#endif
+#ifndef __fwritable_OVERRIDE
+  #define __fwritable h___fwritable
+#endif
+#ifndef __fwriting_OVERRIDE
+  #define __fwriting h___fwriting
+#endif
+#ifndef __ppc_get_timebase_OVERRIDE
+  #define __ppc_get_timebase h___ppc_get_timebase
+#endif
+#ifndef __ppc_get_timebase_freq_OVERRIDE
+  #define __ppc_get_timebase_freq h___ppc_get_timebase_freq
+#endif
+#ifndef __ppc_mdoio_OVERRIDE
+  #define __ppc_mdoio h___ppc_mdoio
+#endif
+#ifndef __ppc_mdoom_OVERRIDE
+  #define __ppc_mdoom h___ppc_mdoom
+#endif
+#ifndef __ppc_set_ppr_low_OVERRIDE
+  #define __ppc_set_ppr_low h___ppc_set_ppr_low
+#endif
+#ifndef __ppc_set_ppr_med_OVERRIDE
+  #define __ppc_set_ppr_med h___ppc_set_ppr_med
+#endif
+#ifndef __ppc_set_ppr_med_high_OVERRIDE
+  #define __ppc_set_ppr_med_high h___ppc_set_ppr_med_high
+#endif
+#ifndef __ppc_set_ppr_med_low_OVERRIDE
+  #define __ppc_set_ppr_med_low h___ppc_set_ppr_med_low
+#endif
+#ifndef __ppc_set_ppr_very_low_OVERRIDE
+  #define __ppc_set_ppr_very_low h___ppc_set_ppr_very_low
+#endif
+#ifndef __ppc_yield_OVERRIDE
+  #define __ppc_yield h___ppc_yield
+#endif
+#ifndef __riscv_flush_icache_OVERRIDE
+  #define __riscv_flush_icache h___riscv_flush_icache
+#endif
+#ifndef _exit_OVERRIDE
+  #define _exit h__exit
+#endif
+#ifndef _Exit_OVERRIDE
+  #define _Exit h__Exit
+#endif
+#ifndef _flushlbf_OVERRIDE
+  #define _flushlbf h__flushlbf
+#endif
+#ifndef a64l_OVERRIDE
+  #define a64l h_a64l
+#endif
+#ifndef abort_OVERRIDE
+  #define abort h_abort
+#endif
+#ifndef abs_OVERRIDE
+  #define abs h_abs
+#endif
+#ifndef accept_OVERRIDE
+  #define accept h_accept
+#endif
+#ifndef access_OVERRIDE
+  #define access h_access
+#endif
+#ifndef acos_OVERRIDE
+  #define acos h_acos
+#endif
+#ifndef acosf_OVERRIDE
+  #define acosf h_acosf
+#endif
+#ifndef acosh_OVERRIDE
+  #define acosh h_acosh
+#endif
+#ifndef acoshf_OVERRIDE
+  #define acoshf h_acoshf
+#endif
+#ifndef acoshl_OVERRIDE
+  #define acoshl h_acoshl
+#endif
+#ifndef acosl_OVERRIDE
+  #define acosl h_acosl
+#endif
+#ifndef addmntent_OVERRIDE
+  #define addmntent h_addmntent
+#endif
+#ifndef addseverity_OVERRIDE
+  #define addseverity h_addseverity
+#endif
+#ifndef adjtime_OVERRIDE
+  #define adjtime h_adjtime
+#endif
+#ifndef adjtimex_OVERRIDE
+  #define adjtimex h_adjtimex
+#endif
+#ifndef aio_cancel_OVERRIDE
+  #define aio_cancel h_aio_cancel
+#endif
+#ifndef aio_cancel64_OVERRIDE
+  #define aio_cancel64 h_aio_cancel64
+#endif
+#ifndef aio_error_OVERRIDE
+  #define aio_error h_aio_error
+#endif
+#ifndef aio_error64_OVERRIDE
+  #define aio_error64 h_aio_error64
+#endif
+#ifndef aio_fsync_OVERRIDE
+  #define aio_fsync h_aio_fsync
+#endif
+#ifndef aio_fsync64_OVERRIDE
+  #define aio_fsync64 h_aio_fsync64
+#endif
+#ifndef aio_init_OVERRIDE
+  #define aio_init h_aio_init
+#endif
+#ifndef aio_read_OVERRIDE
+  #define aio_read h_aio_read
+#endif
+#ifndef aio_read64_OVERRIDE
+  #define aio_read64 h_aio_read64
+#endif
+#ifndef aio_suspend_OVERRIDE
+  #define aio_suspend h_aio_suspend
+#endif
+#ifndef aio_suspend64_OVERRIDE
+  #define aio_suspend64 h_aio_suspend64
+#endif
+#ifndef aio_write_OVERRIDE
+  #define aio_write h_aio_write
+#endif
+#ifndef aio_write64_OVERRIDE
+  #define aio_write64 h_aio_write64
+#endif
+#ifndef alarm_OVERRIDE
+  #define alarm h_alarm
+#endif
+#ifndef aligned_alloc_OVERRIDE
+  #define aligned_alloc h_aligned_alloc
+#endif
 // #define alloca h_alloca
-#define alphasort h_alphasort
-#define argp_error h_argp_error
-#define argp_failure h_argp_failure
-#define argp_help h_argp_help
-#define argp_parse h_argp_parse
-#define argp_state_help h_argp_state_help
-#define argp_usage h_argp_usage
-#define argz_add h_argz_add
-#define argz_add_sep h_argz_add_sep
-#define argz_append h_argz_append
-#define argz_count h_argz_count
-#define argz_create h_argz_create
-#define argz_create_sep h_argz_create_sep
-#define argz_delete h_argz_delete
-#define argz_extract h_argz_extract
-#define argz_insert h_argz_insert
-#define argz_next h_argz_next
-#define argz_replace h_argz_replace
-#define argz_stringify h_argz_stringify
-#define asctime h_asctime
-#define asctime_r h_asctime_r
-#define asin h_asin
-#define asinf h_asinf
-#define asinh h_asinh
-#define asinhf h_asinhf
-#define asinhl h_asinhl
-#define asinl h_asinl
-#define asprintf h_asprintf
-#define atan h_atan
-#define atan2 h_atan2
-#define atan2f h_atan2f
-#define atan2l h_atan2l
-#define atanf h_atanf
-#define atanh h_atanh
-#define atanhf h_atanhf
-#define atanhl h_atanhl
-#define atanl h_atanl
-#define atexit h_atexit
-#define atof h_atof
-#define atoi h_atoi
-#define atol h_atol
-#define atoll h_atoll
-#define backtrace h_backtrace
-#define backtrace_symbols h_backtrace_symbols
-#define backtrace_symbols_fd h_backtrace_symbols_fd
-#define basename h_basename
-#define bcmp h_bcmp
-#define bcopy h_bcopy
-#define bind h_bind
-#define bind_textdomain_codeset h_bind_textdomain_codeset
-#define bindtextdomain h_bindtextdomain
-#define brk h_brk
-#define bsearch h_bsearch
-#define btowc h_btowc
-#define bzero h_bzero
-#define cabs h_cabs
-#define cabsf h_cabsf
-#define cabsl h_cabsl
-#define cacos h_cacos
-#define cacosf h_cacosf
-#define cacosh h_cacosh
-#define cacoshf h_cacoshf
-#define cacoshl h_cacoshl
-#define cacosl h_cacosl
-#define calloc h_calloc
-#define canonicalize h_canonicalize
-#define canonicalize_file_name h_canonicalize_file_name
-#define canonicalizef h_canonicalizef
-#define canonicalizel h_canonicalizel
-#define carg h_carg
-#define cargf h_cargf
-#define cargl h_cargl
-#define casin h_casin
-#define casinf h_casinf
-#define casinh h_casinh
-#define casinhf h_casinhf
-#define casinhl h_casinhl
-#define casinl h_casinl
-#define catan h_catan
-#define catanf h_catanf
-#define catanh h_catanh
-#define catanhf h_catanhf
-#define catanhl h_catanhl
-#define catanl h_catanl
-#define catclose h_catclose
-#define catgets h_catgets
-#define catopen h_catopen
-#define cbrt h_cbrt
-#define cbrtf h_cbrtf
-#define cbrtl h_cbrtl
-#define ccos h_ccos
-#define ccosf h_ccosf
-#define ccosh h_ccosh
-#define ccoshf h_ccoshf
-#define ccoshl h_ccoshl
-#define ccosl h_ccosl
-#define ceil h_ceil
-#define ceilf h_ceilf
-#define ceill h_ceill
-#define cexp h_cexp
-#define cexpf h_cexpf
-#define cexpl h_cexpl
-#define cfgetispeed h_cfgetispeed
-#define cfgetospeed h_cfgetospeed
-#define cfmakeraw h_cfmakeraw
-#define cfsetispeed h_cfsetispeed
-#define cfsetospeed h_cfsetospeed
-#define cfsetspeed h_cfsetspeed
-#define chdir h_chdir
-#define chmod h_chmod
-#define chown h_chown
-#define cimag h_cimag
-#define cimagf h_cimagf
-#define cimagl h_cimagl
-#define clearenv h_clearenv
-#define clearerr h_clearerr
-#define clearerr_unlocked h_clearerr_unlocked
-#define clock h_clock
-#define clock_getres h_clock_getres
-#define clock_gettime h_clock_gettime
-#define clock_settime h_clock_settime
-#define clog h_clog
-#define clog10 h_clog10
-#define clog10f h_clog10f
-#define clog10l h_clog10l
-#define clogf h_clogf
-#define clogl h_clogl
-#define close h_close
-#define closedir h_closedir
-#define closelog h_closelog
-#define confstr h_confstr
-#define conj h_conj
-#define conjf h_conjf
-#define conjl h_conjl
-#define connect h_connect
-#define copy_file_range h_copy_file_range
-#define copysign h_copysign
-#define copysignf h_copysignf
-#define copysignl h_copysignl
-#define cos h_cos
-#define cosf h_cosf
-#define cosh h_cosh
-#define coshf h_coshf
-#define coshl h_coshl
-#define cosl h_cosl
-#define cpow h_cpow
-#define cpowf h_cpowf
-#define cpowl h_cpowl
-#define cproj h_cproj
-#define cprojf h_cprojf
-#define cprojl h_cprojl
-#define creal h_creal
-#define crealf h_crealf
-#define creall h_creall
-#define creat h_creat
-#define creat64 h_creat64
-#define crypt h_crypt
-#define crypt_r h_crypt_r
-#define csin h_csin
-#define csinf h_csinf
-#define csinh h_csinh
-#define csinhf h_csinhf
-#define csinhl h_csinhl
-#define csinl h_csinl
-#define csqrt h_csqrt
-#define csqrtf h_csqrtf
-#define csqrtl h_csqrtl
-#define ctan h_ctan
-#define ctanf h_ctanf
-#define ctanh h_ctanh
-#define ctanhf h_ctanhf
-#define ctanhl h_ctanhl
-#define ctanl h_ctanl
-#define ctermid h_ctermid
-#define ctime h_ctime
-#define ctime_r h_ctime_r
-#define cuserid h_cuserid
-#define daddl h_daddl
-#define dcgettext h_dcgettext
-#define dcngettext h_dcngettext
-#define ddivl h_ddivl
-#define dgettext h_dgettext
-#define difftime h_difftime
-#define dirfd h_dirfd
-#define dirname h_dirname
-#define div h_div
-#define dmull h_dmull
-#define dngettext h_dngettext
-#define drand48 h_drand48
-#define drand48_r h_drand48_r
-#define drem h_drem
-#define dremf h_dremf
-#define dreml h_dreml
-#define dsubl h_dsubl
-#define dup h_dup
-#define dup2 h_dup2
-#define ecvt h_ecvt
-#define ecvt_r h_ecvt_r
-#define endfsent h_endfsent
-#define endgrent h_endgrent
-#define endhostent h_endhostent
-#define endmntent h_endmntent
-#define endnetent h_endnetent
-#define endnetgrent h_endnetgrent
-#define endprotoent h_endprotoent
-#define endpwent h_endpwent
-#define endservent h_endservent
-#define endutent h_endutent
-#define endutxent h_endutxent
-#define envz_add h_envz_add
-#define envz_entry h_envz_entry
-#define envz_get h_envz_get
-#define envz_merge h_envz_merge
-#define envz_remove h_envz_remove
-#define envz_strip h_envz_strip
-#define erand48 h_erand48
-#define erand48_r h_erand48_r
-#define erf h_erf
-#define erfc h_erfc
-#define erfcf h_erfcf
-#define erfcl h_erfcl
-#define erff h_erff
-#define erfl h_erfl
-#define err h_err
-#define error h_error
-#define error_at_line h_error_at_line
-#define errx h_errx
-#define execl h_execl
-#define execle h_execle
-#define execlp h_execlp
-#define execv h_execv
-#define execve h_execve
-#define execvp h_execvp
-#define exit h_exit
-#define exp h_exp
-#define exp10 h_exp10
-#define exp10f h_exp10f
-#define exp10l h_exp10l
-#define exp2 h_exp2
-#define exp2f h_exp2f
-#define exp2l h_exp2l
-#define expf h_expf
-#define expl h_expl
-#define explicit_bzero h_explicit_bzero
-#define expm1 h_expm1
-#define expm1f h_expm1f
-#define expm1l h_expm1l
-#define fabs h_fabs
-#define fabsf h_fabsf
-#define fabsl h_fabsl
-#define fadd h_fadd
-#define faddl h_faddl
-#define fchdir h_fchdir
-#define fchmod h_fchmod
-#define fchown h_fchown
-#define fclose h_fclose
-#define fcloseall h_fcloseall
-#define fcntl h_fcntl
-#define fcvt h_fcvt
-#define fcvt_r h_fcvt_r
-#define fdatasync h_fdatasync
-#define fdim h_fdim
-#define fdimf h_fdimf
-#define fdiml h_fdiml
-#define fdiv h_fdiv
-#define fdivl h_fdivl
-#define fdopen h_fdopen
-#define fdopendir h_fdopendir
-#define feclearexcept h_feclearexcept
-#define fedisableexcept h_fedisableexcept
-#define feenableexcept h_feenableexcept
-#define fegetenv h_fegetenv
-#define fegetexcept h_fegetexcept
-#define fegetexceptflag h_fegetexceptflag
-#define fegetmode h_fegetmode
-#define fegetround h_fegetround
-#define feholdexcept h_feholdexcept
-#define feof h_feof
-#define feof_unlocked h_feof_unlocked
-#define feraiseexcept h_feraiseexcept
-#define ferror h_ferror
-#define ferror_unlocked h_ferror_unlocked
-#define fesetenv h_fesetenv
-#define fesetexcept h_fesetexcept
-#define fesetexceptflag h_fesetexceptflag
-#define fesetmode h_fesetmode
-#define fesetround h_fesetround
-#define fetestexcept h_fetestexcept
-#define fetestexceptflag h_fetestexceptflag
-#define feupdateenv h_feupdateenv
-#define fexecve h_fexecve
-#define fflush h_fflush
-#define fflush_unlocked h_fflush_unlocked
-#define fgetc h_fgetc
-#define fgetc_unlocked h_fgetc_unlocked
-#define fgetgrent h_fgetgrent
-#define fgetgrent_r h_fgetgrent_r
-#define fgetpos h_fgetpos
-#define fgetpos64 h_fgetpos64
-#define fgetpwent h_fgetpwent
-#define fgetpwent_r h_fgetpwent_r
-#define fgets h_fgets
-#define fgets_unlocked h_fgets_unlocked
-#define fgetwc h_fgetwc
-#define fgetwc_unlocked h_fgetwc_unlocked
-#define fgetws h_fgetws
-#define fgetws_unlocked h_fgetws_unlocked
-#define fileno h_fileno
-#define fileno_unlocked h_fileno_unlocked
-#define finite h_finite
-#define finitef h_finitef
-#define finitel h_finitel
-#define flockfile h_flockfile
-#define floor h_floor
-#define floorf h_floorf
-#define floorl h_floorl
-#define fma h_fma
-#define fmaf h_fmaf
-#define fmal h_fmal
-#define fmax h_fmax
-#define fmaxf h_fmaxf
-#define fmaxl h_fmaxl
-#define fmaxmag h_fmaxmag
-#define fmaxmagf h_fmaxmagf
-#define fmaxmagl h_fmaxmagl
-#define fmemopen h_fmemopen
-#define fmin h_fmin
-#define fminf h_fminf
-#define fminl h_fminl
-#define fminmag h_fminmag
-#define fminmagf h_fminmagf
-#define fminmagl h_fminmagl
-#define fmod h_fmod
-#define fmodf h_fmodf
-#define fmodl h_fmodl
-#define fmtmsg h_fmtmsg
-#define fmul h_fmul
-#define fmull h_fmull
-#define fnmatch h_fnmatch
-#define fopen h_fopen
-#define fopen64 h_fopen64
+#ifndef alphasort_OVERRIDE
+  #define alphasort h_alphasort
+#endif
+#ifndef argp_error_OVERRIDE
+  #define argp_error h_argp_error
+#endif
+#ifndef argp_failure_OVERRIDE
+  #define argp_failure h_argp_failure
+#endif
+#ifndef argp_help_OVERRIDE
+  #define argp_help h_argp_help
+#endif
+#ifndef argp_parse_OVERRIDE
+  #define argp_parse h_argp_parse
+#endif
+#ifndef argp_state_help_OVERRIDE
+  #define argp_state_help h_argp_state_help
+#endif
+#ifndef argp_usage_OVERRIDE
+  #define argp_usage h_argp_usage
+#endif
+#ifndef argz_add_OVERRIDE
+  #define argz_add h_argz_add
+#endif
+#ifndef argz_add_sep_OVERRIDE
+  #define argz_add_sep h_argz_add_sep
+#endif
+#ifndef argz_append_OVERRIDE
+  #define argz_append h_argz_append
+#endif
+#ifndef argz_count_OVERRIDE
+  #define argz_count h_argz_count
+#endif
+#ifndef argz_create_OVERRIDE
+  #define argz_create h_argz_create
+#endif
+#ifndef argz_create_sep_OVERRIDE
+  #define argz_create_sep h_argz_create_sep
+#endif
+#ifndef argz_delete_OVERRIDE
+  #define argz_delete h_argz_delete
+#endif
+#ifndef argz_extract_OVERRIDE
+  #define argz_extract h_argz_extract
+#endif
+#ifndef argz_insert_OVERRIDE
+  #define argz_insert h_argz_insert
+#endif
+#ifndef argz_next_OVERRIDE
+  #define argz_next h_argz_next
+#endif
+#ifndef argz_replace_OVERRIDE
+  #define argz_replace h_argz_replace
+#endif
+#ifndef argz_stringify_OVERRIDE
+  #define argz_stringify h_argz_stringify
+#endif
+#ifndef asctime_OVERRIDE
+  #define asctime h_asctime
+#endif
+#ifndef asctime_r_OVERRIDE
+  #define asctime_r h_asctime_r
+#endif
+#ifndef asin_OVERRIDE
+  #define asin h_asin
+#endif
+#ifndef asinf_OVERRIDE
+  #define asinf h_asinf
+#endif
+#ifndef asinh_OVERRIDE
+  #define asinh h_asinh
+#endif
+#ifndef asinhf_OVERRIDE
+  #define asinhf h_asinhf
+#endif
+#ifndef asinhl_OVERRIDE
+  #define asinhl h_asinhl
+#endif
+#ifndef asinl_OVERRIDE
+  #define asinl h_asinl
+#endif
+#ifndef asprintf_OVERRIDE
+  #define asprintf h_asprintf
+#endif
+#ifndef atan_OVERRIDE
+  #define atan h_atan
+#endif
+#ifndef atan2_OVERRIDE
+  #define atan2 h_atan2
+#endif
+#ifndef atan2f_OVERRIDE
+  #define atan2f h_atan2f
+#endif
+#ifndef atan2l_OVERRIDE
+  #define atan2l h_atan2l
+#endif
+#ifndef atanf_OVERRIDE
+  #define atanf h_atanf
+#endif
+#ifndef atanh_OVERRIDE
+  #define atanh h_atanh
+#endif
+#ifndef atanhf_OVERRIDE
+  #define atanhf h_atanhf
+#endif
+#ifndef atanhl_OVERRIDE
+  #define atanhl h_atanhl
+#endif
+#ifndef atanl_OVERRIDE
+  #define atanl h_atanl
+#endif
+#ifndef atexit_OVERRIDE
+  #define atexit h_atexit
+#endif
+#ifndef atof_OVERRIDE
+  #define atof h_atof
+#endif
+#ifndef atoi_OVERRIDE
+  #define atoi h_atoi
+#endif
+#ifndef atol_OVERRIDE
+  #define atol h_atol
+#endif
+#ifndef atoll_OVERRIDE
+  #define atoll h_atoll
+#endif
+#ifndef backtrace_OVERRIDE
+  #define backtrace h_backtrace
+#endif
+#ifndef backtrace_symbols_OVERRIDE
+  #define backtrace_symbols h_backtrace_symbols
+#endif
+#ifndef backtrace_symbols_fd_OVERRIDE
+  #define backtrace_symbols_fd h_backtrace_symbols_fd
+#endif
+#ifndef basename_OVERRIDE
+  #define basename h_basename
+#endif
+#ifndef bcmp_OVERRIDE
+  #define bcmp h_bcmp
+#endif
+#ifndef bcopy_OVERRIDE
+  #define bcopy h_bcopy
+#endif
+#ifndef bind_OVERRIDE
+  #define bind h_bind
+#endif
+#ifndef bind_textdomain_codeset_OVERRIDE
+  #define bind_textdomain_codeset h_bind_textdomain_codeset
+#endif
+#ifndef bindtextdomain_OVERRIDE
+  #define bindtextdomain h_bindtextdomain
+#endif
+#ifndef brk_OVERRIDE
+  #define brk h_brk
+#endif
+#ifndef bsearch_OVERRIDE
+  #define bsearch h_bsearch
+#endif
+#ifndef btowc_OVERRIDE
+  #define btowc h_btowc
+#endif
+#ifndef bzero_OVERRIDE
+  #define bzero h_bzero
+#endif
+#ifndef cabs_OVERRIDE
+  #define cabs h_cabs
+#endif
+#ifndef cabsf_OVERRIDE
+  #define cabsf h_cabsf
+#endif
+#ifndef cabsl_OVERRIDE
+  #define cabsl h_cabsl
+#endif
+#ifndef cacos_OVERRIDE
+  #define cacos h_cacos
+#endif
+#ifndef cacosf_OVERRIDE
+  #define cacosf h_cacosf
+#endif
+#ifndef cacosh_OVERRIDE
+  #define cacosh h_cacosh
+#endif
+#ifndef cacoshf_OVERRIDE
+  #define cacoshf h_cacoshf
+#endif
+#ifndef cacoshl_OVERRIDE
+  #define cacoshl h_cacoshl
+#endif
+#ifndef cacosl_OVERRIDE
+  #define cacosl h_cacosl
+#endif
+#ifndef calloc_OVERRIDE
+  #define calloc h_calloc
+#endif
+#ifndef canonicalize_OVERRIDE
+  #define canonicalize h_canonicalize
+#endif
+#ifndef canonicalize_file_name_OVERRIDE
+  #define canonicalize_file_name h_canonicalize_file_name
+#endif
+#ifndef canonicalizef_OVERRIDE
+  #define canonicalizef h_canonicalizef
+#endif
+#ifndef canonicalizel_OVERRIDE
+  #define canonicalizel h_canonicalizel
+#endif
+#ifndef carg_OVERRIDE
+  #define carg h_carg
+#endif
+#ifndef cargf_OVERRIDE
+  #define cargf h_cargf
+#endif
+#ifndef cargl_OVERRIDE
+  #define cargl h_cargl
+#endif
+#ifndef casin_OVERRIDE
+  #define casin h_casin
+#endif
+#ifndef casinf_OVERRIDE
+  #define casinf h_casinf
+#endif
+#ifndef casinh_OVERRIDE
+  #define casinh h_casinh
+#endif
+#ifndef casinhf_OVERRIDE
+  #define casinhf h_casinhf
+#endif
+#ifndef casinhl_OVERRIDE
+  #define casinhl h_casinhl
+#endif
+#ifndef casinl_OVERRIDE
+  #define casinl h_casinl
+#endif
+#ifndef catan_OVERRIDE
+  #define catan h_catan
+#endif
+#ifndef catanf_OVERRIDE
+  #define catanf h_catanf
+#endif
+#ifndef catanh_OVERRIDE
+  #define catanh h_catanh
+#endif
+#ifndef catanhf_OVERRIDE
+  #define catanhf h_catanhf
+#endif
+#ifndef catanhl_OVERRIDE
+  #define catanhl h_catanhl
+#endif
+#ifndef catanl_OVERRIDE
+  #define catanl h_catanl
+#endif
+#ifndef catclose_OVERRIDE
+  #define catclose h_catclose
+#endif
+#ifndef catgets_OVERRIDE
+  #define catgets h_catgets
+#endif
+#ifndef catopen_OVERRIDE
+  #define catopen h_catopen
+#endif
+#ifndef cbrt_OVERRIDE
+  #define cbrt h_cbrt
+#endif
+#ifndef cbrtf_OVERRIDE
+  #define cbrtf h_cbrtf
+#endif
+#ifndef cbrtl_OVERRIDE
+  #define cbrtl h_cbrtl
+#endif
+#ifndef ccos_OVERRIDE
+  #define ccos h_ccos
+#endif
+#ifndef ccosf_OVERRIDE
+  #define ccosf h_ccosf
+#endif
+#ifndef ccosh_OVERRIDE
+  #define ccosh h_ccosh
+#endif
+#ifndef ccoshf_OVERRIDE
+  #define ccoshf h_ccoshf
+#endif
+#ifndef ccoshl_OVERRIDE
+  #define ccoshl h_ccoshl
+#endif
+#ifndef ccosl_OVERRIDE
+  #define ccosl h_ccosl
+#endif
+#ifndef ceil_OVERRIDE
+  #define ceil h_ceil
+#endif
+#ifndef ceilf_OVERRIDE
+  #define ceilf h_ceilf
+#endif
+#ifndef ceill_OVERRIDE
+  #define ceill h_ceill
+#endif
+#ifndef cexp_OVERRIDE
+  #define cexp h_cexp
+#endif
+#ifndef cexpf_OVERRIDE
+  #define cexpf h_cexpf
+#endif
+#ifndef cexpl_OVERRIDE
+  #define cexpl h_cexpl
+#endif
+#ifndef cfgetispeed_OVERRIDE
+  #define cfgetispeed h_cfgetispeed
+#endif
+#ifndef cfgetospeed_OVERRIDE
+  #define cfgetospeed h_cfgetospeed
+#endif
+#ifndef cfmakeraw_OVERRIDE
+  #define cfmakeraw h_cfmakeraw
+#endif
+#ifndef cfsetispeed_OVERRIDE
+  #define cfsetispeed h_cfsetispeed
+#endif
+#ifndef cfsetospeed_OVERRIDE
+  #define cfsetospeed h_cfsetospeed
+#endif
+#ifndef cfsetspeed_OVERRIDE
+  #define cfsetspeed h_cfsetspeed
+#endif
+#ifndef chdir_OVERRIDE
+  #define chdir h_chdir
+#endif
+#ifndef chmod_OVERRIDE
+  #define chmod h_chmod
+#endif
+#ifndef chown_OVERRIDE
+  #define chown h_chown
+#endif
+#ifndef cimag_OVERRIDE
+  #define cimag h_cimag
+#endif
+#ifndef cimagf_OVERRIDE
+  #define cimagf h_cimagf
+#endif
+#ifndef cimagl_OVERRIDE
+  #define cimagl h_cimagl
+#endif
+#ifndef clearenv_OVERRIDE
+  #define clearenv h_clearenv
+#endif
+#ifndef clearerr_OVERRIDE
+  #define clearerr h_clearerr
+#endif
+#ifndef clearerr_unlocked_OVERRIDE
+  #define clearerr_unlocked h_clearerr_unlocked
+#endif
+#ifndef clock_OVERRIDE
+  #define clock h_clock
+#endif
+#ifndef clock_getres_OVERRIDE
+  #define clock_getres h_clock_getres
+#endif
+#ifndef clock_gettime_OVERRIDE
+  #define clock_gettime h_clock_gettime
+#endif
+#ifndef clock_settime_OVERRIDE
+  #define clock_settime h_clock_settime
+#endif
+#ifndef clog_OVERRIDE
+  #define clog h_clog
+#endif
+#ifndef clog10_OVERRIDE
+  #define clog10 h_clog10
+#endif
+#ifndef clog10f_OVERRIDE
+  #define clog10f h_clog10f
+#endif
+#ifndef clog10l_OVERRIDE
+  #define clog10l h_clog10l
+#endif
+#ifndef clogf_OVERRIDE
+  #define clogf h_clogf
+#endif
+#ifndef clogl_OVERRIDE
+  #define clogl h_clogl
+#endif
+#ifndef close_OVERRIDE
+  #define close h_close
+#endif
+#ifndef closedir_OVERRIDE
+  #define closedir h_closedir
+#endif
+#ifndef closelog_OVERRIDE
+  #define closelog h_closelog
+#endif
+#ifndef confstr_OVERRIDE
+  #define confstr h_confstr
+#endif
+#ifndef conj_OVERRIDE
+  #define conj h_conj
+#endif
+#ifndef conjf_OVERRIDE
+  #define conjf h_conjf
+#endif
+#ifndef conjl_OVERRIDE
+  #define conjl h_conjl
+#endif
+#ifndef connect_OVERRIDE
+  #define connect h_connect
+#endif
+#ifndef copy_file_range_OVERRIDE
+  #define copy_file_range h_copy_file_range
+#endif
+#ifndef copysign_OVERRIDE
+  #define copysign h_copysign
+#endif
+#ifndef copysignf_OVERRIDE
+  #define copysignf h_copysignf
+#endif
+#ifndef copysignl_OVERRIDE
+  #define copysignl h_copysignl
+#endif
+#ifndef cos_OVERRIDE
+  #define cos h_cos
+#endif
+#ifndef cosf_OVERRIDE
+  #define cosf h_cosf
+#endif
+#ifndef cosh_OVERRIDE
+  #define cosh h_cosh
+#endif
+#ifndef coshf_OVERRIDE
+  #define coshf h_coshf
+#endif
+#ifndef coshl_OVERRIDE
+  #define coshl h_coshl
+#endif
+#ifndef cosl_OVERRIDE
+  #define cosl h_cosl
+#endif
+#ifndef cpow_OVERRIDE
+  #define cpow h_cpow
+#endif
+#ifndef cpowf_OVERRIDE
+  #define cpowf h_cpowf
+#endif
+#ifndef cpowl_OVERRIDE
+  #define cpowl h_cpowl
+#endif
+#ifndef cproj_OVERRIDE
+  #define cproj h_cproj
+#endif
+#ifndef cprojf_OVERRIDE
+  #define cprojf h_cprojf
+#endif
+#ifndef cprojl_OVERRIDE
+  #define cprojl h_cprojl
+#endif
+#ifndef creal_OVERRIDE
+  #define creal h_creal
+#endif
+#ifndef crealf_OVERRIDE
+  #define crealf h_crealf
+#endif
+#ifndef creall_OVERRIDE
+  #define creall h_creall
+#endif
+#ifndef creat_OVERRIDE
+  #define creat h_creat
+#endif
+#ifndef creat64_OVERRIDE
+  #define creat64 h_creat64
+#endif
+#ifndef crypt_OVERRIDE
+  #define crypt h_crypt
+#endif
+#ifndef crypt_r_OVERRIDE
+  #define crypt_r h_crypt_r
+#endif
+#ifndef csin_OVERRIDE
+  #define csin h_csin
+#endif
+#ifndef csinf_OVERRIDE
+  #define csinf h_csinf
+#endif
+#ifndef csinh_OVERRIDE
+  #define csinh h_csinh
+#endif
+#ifndef csinhf_OVERRIDE
+  #define csinhf h_csinhf
+#endif
+#ifndef csinhl_OVERRIDE
+  #define csinhl h_csinhl
+#endif
+#ifndef csinl_OVERRIDE
+  #define csinl h_csinl
+#endif
+#ifndef csqrt_OVERRIDE
+  #define csqrt h_csqrt
+#endif
+#ifndef csqrtf_OVERRIDE
+  #define csqrtf h_csqrtf
+#endif
+#ifndef csqrtl_OVERRIDE
+  #define csqrtl h_csqrtl
+#endif
+#ifndef ctan_OVERRIDE
+  #define ctan h_ctan
+#endif
+#ifndef ctanf_OVERRIDE
+  #define ctanf h_ctanf
+#endif
+#ifndef ctanh_OVERRIDE
+  #define ctanh h_ctanh
+#endif
+#ifndef ctanhf_OVERRIDE
+  #define ctanhf h_ctanhf
+#endif
+#ifndef ctanhl_OVERRIDE
+  #define ctanhl h_ctanhl
+#endif
+#ifndef ctanl_OVERRIDE
+  #define ctanl h_ctanl
+#endif
+#ifndef ctermid_OVERRIDE
+  #define ctermid h_ctermid
+#endif
+#ifndef ctime_OVERRIDE
+  #define ctime h_ctime
+#endif
+#ifndef ctime_r_OVERRIDE
+  #define ctime_r h_ctime_r
+#endif
+#ifndef cuserid_OVERRIDE
+  #define cuserid h_cuserid
+#endif
+#ifndef daddl_OVERRIDE
+  #define daddl h_daddl
+#endif
+#ifndef dcgettext_OVERRIDE
+  #define dcgettext h_dcgettext
+#endif
+#ifndef dcngettext_OVERRIDE
+  #define dcngettext h_dcngettext
+#endif
+#ifndef ddivl_OVERRIDE
+  #define ddivl h_ddivl
+#endif
+#ifndef dgettext_OVERRIDE
+  #define dgettext h_dgettext
+#endif
+#ifndef difftime_OVERRIDE
+  #define difftime h_difftime
+#endif
+#ifndef dirfd_OVERRIDE
+  #define dirfd h_dirfd
+#endif
+#ifndef dirname_OVERRIDE
+  #define dirname h_dirname
+#endif
+#ifndef div_OVERRIDE
+  #define div h_div
+#endif
+#ifndef dmull_OVERRIDE
+  #define dmull h_dmull
+#endif
+#ifndef dngettext_OVERRIDE
+  #define dngettext h_dngettext
+#endif
+#ifndef drand48_OVERRIDE
+  #define drand48 h_drand48
+#endif
+#ifndef drand48_r_OVERRIDE
+  #define drand48_r h_drand48_r
+#endif
+#ifndef drem_OVERRIDE
+  #define drem h_drem
+#endif
+#ifndef dremf_OVERRIDE
+  #define dremf h_dremf
+#endif
+#ifndef dreml_OVERRIDE
+  #define dreml h_dreml
+#endif
+#ifndef dsubl_OVERRIDE
+  #define dsubl h_dsubl
+#endif
+#ifndef dup_OVERRIDE
+  #define dup h_dup
+#endif
+#ifndef dup2_OVERRIDE
+  #define dup2 h_dup2
+#endif
+#ifndef ecvt_OVERRIDE
+  #define ecvt h_ecvt
+#endif
+#ifndef ecvt_r_OVERRIDE
+  #define ecvt_r h_ecvt_r
+#endif
+#ifndef endfsent_OVERRIDE
+  #define endfsent h_endfsent
+#endif
+#ifndef endgrent_OVERRIDE
+  #define endgrent h_endgrent
+#endif
+#ifndef endhostent_OVERRIDE
+  #define endhostent h_endhostent
+#endif
+#ifndef endmntent_OVERRIDE
+  #define endmntent h_endmntent
+#endif
+#ifndef endnetent_OVERRIDE
+  #define endnetent h_endnetent
+#endif
+#ifndef endnetgrent_OVERRIDE
+  #define endnetgrent h_endnetgrent
+#endif
+#ifndef endprotoent_OVERRIDE
+  #define endprotoent h_endprotoent
+#endif
+#ifndef endpwent_OVERRIDE
+  #define endpwent h_endpwent
+#endif
+#ifndef endservent_OVERRIDE
+  #define endservent h_endservent
+#endif
+#ifndef endutent_OVERRIDE
+  #define endutent h_endutent
+#endif
+#ifndef endutxent_OVERRIDE
+  #define endutxent h_endutxent
+#endif
+#ifndef envz_add_OVERRIDE
+  #define envz_add h_envz_add
+#endif
+#ifndef envz_entry_OVERRIDE
+  #define envz_entry h_envz_entry
+#endif
+#ifndef envz_get_OVERRIDE
+  #define envz_get h_envz_get
+#endif
+#ifndef envz_merge_OVERRIDE
+  #define envz_merge h_envz_merge
+#endif
+#ifndef envz_remove_OVERRIDE
+  #define envz_remove h_envz_remove
+#endif
+#ifndef envz_strip_OVERRIDE
+  #define envz_strip h_envz_strip
+#endif
+#ifndef erand48_OVERRIDE
+  #define erand48 h_erand48
+#endif
+#ifndef erand48_r_OVERRIDE
+  #define erand48_r h_erand48_r
+#endif
+#ifndef erf_OVERRIDE
+  #define erf h_erf
+#endif
+#ifndef erfc_OVERRIDE
+  #define erfc h_erfc
+#endif
+#ifndef erfcf_OVERRIDE
+  #define erfcf h_erfcf
+#endif
+#ifndef erfcl_OVERRIDE
+  #define erfcl h_erfcl
+#endif
+#ifndef erff_OVERRIDE
+  #define erff h_erff
+#endif
+#ifndef erfl_OVERRIDE
+  #define erfl h_erfl
+#endif
+#ifndef err_OVERRIDE
+  #define err h_err
+#endif
+#ifndef error_OVERRIDE
+  #define error h_error
+#endif
+#ifndef error_at_line_OVERRIDE
+  #define error_at_line h_error_at_line
+#endif
+#ifndef errx_OVERRIDE
+  #define errx h_errx
+#endif
+#ifndef execl_OVERRIDE
+  #define execl h_execl
+#endif
+#ifndef execle_OVERRIDE
+  #define execle h_execle
+#endif
+#ifndef execlp_OVERRIDE
+  #define execlp h_execlp
+#endif
+#ifndef execv_OVERRIDE
+  #define execv h_execv
+#endif
+#ifndef execve_OVERRIDE
+  #define execve h_execve
+#endif
+#ifndef execvp_OVERRIDE
+  #define execvp h_execvp
+#endif
+#ifndef exit_OVERRIDE
+  #define exit h_exit
+#endif
+#ifndef exp_OVERRIDE
+  #define exp h_exp
+#endif
+#ifndef exp10_OVERRIDE
+  #define exp10 h_exp10
+#endif
+#ifndef exp10f_OVERRIDE
+  #define exp10f h_exp10f
+#endif
+#ifndef exp10l_OVERRIDE
+  #define exp10l h_exp10l
+#endif
+#ifndef exp2_OVERRIDE
+  #define exp2 h_exp2
+#endif
+#ifndef exp2f_OVERRIDE
+  #define exp2f h_exp2f
+#endif
+#ifndef exp2l_OVERRIDE
+  #define exp2l h_exp2l
+#endif
+#ifndef expf_OVERRIDE
+  #define expf h_expf
+#endif
+#ifndef expl_OVERRIDE
+  #define expl h_expl
+#endif
+#ifndef explicit_bzero_OVERRIDE
+  #define explicit_bzero h_explicit_bzero
+#endif
+#ifndef expm1_OVERRIDE
+  #define expm1 h_expm1
+#endif
+#ifndef expm1f_OVERRIDE
+  #define expm1f h_expm1f
+#endif
+#ifndef expm1l_OVERRIDE
+  #define expm1l h_expm1l
+#endif
+#ifndef fabs_OVERRIDE
+  #define fabs h_fabs
+#endif
+#ifndef fabsf_OVERRIDE
+  #define fabsf h_fabsf
+#endif
+#ifndef fabsl_OVERRIDE
+  #define fabsl h_fabsl
+#endif
+#ifndef fadd_OVERRIDE
+  #define fadd h_fadd
+#endif
+#ifndef faddl_OVERRIDE
+  #define faddl h_faddl
+#endif
+#ifndef fchdir_OVERRIDE
+  #define fchdir h_fchdir
+#endif
+#ifndef fchmod_OVERRIDE
+  #define fchmod h_fchmod
+#endif
+#ifndef fchown_OVERRIDE
+  #define fchown h_fchown
+#endif
+#ifndef fclose_OVERRIDE
+  #define fclose h_fclose
+#endif
+#ifndef fcloseall_OVERRIDE
+  #define fcloseall h_fcloseall
+#endif
+#ifndef fcntl_OVERRIDE
+  #define fcntl h_fcntl
+#endif
+#ifndef fcvt_OVERRIDE
+  #define fcvt h_fcvt
+#endif
+#ifndef fcvt_r_OVERRIDE
+  #define fcvt_r h_fcvt_r
+#endif
+#ifndef fdatasync_OVERRIDE
+  #define fdatasync h_fdatasync
+#endif
+#ifndef fdim_OVERRIDE
+  #define fdim h_fdim
+#endif
+#ifndef fdimf_OVERRIDE
+  #define fdimf h_fdimf
+#endif
+#ifndef fdiml_OVERRIDE
+  #define fdiml h_fdiml
+#endif
+#ifndef fdiv_OVERRIDE
+  #define fdiv h_fdiv
+#endif
+#ifndef fdivl_OVERRIDE
+  #define fdivl h_fdivl
+#endif
+#ifndef fdopen_OVERRIDE
+  #define fdopen h_fdopen
+#endif
+#ifndef fdopendir_OVERRIDE
+  #define fdopendir h_fdopendir
+#endif
+#ifndef feclearexcept_OVERRIDE
+  #define feclearexcept h_feclearexcept
+#endif
+#ifndef fedisableexcept_OVERRIDE
+  #define fedisableexcept h_fedisableexcept
+#endif
+#ifndef feenableexcept_OVERRIDE
+  #define feenableexcept h_feenableexcept
+#endif
+#ifndef fegetenv_OVERRIDE
+  #define fegetenv h_fegetenv
+#endif
+#ifndef fegetexcept_OVERRIDE
+  #define fegetexcept h_fegetexcept
+#endif
+#ifndef fegetexceptflag_OVERRIDE
+  #define fegetexceptflag h_fegetexceptflag
+#endif
+#ifndef fegetmode_OVERRIDE
+  #define fegetmode h_fegetmode
+#endif
+#ifndef fegetround_OVERRIDE
+  #define fegetround h_fegetround
+#endif
+#ifndef feholdexcept_OVERRIDE
+  #define feholdexcept h_feholdexcept
+#endif
+#ifndef feof_OVERRIDE
+  #define feof h_feof
+#endif
+#ifndef feof_unlocked_OVERRIDE
+  #define feof_unlocked h_feof_unlocked
+#endif
+#ifndef feraiseexcept_OVERRIDE
+  #define feraiseexcept h_feraiseexcept
+#endif
+#ifndef ferror_OVERRIDE
+  #define ferror h_ferror
+#endif
+#ifndef ferror_unlocked_OVERRIDE
+  #define ferror_unlocked h_ferror_unlocked
+#endif
+#ifndef fesetenv_OVERRIDE
+  #define fesetenv h_fesetenv
+#endif
+#ifndef fesetexcept_OVERRIDE
+  #define fesetexcept h_fesetexcept
+#endif
+#ifndef fesetexceptflag_OVERRIDE
+  #define fesetexceptflag h_fesetexceptflag
+#endif
+#ifndef fesetmode_OVERRIDE
+  #define fesetmode h_fesetmode
+#endif
+#ifndef fesetround_OVERRIDE
+  #define fesetround h_fesetround
+#endif
+#ifndef fetestexcept_OVERRIDE
+  #define fetestexcept h_fetestexcept
+#endif
+#ifndef fetestexceptflag_OVERRIDE
+  #define fetestexceptflag h_fetestexceptflag
+#endif
+#ifndef feupdateenv_OVERRIDE
+  #define feupdateenv h_feupdateenv
+#endif
+#ifndef fexecve_OVERRIDE
+  #define fexecve h_fexecve
+#endif
+#ifndef fflush_OVERRIDE
+  #define fflush h_fflush
+#endif
+#ifndef fflush_unlocked_OVERRIDE
+  #define fflush_unlocked h_fflush_unlocked
+#endif
+#ifndef fgetc_OVERRIDE
+  #define fgetc h_fgetc
+#endif
+#ifndef fgetc_unlocked_OVERRIDE
+  #define fgetc_unlocked h_fgetc_unlocked
+#endif
+#ifndef fgetgrent_OVERRIDE
+  #define fgetgrent h_fgetgrent
+#endif
+#ifndef fgetgrent_r_OVERRIDE
+  #define fgetgrent_r h_fgetgrent_r
+#endif
+#ifndef fgetpos_OVERRIDE
+  #define fgetpos h_fgetpos
+#endif
+#ifndef fgetpos64_OVERRIDE
+  #define fgetpos64 h_fgetpos64
+#endif
+#ifndef fgetpwent_OVERRIDE
+  #define fgetpwent h_fgetpwent
+#endif
+#ifndef fgetpwent_r_OVERRIDE
+  #define fgetpwent_r h_fgetpwent_r
+#endif
+#ifndef fgets_OVERRIDE
+  #define fgets h_fgets
+#endif
+#ifndef fgets_unlocked_OVERRIDE
+  #define fgets_unlocked h_fgets_unlocked
+#endif
+#ifndef fgetwc_OVERRIDE
+  #define fgetwc h_fgetwc
+#endif
+#ifndef fgetwc_unlocked_OVERRIDE
+  #define fgetwc_unlocked h_fgetwc_unlocked
+#endif
+#ifndef fgetws_OVERRIDE
+  #define fgetws h_fgetws
+#endif
+#ifndef fgetws_unlocked_OVERRIDE
+  #define fgetws_unlocked h_fgetws_unlocked
+#endif
+#ifndef fileno_OVERRIDE
+  #define fileno h_fileno
+#endif
+#ifndef fileno_unlocked_OVERRIDE
+  #define fileno_unlocked h_fileno_unlocked
+#endif
+#ifndef finite_OVERRIDE
+  #define finite h_finite
+#endif
+#ifndef finitef_OVERRIDE
+  #define finitef h_finitef
+#endif
+#ifndef finitel_OVERRIDE
+  #define finitel h_finitel
+#endif
+#ifndef flockfile_OVERRIDE
+  #define flockfile h_flockfile
+#endif
+#ifndef floor_OVERRIDE
+  #define floor h_floor
+#endif
+#ifndef floorf_OVERRIDE
+  #define floorf h_floorf
+#endif
+#ifndef floorl_OVERRIDE
+  #define floorl h_floorl
+#endif
+#ifndef fma_OVERRIDE
+  #define fma h_fma
+#endif
+#ifndef fmaf_OVERRIDE
+  #define fmaf h_fmaf
+#endif
+#ifndef fmal_OVERRIDE
+  #define fmal h_fmal
+#endif
+#ifndef fmax_OVERRIDE
+  #define fmax h_fmax
+#endif
+#ifndef fmaxf_OVERRIDE
+  #define fmaxf h_fmaxf
+#endif
+#ifndef fmaxl_OVERRIDE
+  #define fmaxl h_fmaxl
+#endif
+#ifndef fmaxmag_OVERRIDE
+  #define fmaxmag h_fmaxmag
+#endif
+#ifndef fmaxmagf_OVERRIDE
+  #define fmaxmagf h_fmaxmagf
+#endif
+#ifndef fmaxmagl_OVERRIDE
+  #define fmaxmagl h_fmaxmagl
+#endif
+#ifndef fmemopen_OVERRIDE
+  #define fmemopen h_fmemopen
+#endif
+#ifndef fmin_OVERRIDE
+  #define fmin h_fmin
+#endif
+#ifndef fminf_OVERRIDE
+  #define fminf h_fminf
+#endif
+#ifndef fminl_OVERRIDE
+  #define fminl h_fminl
+#endif
+#ifndef fminmag_OVERRIDE
+  #define fminmag h_fminmag
+#endif
+#ifndef fminmagf_OVERRIDE
+  #define fminmagf h_fminmagf
+#endif
+#ifndef fminmagl_OVERRIDE
+  #define fminmagl h_fminmagl
+#endif
+#ifndef fmod_OVERRIDE
+  #define fmod h_fmod
+#endif
+#ifndef fmodf_OVERRIDE
+  #define fmodf h_fmodf
+#endif
+#ifndef fmodl_OVERRIDE
+  #define fmodl h_fmodl
+#endif
+#ifndef fmtmsg_OVERRIDE
+  #define fmtmsg h_fmtmsg
+#endif
+#ifndef fmul_OVERRIDE
+  #define fmul h_fmul
+#endif
+#ifndef fmull_OVERRIDE
+  #define fmull h_fmull
+#endif
+#ifndef fnmatch_OVERRIDE
+  #define fnmatch h_fnmatch
+#endif
+#ifndef fopen_OVERRIDE
+  #define fopen h_fopen
+#endif
+#ifndef fopen64_OVERRIDE
+  #define fopen64 h_fopen64
+#endif
 // #define fopencookie h_fopencookie
 #ifndef fork_OVERRIDE
-  // #define fork h_fork
+  #define fork h_fork
 #endif
-#define forkpty h_forkpty
-#define fpathconf h_fpathconf
-#define fprintf h_fprintf
-#define fputc h_fputc
-#define fputc_unlocked h_fputc_unlocked
-#define fputs h_fputs
-#define fputs_unlocked h_fputs_unlocked
-#define fputwc h_fputwc
-#define fputwc_unlocked h_fputwc_unlocked
-#define fputws h_fputws
-#define fputws_unlocked h_fputws_unlocked
-#define fread h_fread
-#define fread_unlocked h_fread_unlocked
-#define free h_free
-#define freopen h_freopen
-#define freopen64 h_freopen64
-#define frexp h_frexp
-#define frexpf h_frexpf
-#define frexpl h_frexpl
-#define fromfp h_fromfp
-#define fromfpf h_fromfpf
-#define fromfpl h_fromfpl
-#define fromfpx h_fromfpx
-#define fromfpxf h_fromfpxf
-#define fromfpxl h_fromfpxl
-#define fscanf h_fscanf
-#define fseek h_fseek
-#define fseeko h_fseeko
-#define fseeko64 h_fseeko64
-#define fsetpos h_fsetpos
+#ifndef forkpty_OVERRIDE
+  #define forkpty h_forkpty
+#endif
+#ifndef fpathconf_OVERRIDE
+  #define fpathconf h_fpathconf
+#endif
+#ifndef fprintf_OVERRIDE
+  #define fprintf h_fprintf
+#endif
+#ifndef fputc_OVERRIDE
+  #define fputc h_fputc
+#endif
+#ifndef fputc_unlocked_OVERRIDE
+  #define fputc_unlocked h_fputc_unlocked
+#endif
+#ifndef fputs_OVERRIDE
+  #define fputs h_fputs
+#endif
+#ifndef fputs_unlocked_OVERRIDE
+  #define fputs_unlocked h_fputs_unlocked
+#endif
+#ifndef fputwc_OVERRIDE
+  #define fputwc h_fputwc
+#endif
+#ifndef fputwc_unlocked_OVERRIDE
+  #define fputwc_unlocked h_fputwc_unlocked
+#endif
+#ifndef fputws_OVERRIDE
+  #define fputws h_fputws
+#endif
+#ifndef fputws_unlocked_OVERRIDE
+  #define fputws_unlocked h_fputws_unlocked
+#endif
+#ifndef fread_OVERRIDE
+  #define fread h_fread
+#endif
+#ifndef fread_unlocked_OVERRIDE
+  #define fread_unlocked h_fread_unlocked
+#endif
+#ifndef free_OVERRIDE
+  #define free h_free
+#endif
+#ifndef freopen_OVERRIDE
+  #define freopen h_freopen
+#endif
+#ifndef freopen64_OVERRIDE
+  #define freopen64 h_freopen64
+#endif
+#ifndef frexp_OVERRIDE
+  #define frexp h_frexp
+#endif
+#ifndef frexpf_OVERRIDE
+  #define frexpf h_frexpf
+#endif
+#ifndef frexpl_OVERRIDE
+  #define frexpl h_frexpl
+#endif
+#ifndef fromfp_OVERRIDE
+  #define fromfp h_fromfp
+#endif
+#ifndef fromfpf_OVERRIDE
+  #define fromfpf h_fromfpf
+#endif
+#ifndef fromfpl_OVERRIDE
+  #define fromfpl h_fromfpl
+#endif
+#ifndef fromfpx_OVERRIDE
+  #define fromfpx h_fromfpx
+#endif
+#ifndef fromfpxf_OVERRIDE
+  #define fromfpxf h_fromfpxf
+#endif
+#ifndef fromfpxl_OVERRIDE
+  #define fromfpxl h_fromfpxl
+#endif
+#ifndef fscanf_OVERRIDE
+  #define fscanf h_fscanf
+#endif
+#ifndef fseek_OVERRIDE
+  #define fseek h_fseek
+#endif
+#ifndef fseeko_OVERRIDE
+  #define fseeko h_fseeko
+#endif
+#ifndef fseeko64_OVERRIDE
+  #define fseeko64 h_fseeko64
+#endif
+#ifndef fsetpos_OVERRIDE
+  #define fsetpos h_fsetpos
+#endif
 // // #define fsetpos64 h_fsetpos64
-#define fstat h_fstat
-#define fstat64 h_fstat64
-#define fsub h_fsub
-#define fsubl h_fsubl
-#define fsync h_fsync
-#define ftell h_ftell
-#define ftello h_ftello
+#ifndef fstat_OVERRIDE
+  #define fstat h_fstat
+#endif
+#ifndef fstat64_OVERRIDE
+  #define fstat64 h_fstat64
+#endif
+#ifndef fsub_OVERRIDE
+  #define fsub h_fsub
+#endif
+#ifndef fsubl_OVERRIDE
+  #define fsubl h_fsubl
+#endif
+#ifndef fsync_OVERRIDE
+  #define fsync h_fsync
+#endif
+#ifndef ftell_OVERRIDE
+  #define ftell h_ftell
+#endif
+#ifndef ftello_OVERRIDE
+  #define ftello h_ftello
+#endif
 // // #define ftello64 h_ftello64
-#define ftruncate h_ftruncate
-#define ftruncate64 h_ftruncate64
-#define ftrylockfile h_ftrylockfile
-#define ftw h_ftw
+#ifndef ftruncate_OVERRIDE
+  #define ftruncate h_ftruncate
+#endif
+#ifndef ftruncate64_OVERRIDE
+  #define ftruncate64 h_ftruncate64
+#endif
+#ifndef ftrylockfile_OVERRIDE
+  #define ftrylockfile h_ftrylockfile
+#endif
+#ifndef ftw_OVERRIDE
+  #define ftw h_ftw
+#endif
 // #define ftw64 h_ftw64
-#define funlockfile h_funlockfile
-#define futimes h_futimes
-#define fwide h_fwide
-#define fwprintf h_fwprintf
-#define fwrite h_fwrite
-#define fwrite_unlocked h_fwrite_unlocked
-#define fwscanf h_fwscanf
-#define gamma h_gamma
-#define gammaf h_gammaf
-#define gammal h_gammal
-#define gcvt h_gcvt
-#define get_avphys_pages h_get_avphys_pages
-#define get_current_dir_name h_get_current_dir_name
-#define get_nprocs h_get_nprocs
-#define get_nprocs_conf h_get_nprocs_conf
-#define get_phys_pages h_get_phys_pages
-#define getauxval h_getauxval
+#ifndef funlockfile_OVERRIDE
+  #define funlockfile h_funlockfile
+#endif
+#ifndef futimes_OVERRIDE
+  #define futimes h_futimes
+#endif
+#ifndef fwide_OVERRIDE
+  #define fwide h_fwide
+#endif
+#ifndef fwprintf_OVERRIDE
+  #define fwprintf h_fwprintf
+#endif
+#ifndef fwrite_OVERRIDE
+  #define fwrite h_fwrite
+#endif
+#ifndef fwrite_unlocked_OVERRIDE
+  #define fwrite_unlocked h_fwrite_unlocked
+#endif
+#ifndef fwscanf_OVERRIDE
+  #define fwscanf h_fwscanf
+#endif
+#ifndef gamma_OVERRIDE
+  #define gamma h_gamma
+#endif
+#ifndef gammaf_OVERRIDE
+  #define gammaf h_gammaf
+#endif
+#ifndef gammal_OVERRIDE
+  #define gammal h_gammal
+#endif
+#ifndef gcvt_OVERRIDE
+  #define gcvt h_gcvt
+#endif
+#ifndef get_avphys_pages_OVERRIDE
+  #define get_avphys_pages h_get_avphys_pages
+#endif
+#ifndef get_current_dir_name_OVERRIDE
+  #define get_current_dir_name h_get_current_dir_name
+#endif
+#ifndef get_nprocs_OVERRIDE
+  #define get_nprocs h_get_nprocs
+#endif
+#ifndef get_nprocs_conf_OVERRIDE
+  #define get_nprocs_conf h_get_nprocs_conf
+#endif
+#ifndef get_phys_pages_OVERRIDE
+  #define get_phys_pages h_get_phys_pages
+#endif
+#ifndef getauxval_OVERRIDE
+  #define getauxval h_getauxval
+#endif
 // #define getc h_getc
-#define getc_unlocked h_getc_unlocked
-#define getchar h_getchar
-#define getchar_unlocked h_getchar_unlocked
-#define getcontext h_getcontext
-#define getcpu h_getcpu
-#define getcwd h_getcwd
-#define getdate h_getdate
-#define getdate_r h_getdate_r
-#define getdelim h_getdelim
-#define getdents64 h_getdents64
-#define getdomainnname h_getdomainnname
-#define getegid h_getegid
-#define getentropy h_getentropy
-#define getenv h_getenv
-#define geteuid h_geteuid
-#define getfsent h_getfsent
-#define getfsfile h_getfsfile
-#define getfsspec h_getfsspec
-#define getgid h_getgid
-#define getgrent h_getgrent
-#define getgrent_r h_getgrent_r
-#define getgrgid h_getgrgid
-#define getgrgid_r h_getgrgid_r
-#define getgrnam h_getgrnam
-#define getgrnam_r h_getgrnam_r
-#define getgrouplist h_getgrouplist
-#define getgroups h_getgroups
-#define gethostbyaddr h_gethostbyaddr
-#define gethostbyaddr_r h_gethostbyaddr_r
-#define gethostbyname h_gethostbyname
-#define gethostbyname_r h_gethostbyname_r
-#define gethostbyname2 h_gethostbyname2
-#define gethostbyname2_r h_gethostbyname2_r
-#define gethostent h_gethostent
-#define gethostid h_gethostid
-#define gethostname h_gethostname
-#define getline h_getline
-#define getloadavg h_getloadavg
-#define getlogin h_getlogin
-#define getmntent h_getmntent
-#define getmntent_r h_getmntent_r
-#define getnetbyaddr h_getnetbyaddr
-#define getnetbyname h_getnetbyname
-#define getnetent h_getnetent
-#define getnetgrent h_getnetgrent
-#define getnetgrent_r h_getnetgrent_r
-#define getopt h_getopt
-#define getopt_long h_getopt_long
-#define getopt_long_only h_getopt_long_only
-#define getpagesize h_getpagesize
-#define getpass h_getpass
-#define getpayload h_getpayload
-#define getpayloadf h_getpayloadf
-#define getpayloadl h_getpayloadl
-#define getpeername h_getpeername
-#define getpgid h_getpgid
-#define getpgrp h_getpgrp
-#define getpid h_getpid
-#define getppid h_getppid
-#define getprotobyname h_getprotobyname
-#define getprotobynumber h_getprotobynumber
-#define getprotoent h_getprotoent
-#define getpt h_getpt
-#define getpwent h_getpwent
-#define getpwent_r h_getpwent_r
-#define getpwnam h_getpwnam
-#define getpwnam_r h_getpwnam_r
-#define getpwuid h_getpwuid
-#define getpwuid_r h_getpwuid_r
-#define getrandom h_getrandom
-#define getrusage h_getrusage
-#define gets h_gets
-#define getservbyname h_getservbyname
-#define getservbyport h_getservbyport
-#define getservent h_getservent
-#define getsid h_getsid
-#define getsockname h_getsockname
-#define getsockopt h_getsockopt
-#define getsubopt h_getsubopt
-#define gettext h_gettext
-#define gettid h_gettid
-#define getuid h_getuid
-#define getumask h_getumask
-#define getutent h_getutent
-#define getutent_r h_getutent_r
-#define getutid h_getutid
-#define getutid_r h_getutid_r
-#define getutline h_getutline
-#define getutline_r h_getutline_r
-#define getutxent h_getutxent
-#define getutxid h_getutxid
-#define getutxline h_getutxline
-#define getw h_getw
-#define getwc h_getwc
-#define getwc_unlocked h_getwc_unlocked
-#define getwchar h_getwchar
-#define getwchar_unlocked h_getwchar_unlocked
-#define getwd h_getwd
-#define glob h_glob
+#ifndef getc_unlocked_OVERRIDE
+  #define getc_unlocked h_getc_unlocked
+#endif
+#ifndef getchar_OVERRIDE
+  #define getchar h_getchar
+#endif
+#ifndef getchar_unlocked_OVERRIDE
+  #define getchar_unlocked h_getchar_unlocked
+#endif
+#ifndef getcontext_OVERRIDE
+  #define getcontext h_getcontext
+#endif
+#ifndef getcpu_OVERRIDE
+  #define getcpu h_getcpu
+#endif
+#ifndef getcwd_OVERRIDE
+  #define getcwd h_getcwd
+#endif
+#ifndef getdate_OVERRIDE
+  #define getdate h_getdate
+#endif
+#ifndef getdate_r_OVERRIDE
+  #define getdate_r h_getdate_r
+#endif
+#ifndef getdelim_OVERRIDE
+  #define getdelim h_getdelim
+#endif
+#ifndef getdents64_OVERRIDE
+  #define getdents64 h_getdents64
+#endif
+#ifndef getdomainnname_OVERRIDE
+  #define getdomainnname h_getdomainnname
+#endif
+#ifndef getegid_OVERRIDE
+  #define getegid h_getegid
+#endif
+#ifndef getentropy_OVERRIDE
+  #define getentropy h_getentropy
+#endif
+#ifndef getenv_OVERRIDE
+  #define getenv h_getenv
+#endif
+#ifndef geteuid_OVERRIDE
+  #define geteuid h_geteuid
+#endif
+#ifndef getfsent_OVERRIDE
+  #define getfsent h_getfsent
+#endif
+#ifndef getfsfile_OVERRIDE
+  #define getfsfile h_getfsfile
+#endif
+#ifndef getfsspec_OVERRIDE
+  #define getfsspec h_getfsspec
+#endif
+#ifndef getgid_OVERRIDE
+  #define getgid h_getgid
+#endif
+#ifndef getgrent_OVERRIDE
+  #define getgrent h_getgrent
+#endif
+#ifndef getgrent_r_OVERRIDE
+  #define getgrent_r h_getgrent_r
+#endif
+#ifndef getgrgid_OVERRIDE
+  #define getgrgid h_getgrgid
+#endif
+#ifndef getgrgid_r_OVERRIDE
+  #define getgrgid_r h_getgrgid_r
+#endif
+#ifndef getgrnam_OVERRIDE
+  #define getgrnam h_getgrnam
+#endif
+#ifndef getgrnam_r_OVERRIDE
+  #define getgrnam_r h_getgrnam_r
+#endif
+#ifndef getgrouplist_OVERRIDE
+  #define getgrouplist h_getgrouplist
+#endif
+#ifndef getgroups_OVERRIDE
+  #define getgroups h_getgroups
+#endif
+#ifndef gethostbyaddr_OVERRIDE
+  #define gethostbyaddr h_gethostbyaddr
+#endif
+#ifndef gethostbyaddr_r_OVERRIDE
+  #define gethostbyaddr_r h_gethostbyaddr_r
+#endif
+#ifndef gethostbyname_OVERRIDE
+  #define gethostbyname h_gethostbyname
+#endif
+#ifndef gethostbyname_r_OVERRIDE
+  #define gethostbyname_r h_gethostbyname_r
+#endif
+#ifndef gethostbyname2_OVERRIDE
+  #define gethostbyname2 h_gethostbyname2
+#endif
+#ifndef gethostbyname2_r_OVERRIDE
+  #define gethostbyname2_r h_gethostbyname2_r
+#endif
+#ifndef gethostent_OVERRIDE
+  #define gethostent h_gethostent
+#endif
+#ifndef gethostid_OVERRIDE
+  #define gethostid h_gethostid
+#endif
+#ifndef gethostname_OVERRIDE
+  #define gethostname h_gethostname
+#endif
+#ifndef getline_OVERRIDE
+  #define getline h_getline
+#endif
+#ifndef getloadavg_OVERRIDE
+  #define getloadavg h_getloadavg
+#endif
+#ifndef getlogin_OVERRIDE
+  #define getlogin h_getlogin
+#endif
+#ifndef getmntent_OVERRIDE
+  #define getmntent h_getmntent
+#endif
+#ifndef getmntent_r_OVERRIDE
+  #define getmntent_r h_getmntent_r
+#endif
+#ifndef getnetbyaddr_OVERRIDE
+  #define getnetbyaddr h_getnetbyaddr
+#endif
+#ifndef getnetbyname_OVERRIDE
+  #define getnetbyname h_getnetbyname
+#endif
+#ifndef getnetent_OVERRIDE
+  #define getnetent h_getnetent
+#endif
+#ifndef getnetgrent_OVERRIDE
+  #define getnetgrent h_getnetgrent
+#endif
+#ifndef getnetgrent_r_OVERRIDE
+  #define getnetgrent_r h_getnetgrent_r
+#endif
+#ifndef getopt_OVERRIDE
+  #define getopt h_getopt
+#endif
+#ifndef getopt_long_OVERRIDE
+  #define getopt_long h_getopt_long
+#endif
+#ifndef getopt_long_only_OVERRIDE
+  #define getopt_long_only h_getopt_long_only
+#endif
+#ifndef getpagesize_OVERRIDE
+  #define getpagesize h_getpagesize
+#endif
+#ifndef getpass_OVERRIDE
+  #define getpass h_getpass
+#endif
+#ifndef getpayload_OVERRIDE
+  #define getpayload h_getpayload
+#endif
+#ifndef getpayloadf_OVERRIDE
+  #define getpayloadf h_getpayloadf
+#endif
+#ifndef getpayloadl_OVERRIDE
+  #define getpayloadl h_getpayloadl
+#endif
+#ifndef getpeername_OVERRIDE
+  #define getpeername h_getpeername
+#endif
+#ifndef getpgid_OVERRIDE
+  #define getpgid h_getpgid
+#endif
+#ifndef getpgrp_OVERRIDE
+  #define getpgrp h_getpgrp
+#endif
+#ifndef getpid_OVERRIDE
+  #define getpid h_getpid
+#endif
+#ifndef getppid_OVERRIDE
+  #define getppid h_getppid
+#endif
+#ifndef getprotobyname_OVERRIDE
+  #define getprotobyname h_getprotobyname
+#endif
+#ifndef getprotobynumber_OVERRIDE
+  #define getprotobynumber h_getprotobynumber
+#endif
+#ifndef getprotoent_OVERRIDE
+  #define getprotoent h_getprotoent
+#endif
+#ifndef getpt_OVERRIDE
+  #define getpt h_getpt
+#endif
+#ifndef getpwent_OVERRIDE
+  #define getpwent h_getpwent
+#endif
+#ifndef getpwent_r_OVERRIDE
+  #define getpwent_r h_getpwent_r
+#endif
+#ifndef getpwnam_OVERRIDE
+  #define getpwnam h_getpwnam
+#endif
+#ifndef getpwnam_r_OVERRIDE
+  #define getpwnam_r h_getpwnam_r
+#endif
+#ifndef getpwuid_OVERRIDE
+  #define getpwuid h_getpwuid
+#endif
+#ifndef getpwuid_r_OVERRIDE
+  #define getpwuid_r h_getpwuid_r
+#endif
+#ifndef getrandom_OVERRIDE
+  #define getrandom h_getrandom
+#endif
+#ifndef getrusage_OVERRIDE
+  #define getrusage h_getrusage
+#endif
+#ifndef gets_OVERRIDE
+  #define gets h_gets
+#endif
+#ifndef getservbyname_OVERRIDE
+  #define getservbyname h_getservbyname
+#endif
+#ifndef getservbyport_OVERRIDE
+  #define getservbyport h_getservbyport
+#endif
+#ifndef getservent_OVERRIDE
+  #define getservent h_getservent
+#endif
+#ifndef getsid_OVERRIDE
+  #define getsid h_getsid
+#endif
+#ifndef getsockname_OVERRIDE
+  #define getsockname h_getsockname
+#endif
+#ifndef getsockopt_OVERRIDE
+  #define getsockopt h_getsockopt
+#endif
+#ifndef getsubopt_OVERRIDE
+  #define getsubopt h_getsubopt
+#endif
+#ifndef gettext_OVERRIDE
+  #define gettext h_gettext
+#endif
+#ifndef gettid_OVERRIDE
+  #define gettid h_gettid
+#endif
+#ifndef getuid_OVERRIDE
+  #define getuid h_getuid
+#endif
+#ifndef getumask_OVERRIDE
+  #define getumask h_getumask
+#endif
+#ifndef getutent_OVERRIDE
+  #define getutent h_getutent
+#endif
+#ifndef getutent_r_OVERRIDE
+  #define getutent_r h_getutent_r
+#endif
+#ifndef getutid_OVERRIDE
+  #define getutid h_getutid
+#endif
+#ifndef getutid_r_OVERRIDE
+  #define getutid_r h_getutid_r
+#endif
+#ifndef getutline_OVERRIDE
+  #define getutline h_getutline
+#endif
+#ifndef getutline_r_OVERRIDE
+  #define getutline_r h_getutline_r
+#endif
+#ifndef getutxent_OVERRIDE
+  #define getutxent h_getutxent
+#endif
+#ifndef getutxid_OVERRIDE
+  #define getutxid h_getutxid
+#endif
+#ifndef getutxline_OVERRIDE
+  #define getutxline h_getutxline
+#endif
+#ifndef getw_OVERRIDE
+  #define getw h_getw
+#endif
+#ifndef getwc_OVERRIDE
+  #define getwc h_getwc
+#endif
+#ifndef getwc_unlocked_OVERRIDE
+  #define getwc_unlocked h_getwc_unlocked
+#endif
+#ifndef getwchar_OVERRIDE
+  #define getwchar h_getwchar
+#endif
+#ifndef getwchar_unlocked_OVERRIDE
+  #define getwchar_unlocked h_getwchar_unlocked
+#endif
+#ifndef getwd_OVERRIDE
+  #define getwd h_getwd
+#endif
+#ifndef glob_OVERRIDE
+  #define glob h_glob
+#endif
 // #define glob64 h_glob64
-#define globfree h_globfree
+#ifndef globfree_OVERRIDE
+  #define globfree h_globfree
+#endif
 // #define globfree64 h_globfree64
-#define gmtime h_gmtime
-#define gmtime_r h_gmtime_r
-#define grantpt h_grantpt
-#define gsignal h_gsignal
-#define hasmntopt h_hasmntopt
-#define hcreate h_hcreate
-#define hcreate_r h_hcreate_r
-#define hdestroy h_hdestroy
-#define hdestroy_r h_hdestroy_r
-#define hsearch h_hsearch
-#define hsearch_r h_hsearch_r
-#define htonl h_htonl
-#define htons h_htons
-#define hypot h_hypot
-#define hypotf h_hypotf
-#define hypotl h_hypotl
-#define iconv h_iconv
-#define iconv_close h_iconv_close
-#define iconv_open h_iconv_open
-#define if_freenameindex h_if_freenameindex
-#define if_indextoname h_if_indextoname
+#ifndef gmtime_OVERRIDE
+  #define gmtime h_gmtime
+#endif
+#ifndef gmtime_r_OVERRIDE
+  #define gmtime_r h_gmtime_r
+#endif
+#ifndef grantpt_OVERRIDE
+  #define grantpt h_grantpt
+#endif
+#ifndef gsignal_OVERRIDE
+  #define gsignal h_gsignal
+#endif
+#ifndef hasmntopt_OVERRIDE
+  #define hasmntopt h_hasmntopt
+#endif
+#ifndef hcreate_OVERRIDE
+  #define hcreate h_hcreate
+#endif
+#ifndef hcreate_r_OVERRIDE
+  #define hcreate_r h_hcreate_r
+#endif
+#ifndef hdestroy_OVERRIDE
+  #define hdestroy h_hdestroy
+#endif
+#ifndef hdestroy_r_OVERRIDE
+  #define hdestroy_r h_hdestroy_r
+#endif
+#ifndef hsearch_OVERRIDE
+  #define hsearch h_hsearch
+#endif
+#ifndef hsearch_r_OVERRIDE
+  #define hsearch_r h_hsearch_r
+#endif
+#ifndef htonl_OVERRIDE
+  #define htonl h_htonl
+#endif
+#ifndef htons_OVERRIDE
+  #define htons h_htons
+#endif
+#ifndef hypot_OVERRIDE
+  #define hypot h_hypot
+#endif
+#ifndef hypotf_OVERRIDE
+  #define hypotf h_hypotf
+#endif
+#ifndef hypotl_OVERRIDE
+  #define hypotl h_hypotl
+#endif
+#ifndef iconv_OVERRIDE
+  #define iconv h_iconv
+#endif
+#ifndef iconv_close_OVERRIDE
+  #define iconv_close h_iconv_close
+#endif
+#ifndef iconv_open_OVERRIDE
+  #define iconv_open h_iconv_open
+#endif
+#ifndef if_freenameindex_OVERRIDE
+  #define if_freenameindex h_if_freenameindex
+#endif
+#ifndef if_indextoname_OVERRIDE
+  #define if_indextoname h_if_indextoname
+#endif
 // #define if_nameindex h_if_nameindex
-#define if_nametoindex h_if_nametoindex
-#define ilogb h_ilogb
-#define ilogbf h_ilogbf
-#define ilogbl h_ilogbl
-#define imaxabs h_imaxabs
-#define imaxdiv h_imaxdiv
-#define index h_index
-#define inet_addr h_inet_addr
-#define inet_aton h_inet_aton
-#define inet_lnaof h_inet_lnaof
-#define inet_makeaddr h_inet_makeaddr
-#define inet_netof h_inet_netof
-#define inet_network h_inet_network
-#define inet_ntoa h_inet_ntoa
-#define inet_ntop h_inet_ntop
-#define inet_pton h_inet_pton
-#define initgroups h_initgroups
-#define initstate h_initstate
-#define initstate_r h_initstate_r
-#define innetgr h_innetgr
-#define ioctl h_ioctl
-#define isatty h_isatty
-#define isinff h_isinff
-#define isinfl h_isinfl
-#define isnanl h_isnanl
-#define iswalnum h_iswalnum
-#define iswalpha h_iswalpha
-#define iswblank h_iswblank
-#define iswcntrl h_iswcntrl
-#define iswctype h_iswctype
-#define iswdigit h_iswdigit
-#define iswgraph h_iswgraph
-#define iswlower h_iswlower
-#define iswprint h_iswprint
-#define iswpunct h_iswpunct
-#define iswspace h_iswspace
-#define iswupper h_iswupper
-#define iswxdigit h_iswxdigit
-#define j0 h_j0
-#define j0f h_j0f
-#define j0l h_j0l
-#define j1 h_j1
-#define j1f h_j1f
-#define j1l h_j1l
-#define jn h_jn
-#define jnf h_jnf
-#define jnl h_jnl
-#define jrand48 h_jrand48
-#define jrand48_r h_jrand48_r
-#define kill h_kill
-#define killpg h_killpg
-#define l64a h_l64a
-#define labs h_labs
-#define lcong48 h_lcong48
-#define lcong48_r h_lcong48_r
-#define ldexp h_ldexp
-#define ldexpf h_ldexpf
-#define ldexpl h_ldexpl
-#define ldiv h_ldiv
-#define lfind h_lfind
-#define lgamma h_lgamma
-#define lgamma_r h_lgamma_r
-#define lgammaf h_lgammaf
-#define lgammaf_r h_lgammaf_r
-#define lgammal h_lgammal
-#define lgammal_r h_lgammal_r
-#define link h_link
-#define linkat h_linkat
-#define lio_listio h_lio_listio
-#define lio_listio64 h_lio_listio64
-#define listen h_listen
-#define llabs h_llabs
-#define lldiv h_lldiv
-#define llogb h_llogb
-#define llogbf h_llogbf
-#define llogbl h_llogbl
-#define llrint h_llrint
-#define llrintf h_llrintf
-#define llrintl h_llrintl
-#define llround h_llround
-#define llroundf h_llroundf
-#define llroundl h_llroundl
-#define localeconv h_localeconv
-#define localtime h_localtime
-#define localtime_r h_localtime_r
-#define log h_log
-#define log10 h_log10
-#define log10f h_log10f
-#define log10l h_log10l
-#define log1p h_log1p
-#define log1pf h_log1pf
-#define log1pl h_log1pl
-#define log2 h_log2
-#define log2f h_log2f
-#define log2l h_log2l
-#define logb h_logb
-#define logbf h_logbf
-#define logbl h_logbl
-#define logf h_logf
-#define login h_login
-#define login_tty h_login_tty
-#define logl h_logl
-#define logout h_logout
-#define logwtmp h_logwtmp
-#define longjmp h_longjmp
-#define lrand48 h_lrand48
-#define lrand48_r h_lrand48_r
-#define lrint h_lrint
-#define lrintf h_lrintf
-#define lrintl h_lrintl
-#define lround h_lround
-#define lroundf h_lroundf
-#define lroundl h_lroundl
-#define lsearch h_lsearch
-#define lseek h_lseek
-#define lseek64 h_lseek64
-#define lstat h_lstat
-#define lstat64 h_lstat64
-#define lutimes h_lutimes
-#define madvise h_madvise
-#define maillinfo h_mallinfo
-#define makecontext h_makecontext
-#define mallopt h_mallopt
-#define mblen h_mblen
-#define mbrlen h_mbrlen
-#define mbrtowc h_mbrtowc
-#define mbsinit h_mbsinit
-#define mbsnrtowcs h_mbsnrtowcs
-#define mbsrtowcs h_mbsrtowcs
-#define mbstowcs h_mbstowcs
-#define mbtowc h_mbtowc
-#define mcheck h_mcheck
-#define memalign h_memalign
-#define memccpy h_memccpy
-#define memchr h_memchr
-#define memcmp h_memcmp
-#define memcpy h_memcpy
-#define memfd_create h_memfd_create
-#define memfrob h_memfrob
-#define memmem h_memmem
-#define memmove h_memmove
-#define mempcpy h_mempcpy
-#define memrchr h_memrchr
-#define memset h_memset
-#define mkdir h_mkdir
-#define mkdtemp h_mkdtemp
-#define mkfifo h_mkfifo
-#define mknod h_mknod
-#define mkstemp h_mkstemp
-#define mktemp h_mktemp
-#define mktime h_mktime
-#define mlock h_mlock
-#define mlock2 h_mlock2
-#define mlockall h_mlockall
-#define mmap h_mmap
-#define mmap64 h_mmap64
-#define modf h_modf
-#define modff h_modff
-#define modfl h_modfl
-#define mount h_mount
-#define mprobe h_mprobe
-#define mprotect h_mprotect
-#define mrand48 h_mrand48
-#define mrand48_r h_mrand48_r
-#define mremap h_mremap
-#define msync h_msync
-#define mtrace h_mtrace
-#define munlock h_munlock
-#define munlockall h_munlockall
-#define munmap h_munmap
-#define muntrace h_muntrace
-#define nan h_nan
-#define nanf h_nanf
-#define nanl h_nanl
-#define nanosleep h_nanosleep
-#define nearbyint h_nearbyint
-#define nearbyintf h_nearbyintf
-#define nearbyintl h_nearbyintl
-#define nextafter h_nextafter
-#define nextafterf h_nextafterf
-#define nextafterl h_nextafterl
-#define nextdown h_nextdown
-#define nextdownf h_nextdownf
-#define nextdownl h_nextdownl
-#define nexttoward h_nexttoward
-#define nexttowardf h_nexttowardf
-#define nexttowardl h_nexttowardl
-#define nextup h_nextup
-#define nextupf h_nextupf
-#define nextupl h_nextupl
+#ifndef if_nametoindex_OVERRIDE
+  #define if_nametoindex h_if_nametoindex
+#endif
+#ifndef ilogb_OVERRIDE
+  #define ilogb h_ilogb
+#endif
+#ifndef ilogbf_OVERRIDE
+  #define ilogbf h_ilogbf
+#endif
+#ifndef ilogbl_OVERRIDE
+  #define ilogbl h_ilogbl
+#endif
+#ifndef imaxabs_OVERRIDE
+  #define imaxabs h_imaxabs
+#endif
+#ifndef imaxdiv_OVERRIDE
+  #define imaxdiv h_imaxdiv
+#endif
+#ifndef index_OVERRIDE
+  #define index h_index
+#endif
+#ifndef inet_addr_OVERRIDE
+  #define inet_addr h_inet_addr
+#endif
+#ifndef inet_aton_OVERRIDE
+  #define inet_aton h_inet_aton
+#endif
+#ifndef inet_lnaof_OVERRIDE
+  #define inet_lnaof h_inet_lnaof
+#endif
+#ifndef inet_makeaddr_OVERRIDE
+  #define inet_makeaddr h_inet_makeaddr
+#endif
+#ifndef inet_netof_OVERRIDE
+  #define inet_netof h_inet_netof
+#endif
+#ifndef inet_network_OVERRIDE
+  #define inet_network h_inet_network
+#endif
+#ifndef inet_ntoa_OVERRIDE
+  #define inet_ntoa h_inet_ntoa
+#endif
+#ifndef inet_ntop_OVERRIDE
+  #define inet_ntop h_inet_ntop
+#endif
+#ifndef inet_pton_OVERRIDE
+  #define inet_pton h_inet_pton
+#endif
+#ifndef initgroups_OVERRIDE
+  #define initgroups h_initgroups
+#endif
+#ifndef initstate_OVERRIDE
+  #define initstate h_initstate
+#endif
+#ifndef initstate_r_OVERRIDE
+  #define initstate_r h_initstate_r
+#endif
+#ifndef innetgr_OVERRIDE
+  #define innetgr h_innetgr
+#endif
+#ifndef ioctl_OVERRIDE
+  #define ioctl h_ioctl
+#endif
+#ifndef isatty_OVERRIDE
+  #define isatty h_isatty
+#endif
+#ifndef isinff_OVERRIDE
+  #define isinff h_isinff
+#endif
+#ifndef isinfl_OVERRIDE
+  #define isinfl h_isinfl
+#endif
+#ifndef isnanl_OVERRIDE
+  #define isnanl h_isnanl
+#endif
+#ifndef iswalnum_OVERRIDE
+  #define iswalnum h_iswalnum
+#endif
+#ifndef iswalpha_OVERRIDE
+  #define iswalpha h_iswalpha
+#endif
+#ifndef iswblank_OVERRIDE
+  #define iswblank h_iswblank
+#endif
+#ifndef iswcntrl_OVERRIDE
+  #define iswcntrl h_iswcntrl
+#endif
+#ifndef iswctype_OVERRIDE
+  #define iswctype h_iswctype
+#endif
+#ifndef iswdigit_OVERRIDE
+  #define iswdigit h_iswdigit
+#endif
+#ifndef iswgraph_OVERRIDE
+  #define iswgraph h_iswgraph
+#endif
+#ifndef iswlower_OVERRIDE
+  #define iswlower h_iswlower
+#endif
+#ifndef iswprint_OVERRIDE
+  #define iswprint h_iswprint
+#endif
+#ifndef iswpunct_OVERRIDE
+  #define iswpunct h_iswpunct
+#endif
+#ifndef iswspace_OVERRIDE
+  #define iswspace h_iswspace
+#endif
+#ifndef iswupper_OVERRIDE
+  #define iswupper h_iswupper
+#endif
+#ifndef iswxdigit_OVERRIDE
+  #define iswxdigit h_iswxdigit
+#endif
+#ifndef j0_OVERRIDE
+  #define j0 h_j0
+#endif
+#ifndef j0f_OVERRIDE
+  #define j0f h_j0f
+#endif
+#ifndef j0l_OVERRIDE
+  #define j0l h_j0l
+#endif
+#ifndef j1_OVERRIDE
+  #define j1 h_j1
+#endif
+#ifndef j1f_OVERRIDE
+  #define j1f h_j1f
+#endif
+#ifndef j1l_OVERRIDE
+  #define j1l h_j1l
+#endif
+#ifndef jn_OVERRIDE
+  #define jn h_jn
+#endif
+#ifndef jnf_OVERRIDE
+  #define jnf h_jnf
+#endif
+#ifndef jnl_OVERRIDE
+  #define jnl h_jnl
+#endif
+#ifndef jrand48_OVERRIDE
+  #define jrand48 h_jrand48
+#endif
+#ifndef jrand48_r_OVERRIDE
+  #define jrand48_r h_jrand48_r
+#endif
+#ifndef kill_OVERRIDE
+  #define kill h_kill
+#endif
+#ifndef killpg_OVERRIDE
+  #define killpg h_killpg
+#endif
+#ifndef l64a_OVERRIDE
+  #define l64a h_l64a
+#endif
+#ifndef labs_OVERRIDE
+  #define labs h_labs
+#endif
+#ifndef lcong48_OVERRIDE
+  #define lcong48 h_lcong48
+#endif
+#ifndef lcong48_r_OVERRIDE
+  #define lcong48_r h_lcong48_r
+#endif
+#ifndef ldexp_OVERRIDE
+  #define ldexp h_ldexp
+#endif
+#ifndef ldexpf_OVERRIDE
+  #define ldexpf h_ldexpf
+#endif
+#ifndef ldexpl_OVERRIDE
+  #define ldexpl h_ldexpl
+#endif
+#ifndef ldiv_OVERRIDE
+  #define ldiv h_ldiv
+#endif
+#ifndef lfind_OVERRIDE
+  #define lfind h_lfind
+#endif
+#ifndef lgamma_OVERRIDE
+  #define lgamma h_lgamma
+#endif
+#ifndef lgamma_r_OVERRIDE
+  #define lgamma_r h_lgamma_r
+#endif
+#ifndef lgammaf_OVERRIDE
+  #define lgammaf h_lgammaf
+#endif
+#ifndef lgammaf_r_OVERRIDE
+  #define lgammaf_r h_lgammaf_r
+#endif
+#ifndef lgammal_OVERRIDE
+  #define lgammal h_lgammal
+#endif
+#ifndef lgammal_r_OVERRIDE
+  #define lgammal_r h_lgammal_r
+#endif
+#ifndef link_OVERRIDE
+  #define link h_link
+#endif
+#ifndef linkat_OVERRIDE
+  #define linkat h_linkat
+#endif
+#ifndef lio_listio_OVERRIDE
+  #define lio_listio h_lio_listio
+#endif
+#ifndef lio_listio64_OVERRIDE
+  #define lio_listio64 h_lio_listio64
+#endif
+#ifndef listen_OVERRIDE
+  #define listen h_listen
+#endif
+#ifndef llabs_OVERRIDE
+  #define llabs h_llabs
+#endif
+#ifndef lldiv_OVERRIDE
+  #define lldiv h_lldiv
+#endif
+#ifndef llogb_OVERRIDE
+  #define llogb h_llogb
+#endif
+#ifndef llogbf_OVERRIDE
+  #define llogbf h_llogbf
+#endif
+#ifndef llogbl_OVERRIDE
+  #define llogbl h_llogbl
+#endif
+#ifndef llrint_OVERRIDE
+  #define llrint h_llrint
+#endif
+#ifndef llrintf_OVERRIDE
+  #define llrintf h_llrintf
+#endif
+#ifndef llrintl_OVERRIDE
+  #define llrintl h_llrintl
+#endif
+#ifndef llround_OVERRIDE
+  #define llround h_llround
+#endif
+#ifndef llroundf_OVERRIDE
+  #define llroundf h_llroundf
+#endif
+#ifndef llroundl_OVERRIDE
+  #define llroundl h_llroundl
+#endif
+#ifndef localeconv_OVERRIDE
+  #define localeconv h_localeconv
+#endif
+#ifndef localtime_OVERRIDE
+  #define localtime h_localtime
+#endif
+#ifndef localtime_r_OVERRIDE
+  #define localtime_r h_localtime_r
+#endif
+#ifndef log_OVERRIDE
+  #define log h_log
+#endif
+#ifndef log10_OVERRIDE
+  #define log10 h_log10
+#endif
+#ifndef log10f_OVERRIDE
+  #define log10f h_log10f
+#endif
+#ifndef log10l_OVERRIDE
+  #define log10l h_log10l
+#endif
+#ifndef log1p_OVERRIDE
+  #define log1p h_log1p
+#endif
+#ifndef log1pf_OVERRIDE
+  #define log1pf h_log1pf
+#endif
+#ifndef log1pl_OVERRIDE
+  #define log1pl h_log1pl
+#endif
+#ifndef log2_OVERRIDE
+  #define log2 h_log2
+#endif
+#ifndef log2f_OVERRIDE
+  #define log2f h_log2f
+#endif
+#ifndef log2l_OVERRIDE
+  #define log2l h_log2l
+#endif
+#ifndef logb_OVERRIDE
+  #define logb h_logb
+#endif
+#ifndef logbf_OVERRIDE
+  #define logbf h_logbf
+#endif
+#ifndef logbl_OVERRIDE
+  #define logbl h_logbl
+#endif
+#ifndef logf_OVERRIDE
+  #define logf h_logf
+#endif
+#ifndef login_OVERRIDE
+  #define login h_login
+#endif
+#ifndef login_tty_OVERRIDE
+  #define login_tty h_login_tty
+#endif
+#ifndef logl_OVERRIDE
+  #define logl h_logl
+#endif
+#ifndef logout_OVERRIDE
+  #define logout h_logout
+#endif
+#ifndef logwtmp_OVERRIDE
+  #define logwtmp h_logwtmp
+#endif
+#ifndef longjmp_OVERRIDE
+  #define longjmp h_longjmp
+#endif
+#ifndef lrand48_OVERRIDE
+  #define lrand48 h_lrand48
+#endif
+#ifndef lrand48_r_OVERRIDE
+  #define lrand48_r h_lrand48_r
+#endif
+#ifndef lrint_OVERRIDE
+  #define lrint h_lrint
+#endif
+#ifndef lrintf_OVERRIDE
+  #define lrintf h_lrintf
+#endif
+#ifndef lrintl_OVERRIDE
+  #define lrintl h_lrintl
+#endif
+#ifndef lround_OVERRIDE
+  #define lround h_lround
+#endif
+#ifndef lroundf_OVERRIDE
+  #define lroundf h_lroundf
+#endif
+#ifndef lroundl_OVERRIDE
+  #define lroundl h_lroundl
+#endif
+#ifndef lsearch_OVERRIDE
+  #define lsearch h_lsearch
+#endif
+#ifndef lseek_OVERRIDE
+  #define lseek h_lseek
+#endif
+#ifndef lseek64_OVERRIDE
+  #define lseek64 h_lseek64
+#endif
+#ifndef lstat_OVERRIDE
+  #define lstat h_lstat
+#endif
+#ifndef lstat64_OVERRIDE
+  #define lstat64 h_lstat64
+#endif
+#ifndef lutimes_OVERRIDE
+  #define lutimes h_lutimes
+#endif
+#ifndef madvise_OVERRIDE
+  #define madvise h_madvise
+#endif
+#ifndef maillinfo_OVERRIDE
+  #define maillinfo h_mallinfo
+#endif
+#ifndef makecontext_OVERRIDE
+  #define makecontext h_makecontext
+#endif
+#ifndef mallopt_OVERRIDE
+  #define mallopt h_mallopt
+#endif
+#ifndef mblen_OVERRIDE
+  #define mblen h_mblen
+#endif
+#ifndef mbrlen_OVERRIDE
+  #define mbrlen h_mbrlen
+#endif
+#ifndef mbrtowc_OVERRIDE
+  #define mbrtowc h_mbrtowc
+#endif
+#ifndef mbsinit_OVERRIDE
+  #define mbsinit h_mbsinit
+#endif
+#ifndef mbsnrtowcs_OVERRIDE
+  #define mbsnrtowcs h_mbsnrtowcs
+#endif
+#ifndef mbsrtowcs_OVERRIDE
+  #define mbsrtowcs h_mbsrtowcs
+#endif
+#ifndef mbstowcs_OVERRIDE
+  #define mbstowcs h_mbstowcs
+#endif
+#ifndef mbtowc_OVERRIDE
+  #define mbtowc h_mbtowc
+#endif
+#ifndef mcheck_OVERRIDE
+  #define mcheck h_mcheck
+#endif
+#ifndef memalign_OVERRIDE
+  #define memalign h_memalign
+#endif
+#ifndef memccpy_OVERRIDE
+  #define memccpy h_memccpy
+#endif
+#ifndef memchr_OVERRIDE
+  #define memchr h_memchr
+#endif
+#ifndef memcmp_OVERRIDE
+  #define memcmp h_memcmp
+#endif
+#ifndef memcpy_OVERRIDE
+  #define memcpy h_memcpy
+#endif
+#ifndef memfd_create_OVERRIDE
+  #define memfd_create h_memfd_create
+#endif
+#ifndef memfrob_OVERRIDE
+  #define memfrob h_memfrob
+#endif
+#ifndef memmem_OVERRIDE
+  #define memmem h_memmem
+#endif
+#ifndef memmove_OVERRIDE
+  #define memmove h_memmove
+#endif
+#ifndef mempcpy_OVERRIDE
+  #define mempcpy h_mempcpy
+#endif
+#ifndef memrchr_OVERRIDE
+  #define memrchr h_memrchr
+#endif
+#ifndef memset_OVERRIDE
+  #define memset h_memset
+#endif
+#ifndef mkdir_OVERRIDE
+  #define mkdir h_mkdir
+#endif
+#ifndef mkdtemp_OVERRIDE
+  #define mkdtemp h_mkdtemp
+#endif
+#ifndef mkfifo_OVERRIDE
+  #define mkfifo h_mkfifo
+#endif
+#ifndef mknod_OVERRIDE
+  #define mknod h_mknod
+#endif
+#ifndef mkstemp_OVERRIDE
+  #define mkstemp h_mkstemp
+#endif
+#ifndef mktemp_OVERRIDE
+  #define mktemp h_mktemp
+#endif
+#ifndef mktime_OVERRIDE
+  #define mktime h_mktime
+#endif
+#ifndef mlock_OVERRIDE
+  #define mlock h_mlock
+#endif
+#ifndef mlock2_OVERRIDE
+  #define mlock2 h_mlock2
+#endif
+#ifndef mlockall_OVERRIDE
+  #define mlockall h_mlockall
+#endif
+#ifndef mmap_OVERRIDE
+  #define mmap h_mmap
+#endif
+#ifndef mmap64_OVERRIDE
+  #define mmap64 h_mmap64
+#endif
+#ifndef modf_OVERRIDE
+  #define modf h_modf
+#endif
+#ifndef modff_OVERRIDE
+  #define modff h_modff
+#endif
+#ifndef modfl_OVERRIDE
+  #define modfl h_modfl
+#endif
+#ifndef mount_OVERRIDE
+  #define mount h_mount
+#endif
+#ifndef mprobe_OVERRIDE
+  #define mprobe h_mprobe
+#endif
+#ifndef mprotect_OVERRIDE
+  #define mprotect h_mprotect
+#endif
+#ifndef mrand48_OVERRIDE
+  #define mrand48 h_mrand48
+#endif
+#ifndef mrand48_r_OVERRIDE
+  #define mrand48_r h_mrand48_r
+#endif
+#ifndef mremap_OVERRIDE
+  #define mremap h_mremap
+#endif
+#ifndef msync_OVERRIDE
+  #define msync h_msync
+#endif
+#ifndef mtrace_OVERRIDE
+  #define mtrace h_mtrace
+#endif
+#ifndef munlock_OVERRIDE
+  #define munlock h_munlock
+#endif
+#ifndef munlockall_OVERRIDE
+  #define munlockall h_munlockall
+#endif
+#ifndef munmap_OVERRIDE
+  #define munmap h_munmap
+#endif
+#ifndef muntrace_OVERRIDE
+  #define muntrace h_muntrace
+#endif
+#ifndef nan_OVERRIDE
+  #define nan h_nan
+#endif
+#ifndef nanf_OVERRIDE
+  #define nanf h_nanf
+#endif
+#ifndef nanl_OVERRIDE
+  #define nanl h_nanl
+#endif
+#ifndef nanosleep_OVERRIDE
+  #define nanosleep h_nanosleep
+#endif
+#ifndef nearbyint_OVERRIDE
+  #define nearbyint h_nearbyint
+#endif
+#ifndef nearbyintf_OVERRIDE
+  #define nearbyintf h_nearbyintf
+#endif
+#ifndef nearbyintl_OVERRIDE
+  #define nearbyintl h_nearbyintl
+#endif
+#ifndef nextafter_OVERRIDE
+  #define nextafter h_nextafter
+#endif
+#ifndef nextafterf_OVERRIDE
+  #define nextafterf h_nextafterf
+#endif
+#ifndef nextafterl_OVERRIDE
+  #define nextafterl h_nextafterl
+#endif
+#ifndef nextdown_OVERRIDE
+  #define nextdown h_nextdown
+#endif
+#ifndef nextdownf_OVERRIDE
+  #define nextdownf h_nextdownf
+#endif
+#ifndef nextdownl_OVERRIDE
+  #define nextdownl h_nextdownl
+#endif
+#ifndef nexttoward_OVERRIDE
+  #define nexttoward h_nexttoward
+#endif
+#ifndef nexttowardf_OVERRIDE
+  #define nexttowardf h_nexttowardf
+#endif
+#ifndef nexttowardl_OVERRIDE
+  #define nexttowardl h_nexttowardl
+#endif
+#ifndef nextup_OVERRIDE
+  #define nextup h_nextup
+#endif
+#ifndef nextupf_OVERRIDE
+  #define nextupf h_nextupf
+#endif
+#ifndef nextupl_OVERRIDE
+  #define nextupl h_nextupl
+#endif
 // #define nftw h_nftw
 // #define nftw64 h_nftw64
-#define ngettext h_ngettext
-#define nice h_nice
-#define nl_langinfo h_nl_langinfo
-#define nrand48 h_nrand48
-#define nrand48_r h_nrand48_r
-#define ntohl h_ntohl
-#define ntohs h_ntohs
-#define ntp_adjtime h_ntp_adjtime
-#define ntp_gettime h_ntp_gettime
-#define obstack_1grow h_obstack_1grow
-#define obstack_1grow_fast h_obstack_1grow_fast
-#define obstack_alloc h_obstack_alloc
-#define obstack_base h_obstack_base
-#define obstack_blank h_obstack_blank
-#define obstack_blank_fast h_obstack_blank_fast
-#define obstack_copy h_obstack_copy
-#define obstack_copy0 h_obstack_copy0
-#define obstack_finish h_obstack_finish
-#define obstack_free h_obstack_free
-#define obstack_grow h_obstack_grow
-#define obstack_grow0 h_obstack_grow0
-#define obstack_init h_obstack_init
-#define obstack_int_grow h_obstack_int_grow
-#define obstack_int_grow_fast h_obstack_int_grow_fast
-#define obstack_next_free h_obstack_next_free
-#define obstack_object_size h_obstack_object_size
-#define obstack_ptr_grow h_obstack_ptr_grow
-#define obstack_ptr_grow_fast h_obstack_ptr_grow_fast
-#define obstack_room h_obstack_room
-#define on_exit h_on_exit
-#define open h_open
-#define open_memstream h_open_memstream
-#define opendir h_opendir
-#define openlog h_openlog
-#define openpty h_openpty
-#define parse_printf_format h_parse_printf_format
-#define pathconf h_pathconf
-#define pause h_pause
-#define pclose h_pclose
-#define perror h_perror
-#define pipe h_pipe
-#define pkey_alloc h_pkey_alloc
-#define pkey_free h_pkey_free
-#define pkey_get h_pkey_get
-#define pkey_mprotect h_pkey_mprotect
-#define pkey_set h_pkey_set
-#define popen h_popen
-#define posix_fallocate h_posix_fallocate
-#define posix_fallocate64 h_posix_fallocate64
-#define posix_memalign h_posix_memalign
-#define pow h_pow
-#define powf h_powf
-#define powl h_powl
-#define pread h_pread
-#define pread64 h_pread64
-#define preadv h_preadv
-#define preadv2 h_preadv2
-#define preadv64 h_preadv64
+#ifndef ngettext_OVERRIDE
+  #define ngettext h_ngettext
+#endif
+#ifndef nice_OVERRIDE
+  #define nice h_nice
+#endif
+#ifndef nl_langinfo_OVERRIDE
+  #define nl_langinfo h_nl_langinfo
+#endif
+#ifndef nrand48_OVERRIDE
+  #define nrand48 h_nrand48
+#endif
+#ifndef nrand48_r_OVERRIDE
+  #define nrand48_r h_nrand48_r
+#endif
+#ifndef ntohl_OVERRIDE
+  #define ntohl h_ntohl
+#endif
+#ifndef ntohs_OVERRIDE
+  #define ntohs h_ntohs
+#endif
+#ifndef ntp_adjtime_OVERRIDE
+  #define ntp_adjtime h_ntp_adjtime
+#endif
+#ifndef ntp_gettime_OVERRIDE
+  #define ntp_gettime h_ntp_gettime
+#endif
+#ifndef obstack_1grow_OVERRIDE
+  #define obstack_1grow h_obstack_1grow
+#endif
+#ifndef obstack_1grow_fast_OVERRIDE
+  #define obstack_1grow_fast h_obstack_1grow_fast
+#endif
+#ifndef obstack_alloc_OVERRIDE
+  #define obstack_alloc h_obstack_alloc
+#endif
+#ifndef obstack_base_OVERRIDE
+  #define obstack_base h_obstack_base
+#endif
+#ifndef obstack_blank_OVERRIDE
+  #define obstack_blank h_obstack_blank
+#endif
+#ifndef obstack_blank_fast_OVERRIDE
+  #define obstack_blank_fast h_obstack_blank_fast
+#endif
+#ifndef obstack_copy_OVERRIDE
+  #define obstack_copy h_obstack_copy
+#endif
+#ifndef obstack_copy0_OVERRIDE
+  #define obstack_copy0 h_obstack_copy0
+#endif
+#ifndef obstack_finish_OVERRIDE
+  #define obstack_finish h_obstack_finish
+#endif
+#ifndef obstack_free_OVERRIDE
+  #define obstack_free h_obstack_free
+#endif
+#ifndef obstack_grow_OVERRIDE
+  #define obstack_grow h_obstack_grow
+#endif
+#ifndef obstack_grow0_OVERRIDE
+  #define obstack_grow0 h_obstack_grow0
+#endif
+#ifndef obstack_init_OVERRIDE
+  #define obstack_init h_obstack_init
+#endif
+#ifndef obstack_int_grow_OVERRIDE
+  #define obstack_int_grow h_obstack_int_grow
+#endif
+#ifndef obstack_int_grow_fast_OVERRIDE
+  #define obstack_int_grow_fast h_obstack_int_grow_fast
+#endif
+#ifndef obstack_next_free_OVERRIDE
+  #define obstack_next_free h_obstack_next_free
+#endif
+#ifndef obstack_object_size_OVERRIDE
+  #define obstack_object_size h_obstack_object_size
+#endif
+#ifndef obstack_ptr_grow_OVERRIDE
+  #define obstack_ptr_grow h_obstack_ptr_grow
+#endif
+#ifndef obstack_ptr_grow_fast_OVERRIDE
+  #define obstack_ptr_grow_fast h_obstack_ptr_grow_fast
+#endif
+#ifndef obstack_room_OVERRIDE
+  #define obstack_room h_obstack_room
+#endif
+#ifndef on_exit_OVERRIDE
+  #define on_exit h_on_exit
+#endif
+#ifndef open_OVERRIDE
+  #define open h_open
+#endif
+#ifndef open_memstream_OVERRIDE
+  #define open_memstream h_open_memstream
+#endif
+#ifndef opendir_OVERRIDE
+  #define opendir h_opendir
+#endif
+#ifndef openlog_OVERRIDE
+  #define openlog h_openlog
+#endif
+#ifndef openpty_OVERRIDE
+  #define openpty h_openpty
+#endif
+#ifndef parse_printf_format_OVERRIDE
+  #define parse_printf_format h_parse_printf_format
+#endif
+#ifndef pathconf_OVERRIDE
+  #define pathconf h_pathconf
+#endif
+#ifndef pause_OVERRIDE
+  #define pause h_pause
+#endif
+#ifndef pclose_OVERRIDE
+  #define pclose h_pclose
+#endif
+#ifndef perror_OVERRIDE
+  #define perror h_perror
+#endif
+#ifndef pipe_OVERRIDE
+  #define pipe h_pipe
+#endif
+#ifndef pkey_alloc_OVERRIDE
+  #define pkey_alloc h_pkey_alloc
+#endif
+#ifndef pkey_free_OVERRIDE
+  #define pkey_free h_pkey_free
+#endif
+#ifndef pkey_get_OVERRIDE
+  #define pkey_get h_pkey_get
+#endif
+#ifndef pkey_mprotect_OVERRIDE
+  #define pkey_mprotect h_pkey_mprotect
+#endif
+#ifndef pkey_set_OVERRIDE
+  #define pkey_set h_pkey_set
+#endif
+#ifndef popen_OVERRIDE
+  #define popen h_popen
+#endif
+#ifndef posix_fallocate_OVERRIDE
+  #define posix_fallocate h_posix_fallocate
+#endif
+#ifndef posix_fallocate64_OVERRIDE
+  #define posix_fallocate64 h_posix_fallocate64
+#endif
+#ifndef posix_memalign_OVERRIDE
+  #define posix_memalign h_posix_memalign
+#endif
+#ifndef pow_OVERRIDE
+  #define pow h_pow
+#endif
+#ifndef powf_OVERRIDE
+  #define powf h_powf
+#endif
+#ifndef powl_OVERRIDE
+  #define powl h_powl
+#endif
+#ifndef pread_OVERRIDE
+  #define pread h_pread
+#endif
+#ifndef pread64_OVERRIDE
+  #define pread64 h_pread64
+#endif
+#ifndef preadv_OVERRIDE
+  #define preadv h_preadv
+#endif
+#ifndef preadv2_OVERRIDE
+  #define preadv2 h_preadv2
+#endif
+#ifndef preadv64_OVERRIDE
+  #define preadv64 h_preadv64
+#endif
 // #define preadv64v2 h_preadv64v2
-#define printf h_printf
-#define psignal h_psignal
-#define pthread_attr_getsigmask_np h_pthread_attr_getsigmask_np
-#define pthread_attr_setsigmask_np h_pthread_attr_setsigmask_np
-#define pthread_cond_clockwait h_pthread_cond_clockwait
-#define pthread_getattr_default_np h_pthread_getattr_default_np
-#define pthread_key_create h_pthread_key_create
-#define pthread_key_delete h_pthread_key_delete
-#define pthread_rwlock_clockrdlock h_pthread_rwlock_clockrdlock
-#define pthread_rwlock_clockwrlock h_pthread_rwlock_clockwrlock
-#define pthread_setattr_default_np h_pthread_setattr_default_np
-#define pthread_setspecific h_pthread_setspecific
-#define ptsname h_ptsname
-#define ptsname_r h_ptsname_r
+#ifndef printf_OVERRIDE
+  #define printf h_printf
+#endif
+#ifndef psignal_OVERRIDE
+  #define psignal h_psignal
+#endif
+#ifndef pthread_attr_getsigmask_np_OVERRIDE
+  #define pthread_attr_getsigmask_np h_pthread_attr_getsigmask_np
+#endif
+#ifndef pthread_attr_setsigmask_np_OVERRIDE
+  #define pthread_attr_setsigmask_np h_pthread_attr_setsigmask_np
+#endif
+#ifndef pthread_cond_clockwait_OVERRIDE
+  #define pthread_cond_clockwait h_pthread_cond_clockwait
+#endif
+#ifndef pthread_getattr_default_np_OVERRIDE
+  #define pthread_getattr_default_np h_pthread_getattr_default_np
+#endif
+#ifndef pthread_key_create_OVERRIDE
+  #define pthread_key_create h_pthread_key_create
+#endif
+#ifndef pthread_key_delete_OVERRIDE
+  #define pthread_key_delete h_pthread_key_delete
+#endif
+#ifndef pthread_rwlock_clockrdlock_OVERRIDE
+  #define pthread_rwlock_clockrdlock h_pthread_rwlock_clockrdlock
+#endif
+#ifndef pthread_rwlock_clockwrlock_OVERRIDE
+  #define pthread_rwlock_clockwrlock h_pthread_rwlock_clockwrlock
+#endif
+#ifndef pthread_setattr_default_np_OVERRIDE
+  #define pthread_setattr_default_np h_pthread_setattr_default_np
+#endif
+#ifndef pthread_setspecific_OVERRIDE
+  #define pthread_setspecific h_pthread_setspecific
+#endif
+#ifndef ptsname_OVERRIDE
+  #define ptsname h_ptsname
+#endif
+#ifndef ptsname_r_OVERRIDE
+  #define ptsname_r h_ptsname_r
+#endif
 // #define putc h_putc
-#define putc_unlocked h_putc_unlocked
-#define putchar h_putchar
-#define putchar_unlocked h_putchar_unlocked
-#define putenv h_putenv
-#define putpwent h_putpwent
-#define puts h_puts
-#define pututline h_pututline
-#define pututxline h_pututxline
-#define putw h_putw
-#define putwc h_putwc
-#define putwc_unlocked h_putwc_unlocked
-#define putwchar h_putwchar
-#define putwchar_unlocked h_putwchar_unlocked
-#define pwrite h_pwrite
-#define pwrite64 h_pwrite64
-#define pwritev h_pwritev
-#define pwritev2 h_pwritev2
-#define pwritev64 h_pwritev64
+#ifndef putc_unlocked_OVERRIDE
+  #define putc_unlocked h_putc_unlocked
+#endif
+#ifndef putchar_OVERRIDE
+  #define putchar h_putchar
+#endif
+#ifndef putchar_unlocked_OVERRIDE
+  #define putchar_unlocked h_putchar_unlocked
+#endif
+#ifndef putenv_OVERRIDE
+  #define putenv h_putenv
+#endif
+#ifndef putpwent_OVERRIDE
+  #define putpwent h_putpwent
+#endif
+#ifndef puts_OVERRIDE
+  #define puts h_puts
+#endif
+#ifndef pututline_OVERRIDE
+  #define pututline h_pututline
+#endif
+#ifndef pututxline_OVERRIDE
+  #define pututxline h_pututxline
+#endif
+#ifndef putw_OVERRIDE
+  #define putw h_putw
+#endif
+#ifndef putwc_OVERRIDE
+  #define putwc h_putwc
+#endif
+#ifndef putwc_unlocked_OVERRIDE
+  #define putwc_unlocked h_putwc_unlocked
+#endif
+#ifndef putwchar_OVERRIDE
+  #define putwchar h_putwchar
+#endif
+#ifndef putwchar_unlocked_OVERRIDE
+  #define putwchar_unlocked h_putwchar_unlocked
+#endif
+#ifndef pwrite_OVERRIDE
+  #define pwrite h_pwrite
+#endif
+#ifndef pwrite64_OVERRIDE
+  #define pwrite64 h_pwrite64
+#endif
+#ifndef pwritev_OVERRIDE
+  #define pwritev h_pwritev
+#endif
+#ifndef pwritev2_OVERRIDE
+  #define pwritev2 h_pwritev2
+#endif
+#ifndef pwritev64_OVERRIDE
+  #define pwritev64 h_pwritev64
+#endif
 // #define pwritev64v2 h_pwritev64v2
-#define qecvt h_qecvt
-#define qecvt_r h_qecvt_r
-#define qfcvt h_qfcvt
-#define qfcvt_r h_qfcvt_r
-#define qgcvt h_qgcvt
-#define qsort h_qsort
-#define raise h_raise
-#define rand h_rand
-#define rand_r h_rand_r
-#define random h_random
-#define random_r h_random_r
-#define rawmemchr h_rawmemchr
-#define read h_read
-#define readdir h_readdir
-#define readdir_r h_readdir_r
-#define readdir64 h_readdir64
-#define readdir64_r h_readdir64_r
-#define readlink h_readlink
-#define readv h_readv
-#define realloc h_realloc
-#define reallocarray h_reallocarray
-#define realpath h_realpath
-#define recv h_recv
-#define recvfrom h_recvfrom
-#define regcomp h_regcomp
-#define regerror h_regerror
-#define regexec h_regexec
-#define regfree h_regfree
-#define remainder h_remainder
-#define remainderf h_remainderf
-#define remainderl h_remainderl
-#define remove h_remove
-#define rename h_rename
-#define rewind h_rewind
-#define rewinddir h_rewinddir
-#define rindex h_rindex
-#define rint h_rint
-#define rintf h_rintf
-#define rintl h_rintl
-#define rmdir h_rmdir
-#define round h_round
-#define roundeven h_roundeven
-#define roundevenf h_roundevenf
-#define roundevenl h_roundevenl
-#define roundf h_roundf
-#define roundl h_roundl
-#define rpmatch h_rpmatch
-#define scalb h_scalb
-#define scalbf h_scalbf
-#define scalbl h_scalbl
-#define scalbln h_scalbln
-#define scalblnf h_scalblnf
-#define scalblnl h_scalblnl
-#define scalbn h_scalbn
-#define scalbnf h_scalbnf
-#define scalbnl h_scalbnl
-#define scandir h_scandir
-#define scandir64 h_scandir64
-#define scanf h_scanf
-#define sched_get_priority_max h_sched_get_priority_max
-#define sched_get_priority_min h_sched_get_priority_min
-#define sched_getaffinity h_sched_getaffinity
-#define sched_getparam h_sched_getparam
-#define sched_getscheduler h_sched_getscheduler
-#define sched_rr_get_interval h_sched_rr_get_interval
-#define sched_setaffinity h_sched_setaffinity
-#define sched_setparam h_sched_setparam
-#define sched_setscheduler h_sched_setscheduler
-#define sched_yield h_sched_yield
-#define secure_getenv h_secure_getenv
-#define seed48 h_seed48
-#define seed48_r h_seed48_r
-#define seekdir h_seekdir
-#define select h_select
-#define sem_clockwait h_sem_clockwait
-#define sem_close h_sem_close
-#define sem_destroy h_sem_destroy
-#define sem_getvalue h_sem_getvalue
-#define sem_init h_sem_init
+#ifndef qecvt_OVERRIDE
+  #define qecvt h_qecvt
+#endif
+#ifndef qecvt_r_OVERRIDE
+  #define qecvt_r h_qecvt_r
+#endif
+#ifndef qfcvt_OVERRIDE
+  #define qfcvt h_qfcvt
+#endif
+#ifndef qfcvt_r_OVERRIDE
+  #define qfcvt_r h_qfcvt_r
+#endif
+#ifndef qgcvt_OVERRIDE
+  #define qgcvt h_qgcvt
+#endif
+#ifndef qsort_OVERRIDE
+  #define qsort h_qsort
+#endif
+#ifndef raise_OVERRIDE
+  #define raise h_raise
+#endif
+#ifndef rand_OVERRIDE
+  #define rand h_rand
+#endif
+#ifndef rand_r_OVERRIDE
+  #define rand_r h_rand_r
+#endif
+#ifndef random_OVERRIDE
+  #define random h_random
+#endif
+#ifndef random_r_OVERRIDE
+  #define random_r h_random_r
+#endif
+#ifndef rawmemchr_OVERRIDE
+  #define rawmemchr h_rawmemchr
+#endif
+#ifndef read_OVERRIDE
+  #define read h_read
+#endif
+#ifndef readdir_OVERRIDE
+  #define readdir h_readdir
+#endif
+#ifndef readdir_r_OVERRIDE
+  #define readdir_r h_readdir_r
+#endif
+#ifndef readdir64_OVERRIDE
+  #define readdir64 h_readdir64
+#endif
+#ifndef readdir64_r_OVERRIDE
+  #define readdir64_r h_readdir64_r
+#endif
+#ifndef readlink_OVERRIDE
+  #define readlink h_readlink
+#endif
+#ifndef readv_OVERRIDE
+  #define readv h_readv
+#endif
+#ifndef realloc_OVERRIDE
+  #define realloc h_realloc
+#endif
+#ifndef reallocarray_OVERRIDE
+  #define reallocarray h_reallocarray
+#endif
+#ifndef realpath_OVERRIDE
+  #define realpath h_realpath
+#endif
+#ifndef recv_OVERRIDE
+  #define recv h_recv
+#endif
+#ifndef recvfrom_OVERRIDE
+  #define recvfrom h_recvfrom
+#endif
+#ifndef regcomp_OVERRIDE
+  #define regcomp h_regcomp
+#endif
+#ifndef regerror_OVERRIDE
+  #define regerror h_regerror
+#endif
+#ifndef regexec_OVERRIDE
+  #define regexec h_regexec
+#endif
+#ifndef regfree_OVERRIDE
+  #define regfree h_regfree
+#endif
+#ifndef remainder_OVERRIDE
+  #define remainder h_remainder
+#endif
+#ifndef remainderf_OVERRIDE
+  #define remainderf h_remainderf
+#endif
+#ifndef remainderl_OVERRIDE
+  #define remainderl h_remainderl
+#endif
+#ifndef remove_OVERRIDE
+  #define remove h_remove
+#endif
+#ifndef rename_OVERRIDE
+  #define rename h_rename
+#endif
+#ifndef rewind_OVERRIDE
+  #define rewind h_rewind
+#endif
+#ifndef rewinddir_OVERRIDE
+  #define rewinddir h_rewinddir
+#endif
+#ifndef rindex_OVERRIDE
+  #define rindex h_rindex
+#endif
+#ifndef rint_OVERRIDE
+  #define rint h_rint
+#endif
+#ifndef rintf_OVERRIDE
+  #define rintf h_rintf
+#endif
+#ifndef rintl_OVERRIDE
+  #define rintl h_rintl
+#endif
+#ifndef rmdir_OVERRIDE
+  #define rmdir h_rmdir
+#endif
+#ifndef round_OVERRIDE
+  #define round h_round
+#endif
+#ifndef roundeven_OVERRIDE
+  #define roundeven h_roundeven
+#endif
+#ifndef roundevenf_OVERRIDE
+  #define roundevenf h_roundevenf
+#endif
+#ifndef roundevenl_OVERRIDE
+  #define roundevenl h_roundevenl
+#endif
+#ifndef roundf_OVERRIDE
+  #define roundf h_roundf
+#endif
+#ifndef roundl_OVERRIDE
+  #define roundl h_roundl
+#endif
+#ifndef rpmatch_OVERRIDE
+  #define rpmatch h_rpmatch
+#endif
+#ifndef scalb_OVERRIDE
+  #define scalb h_scalb
+#endif
+#ifndef scalbf_OVERRIDE
+  #define scalbf h_scalbf
+#endif
+#ifndef scalbl_OVERRIDE
+  #define scalbl h_scalbl
+#endif
+#ifndef scalbln_OVERRIDE
+  #define scalbln h_scalbln
+#endif
+#ifndef scalblnf_OVERRIDE
+  #define scalblnf h_scalblnf
+#endif
+#ifndef scalblnl_OVERRIDE
+  #define scalblnl h_scalblnl
+#endif
+#ifndef scalbn_OVERRIDE
+  #define scalbn h_scalbn
+#endif
+#ifndef scalbnf_OVERRIDE
+  #define scalbnf h_scalbnf
+#endif
+#ifndef scalbnl_OVERRIDE
+  #define scalbnl h_scalbnl
+#endif
+#ifndef scandir_OVERRIDE
+  #define scandir h_scandir
+#endif
+#ifndef scandir64_OVERRIDE
+  #define scandir64 h_scandir64
+#endif
+#ifndef scanf_OVERRIDE
+  #define scanf h_scanf
+#endif
+#ifndef sched_get_priority_max_OVERRIDE
+  #define sched_get_priority_max h_sched_get_priority_max
+#endif
+#ifndef sched_get_priority_min_OVERRIDE
+  #define sched_get_priority_min h_sched_get_priority_min
+#endif
+#ifndef sched_getaffinity_OVERRIDE
+  #define sched_getaffinity h_sched_getaffinity
+#endif
+#ifndef sched_getparam_OVERRIDE
+  #define sched_getparam h_sched_getparam
+#endif
+#ifndef sched_getscheduler_OVERRIDE
+  #define sched_getscheduler h_sched_getscheduler
+#endif
+#ifndef sched_rr_get_interval_OVERRIDE
+  #define sched_rr_get_interval h_sched_rr_get_interval
+#endif
+#ifndef sched_setaffinity_OVERRIDE
+  #define sched_setaffinity h_sched_setaffinity
+#endif
+#ifndef sched_setparam_OVERRIDE
+  #define sched_setparam h_sched_setparam
+#endif
+#ifndef sched_setscheduler_OVERRIDE
+  #define sched_setscheduler h_sched_setscheduler
+#endif
+#ifndef sched_yield_OVERRIDE
+  #define sched_yield h_sched_yield
+#endif
+#ifndef secure_getenv_OVERRIDE
+  #define secure_getenv h_secure_getenv
+#endif
+#ifndef seed48_OVERRIDE
+  #define seed48 h_seed48
+#endif
+#ifndef seed48_r_OVERRIDE
+  #define seed48_r h_seed48_r
+#endif
+#ifndef seekdir_OVERRIDE
+  #define seekdir h_seekdir
+#endif
+#ifndef select_OVERRIDE
+  #define select h_select
+#endif
+#ifndef sem_clockwait_OVERRIDE
+  #define sem_clockwait h_sem_clockwait
+#endif
+#ifndef sem_close_OVERRIDE
+  #define sem_close h_sem_close
+#endif
+#ifndef sem_destroy_OVERRIDE
+  #define sem_destroy h_sem_destroy
+#endif
+#ifndef sem_getvalue_OVERRIDE
+  #define sem_getvalue h_sem_getvalue
+#endif
+#ifndef sem_init_OVERRIDE
+  #define sem_init h_sem_init
+#endif
 // #define sem_open h_sem_open
-#define sem_post h_sem_post
-#define sem_timedwait h_sem_timedwait
-#define sem_trywait h_sem_trywait
-#define sem_unlink h_sem_unlink
-#define sem_wait h_sem_wait
-#define semctl h_semctl
-#define semget h_semget
-#define semop h_semop
-#define semtimedop h_semtimedop
-#define send h_send
-#define setbuf h_setbuf
-#define setbuffer h_setbuffer
-#define setcontext h_setcontext
-#define setdomainname h_setdomainname
-#define setegid h_setegid
-#define setenv h_setenv
-#define seteuid h_seteuid
-#define setfsent h_setfsent
-#define setgid h_setgid
-#define setgrent h_setgrent
-#define setgroups h_setgroups
-#define sethostent h_sethostent
-#define sethostid h_sethostid
-#define sethostname h_sethostname
-#define setlinebuf h_setlinebuf
-#define setlocale h_setlocale
-#define setlogmask h_setlogmask
-#define setmntent h_setmntent
-#define setnetent h_setnetent
-#define setnetgrent h_setnetgrent
-#define setpayload h_setpayload
-#define setpayloadf h_setpayloadf
-#define setpayloadl h_setpayloadl
-#define setpayloadsig h_setpayloadsig
-#define setpayloadsigf h_setpayloadsigf
-#define setpayloadsigl h_setpayloadsigl
-#define setpgid h_setpgid
-#define setprotoent h_setprotoent
-#define setpwent h_setpwent
-#define setregid h_setregid
-#define setreuid h_setreuid
-#define setservent h_setservent
-#define setsid h_setsid
-#define setsockopt h_setsockopt
-#define setstate h_setstate
-#define setstate_r h_setstate_r
-#define setuid h_setuid
-#define setutent h_setutent
-#define setutxent h_setutxent
-#define setvbuf h_setvbuf
-#define shm_open h_shm_open
-#define shm_unlink h_shm_unlink
-#define shutdown h_shutdown
-#define sigabbrev_np h_sigabbrev_np
+#ifndef sem_post_OVERRIDE
+  #define sem_post h_sem_post
+#endif
+#ifndef sem_timedwait_OVERRIDE
+  #define sem_timedwait h_sem_timedwait
+#endif
+#ifndef sem_trywait_OVERRIDE
+  #define sem_trywait h_sem_trywait
+#endif
+#ifndef sem_unlink_OVERRIDE
+  #define sem_unlink h_sem_unlink
+#endif
+#ifndef sem_wait_OVERRIDE
+  #define sem_wait h_sem_wait
+#endif
+#ifndef semctl_OVERRIDE
+  #define semctl h_semctl
+#endif
+#ifndef semget_OVERRIDE
+  #define semget h_semget
+#endif
+#ifndef semop_OVERRIDE
+  #define semop h_semop
+#endif
+#ifndef semtimedop_OVERRIDE
+  #define semtimedop h_semtimedop
+#endif
+#ifndef send_OVERRIDE
+  #define send h_send
+#endif
+#ifndef setbuf_OVERRIDE
+  #define setbuf h_setbuf
+#endif
+#ifndef setbuffer_OVERRIDE
+  #define setbuffer h_setbuffer
+#endif
+#ifndef setcontext_OVERRIDE
+  #define setcontext h_setcontext
+#endif
+#ifndef setdomainname_OVERRIDE
+  #define setdomainname h_setdomainname
+#endif
+#ifndef setegid_OVERRIDE
+  #define setegid h_setegid
+#endif
+#ifndef setenv_OVERRIDE
+  #define setenv h_setenv
+#endif
+#ifndef seteuid_OVERRIDE
+  #define seteuid h_seteuid
+#endif
+#ifndef setfsent_OVERRIDE
+  #define setfsent h_setfsent
+#endif
+#ifndef setgid_OVERRIDE
+  #define setgid h_setgid
+#endif
+#ifndef setgrent_OVERRIDE
+  #define setgrent h_setgrent
+#endif
+#ifndef setgroups_OVERRIDE
+  #define setgroups h_setgroups
+#endif
+#ifndef sethostent_OVERRIDE
+  #define sethostent h_sethostent
+#endif
+#ifndef sethostid_OVERRIDE
+  #define sethostid h_sethostid
+#endif
+#ifndef sethostname_OVERRIDE
+  #define sethostname h_sethostname
+#endif
+#ifndef setlinebuf_OVERRIDE
+  #define setlinebuf h_setlinebuf
+#endif
+#ifndef setlocale_OVERRIDE
+  #define setlocale h_setlocale
+#endif
+#ifndef setlogmask_OVERRIDE
+  #define setlogmask h_setlogmask
+#endif
+#ifndef setmntent_OVERRIDE
+  #define setmntent h_setmntent
+#endif
+#ifndef setnetent_OVERRIDE
+  #define setnetent h_setnetent
+#endif
+#ifndef setnetgrent_OVERRIDE
+  #define setnetgrent h_setnetgrent
+#endif
+#ifndef setpayload_OVERRIDE
+  #define setpayload h_setpayload
+#endif
+#ifndef setpayloadf_OVERRIDE
+  #define setpayloadf h_setpayloadf
+#endif
+#ifndef setpayloadl_OVERRIDE
+  #define setpayloadl h_setpayloadl
+#endif
+#ifndef setpayloadsig_OVERRIDE
+  #define setpayloadsig h_setpayloadsig
+#endif
+#ifndef setpayloadsigf_OVERRIDE
+  #define setpayloadsigf h_setpayloadsigf
+#endif
+#ifndef setpayloadsigl_OVERRIDE
+  #define setpayloadsigl h_setpayloadsigl
+#endif
+#ifndef setpgid_OVERRIDE
+  #define setpgid h_setpgid
+#endif
+#ifndef setprotoent_OVERRIDE
+  #define setprotoent h_setprotoent
+#endif
+#ifndef setpwent_OVERRIDE
+  #define setpwent h_setpwent
+#endif
+#ifndef setregid_OVERRIDE
+  #define setregid h_setregid
+#endif
+#ifndef setreuid_OVERRIDE
+  #define setreuid h_setreuid
+#endif
+#ifndef setservent_OVERRIDE
+  #define setservent h_setservent
+#endif
+#ifndef setsid_OVERRIDE
+  #define setsid h_setsid
+#endif
+#ifndef setsockopt_OVERRIDE
+  #define setsockopt h_setsockopt
+#endif
+#ifndef setstate_OVERRIDE
+  #define setstate h_setstate
+#endif
+#ifndef setstate_r_OVERRIDE
+  #define setstate_r h_setstate_r
+#endif
+#ifndef setuid_OVERRIDE
+  #define setuid h_setuid
+#endif
+#ifndef setutent_OVERRIDE
+  #define setutent h_setutent
+#endif
+#ifndef setutxent_OVERRIDE
+  #define setutxent h_setutxent
+#endif
+#ifndef setvbuf_OVERRIDE
+  #define setvbuf h_setvbuf
+#endif
+#ifndef shm_open_OVERRIDE
+  #define shm_open h_shm_open
+#endif
+#ifndef shm_unlink_OVERRIDE
+  #define shm_unlink h_shm_unlink
+#endif
+#ifndef shutdown_OVERRIDE
+  #define shutdown h_shutdown
+#endif
+#ifndef sigabbrev_np_OVERRIDE
+  #define sigabbrev_np h_sigabbrev_np
+#endif
 // #define sigaction h_sigaction
-#define sigaddset h_sigaddset
-#define sigaltstack h_sigaltstack
-#define sigblock h_sigblock
-#define sigdelset h_sigdelset
-#define sigdescr_np h_sigdescr_np
-#define sigemptyset h_sigemptyset
-#define sigfillset h_sigfillset
-#define siginterrupt h_siginterrupt
-#define sigismember h_sigismember
-#define siglongjmp h_siglongjmp
-#define signal h_signal
-#define significand h_significand
-#define significandf h_significandf
-#define significandl h_significandl
-#define sigpause h_sigpause
-#define sigpending h_sigpending
-#define sigprocmask h_sigprocmask
+#ifndef sigaddset_OVERRIDE
+  #define sigaddset h_sigaddset
+#endif
+#ifndef sigaltstack_OVERRIDE
+  #define sigaltstack h_sigaltstack
+#endif
+#ifndef sigblock_OVERRIDE
+  #define sigblock h_sigblock
+#endif
+#ifndef sigdelset_OVERRIDE
+  #define sigdelset h_sigdelset
+#endif
+#ifndef sigdescr_np_OVERRIDE
+  #define sigdescr_np h_sigdescr_np
+#endif
+#ifndef sigemptyset_OVERRIDE
+  #define sigemptyset h_sigemptyset
+#endif
+#ifndef sigfillset_OVERRIDE
+  #define sigfillset h_sigfillset
+#endif
+#ifndef siginterrupt_OVERRIDE
+  #define siginterrupt h_siginterrupt
+#endif
+#ifndef sigismember_OVERRIDE
+  #define sigismember h_sigismember
+#endif
+#ifndef siglongjmp_OVERRIDE
+  #define siglongjmp h_siglongjmp
+#endif
+#ifndef signal_OVERRIDE
+  #define signal h_signal
+#endif
+#ifndef significand_OVERRIDE
+  #define significand h_significand
+#endif
+#ifndef significandf_OVERRIDE
+  #define significandf h_significandf
+#endif
+#ifndef significandl_OVERRIDE
+  #define significandl h_significandl
+#endif
+#ifndef sigpause_OVERRIDE
+  #define sigpause h_sigpause
+#endif
+#ifndef sigpending_OVERRIDE
+  #define sigpending h_sigpending
+#endif
+#ifndef sigprocmask_OVERRIDE
+  #define sigprocmask h_sigprocmask
+#endif
 // #define sigsetjmp h_sigsetjmp
-#define sigsetmask h_sigsetmask
+#ifndef sigsetmask_OVERRIDE
+  #define sigsetmask h_sigsetmask
+#endif
 // #define sigstack h_sigstack
-#define sigsuspend h_sigsuspend
-#define sin h_sin
-#define sincos h_sincos
-#define sincosf h_sincosf
-#define sincosl h_sincosl
-#define sinf h_sinf
-#define sinh h_sinh
-#define sinhf h_sinhf
-#define sinhl h_sinhl
-#define sinl h_sinl
-#define sleep h_sleep
-#define snprintf h_snprintf
-#define socket h_socket
-#define socketpair h_socketpair
-#define sprintf h_sprintf
-#define sqrt h_sqrt
-#define sqrtf h_sqrtf
-#define sqrtl h_sqrtl
-#define srand h_srand
-#define srand48 h_srand48
-#define srand48_r h_srand48_r
-#define srandom h_srandom
-#define srandom_r h_srandom_r
-#define sscanf h_sscanf
-#define ssignal h_ssignal
+#ifndef sigsuspend_OVERRIDE
+  #define sigsuspend h_sigsuspend
+#endif
+#ifndef sin_OVERRIDE
+  #define sin h_sin
+#endif
+#ifndef sincos_OVERRIDE
+  #define sincos h_sincos
+#endif
+#ifndef sincosf_OVERRIDE
+  #define sincosf h_sincosf
+#endif
+#ifndef sincosl_OVERRIDE
+  #define sincosl h_sincosl
+#endif
+#ifndef sinf_OVERRIDE
+  #define sinf h_sinf
+#endif
+#ifndef sinh_OVERRIDE
+  #define sinh h_sinh
+#endif
+#ifndef sinhf_OVERRIDE
+  #define sinhf h_sinhf
+#endif
+#ifndef sinhl_OVERRIDE
+  #define sinhl h_sinhl
+#endif
+#ifndef sinl_OVERRIDE
+  #define sinl h_sinl
+#endif
+#ifndef sleep_OVERRIDE
+  #define sleep h_sleep
+#endif
+#ifndef snprintf_OVERRIDE
+  #define snprintf h_snprintf
+#endif
+#ifndef socket_OVERRIDE
+  #define socket h_socket
+#endif
+#ifndef socketpair_OVERRIDE
+  #define socketpair h_socketpair
+#endif
+#ifndef sprintf_OVERRIDE
+  #define sprintf h_sprintf
+#endif
+#ifndef sqrt_OVERRIDE
+  #define sqrt h_sqrt
+#endif
+#ifndef sqrtf_OVERRIDE
+  #define sqrtf h_sqrtf
+#endif
+#ifndef sqrtl_OVERRIDE
+  #define sqrtl h_sqrtl
+#endif
+#ifndef srand_OVERRIDE
+  #define srand h_srand
+#endif
+#ifndef srand48_OVERRIDE
+  #define srand48 h_srand48
+#endif
+#ifndef srand48_r_OVERRIDE
+  #define srand48_r h_srand48_r
+#endif
+#ifndef srandom_OVERRIDE
+  #define srandom h_srandom
+#endif
+#ifndef srandom_r_OVERRIDE
+  #define srandom_r h_srandom_r
+#endif
+#ifndef sscanf_OVERRIDE
+  #define sscanf h_sscanf
+#endif
+#ifndef ssignal_OVERRIDE
+  #define ssignal h_ssignal
+#endif
 // #define stat h_stat
 // #define stat64 h_stat64
-#define stime h_stime
-#define stpcpy h_stpcpy
-#define stpncpy h_stpncpy
-#define strcasecmp h_strcasecmp
-#define strcasestr h_strcasestr
-#define strcat h_strcat
-#define strchr h_strchr
-#define strchrnul h_strchrnul
-#define strcmp h_strcmp
-#define strcoll h_strcoll
-#define strcpy h_strcpy
-#define strcspn h_strcspn
-#define strdup h_strdup
-#define strerror h_strerror
-#define strerror_r h_strerror_r
-#define strerrordesc_np h_strerrordesc_np
-#define strerrorname_np h_strerrorname_np
-#define strfmon h_strfmon
-#define strfromd h_strfromd
-#define strfromf h_strfromf
-#define strfroml h_strfroml
-#define strfry h_strfry
-#define strftime h_strftime
-#define strlen h_strlen
-#define strncasecmp h_strncasecmp
-#define strncat h_strncat
-#define strncmp h_strncmp
-#define strncpy h_strncpy
-#define strndup h_strndup
-#define strnlen h_strnlen
-#define strpbrk h_strpbrk
-#define strptime h_strptime
-#define strrchr h_strrchr
-#define strsep h_strsep
-#define strsignal h_strsignal
-#define strspn h_strspn
-#define strstr h_strstr
-#define strtod h_strtod
-#define strtof h_strtof
-#define strtoimax h_strtoimax
-#define strtok h_strtok
-#define strtok_r h_strtok_r
-#define strtol h_strtol
-#define strtold h_strtold
-#define strtoll h_strtoll
-#define strtoq h_strtoq
-#define strtoul h_strtoul
-#define strtoull h_strtoull
-#define strtoumax h_strtoumax
-#define strtouq h_strtouq
-#define strverscmp h_strverscmp
-#define strxfrm h_strxfrm
-#define swapcontext h_swapcontext
-#define swprintf h_swprintf
-#define swscanf h_swscanf
-#define symlink h_symlink
-#define sync h_sync
-#define syscall h_syscall
-#define sysconf h_sysconf
-#define syslog h_syslog
-#define system h_system
-#define sysv_signal h_sysv_signal
-#define tan h_tan
-#define tanf h_tanf
-#define tanh h_tanh
-#define tanhf h_tanhf
-#define tanhl h_tanhl
-#define tanl h_tanl
-#define tcdrain h_tcdrain
-#define tcflow h_tcflow
-#define tcflush h_tcflush
-#define tcgetattr h_tcgetattr
-#define tcgetpgrp h_tcgetpgrp
-#define tcgetsid h_tcgetsid
-#define tcsendbreak h_tcsendbreak
-#define tcsetattr h_tcsetattr
-#define tcsetpgrp h_tcsetpgrp
-#define tdelete h_tdelete
+#ifndef stime_OVERRIDE
+  #define stime h_stime
+#endif
+#ifndef stpcpy_OVERRIDE
+  #define stpcpy h_stpcpy
+#endif
+#ifndef stpncpy_OVERRIDE
+  #define stpncpy h_stpncpy
+#endif
+#ifndef strcasecmp_OVERRIDE
+  #define strcasecmp h_strcasecmp
+#endif
+#ifndef strcasestr_OVERRIDE
+  #define strcasestr h_strcasestr
+#endif
+#ifndef strcat_OVERRIDE
+  #define strcat h_strcat
+#endif
+#ifndef strchr_OVERRIDE
+  #define strchr h_strchr
+#endif
+#ifndef strchrnul_OVERRIDE
+  #define strchrnul h_strchrnul
+#endif
+#ifndef strcmp_OVERRIDE
+  #define strcmp h_strcmp
+#endif
+#ifndef strcoll_OVERRIDE
+  #define strcoll h_strcoll
+#endif
+#ifndef strcpy_OVERRIDE
+  #define strcpy h_strcpy
+#endif
+#ifndef strcspn_OVERRIDE
+  #define strcspn h_strcspn
+#endif
+#ifndef strdup_OVERRIDE
+  #define strdup h_strdup
+#endif
+#ifndef strerror_OVERRIDE
+  #define strerror h_strerror
+#endif
+#ifndef strerror_r_OVERRIDE
+  #define strerror_r h_strerror_r
+#endif
+#ifndef strerrordesc_np_OVERRIDE
+  #define strerrordesc_np h_strerrordesc_np
+#endif
+#ifndef strerrorname_np_OVERRIDE
+  #define strerrorname_np h_strerrorname_np
+#endif
+#ifndef strfmon_OVERRIDE
+  #define strfmon h_strfmon
+#endif
+#ifndef strfromd_OVERRIDE
+  #define strfromd h_strfromd
+#endif
+#ifndef strfromf_OVERRIDE
+  #define strfromf h_strfromf
+#endif
+#ifndef strfroml_OVERRIDE
+  #define strfroml h_strfroml
+#endif
+#ifndef strfry_OVERRIDE
+  #define strfry h_strfry
+#endif
+#ifndef strftime_OVERRIDE
+  #define strftime h_strftime
+#endif
+#ifndef strlen_OVERRIDE
+  #define strlen h_strlen
+#endif
+#ifndef strncasecmp_OVERRIDE
+  #define strncasecmp h_strncasecmp
+#endif
+#ifndef strncat_OVERRIDE
+  #define strncat h_strncat
+#endif
+#ifndef strncmp_OVERRIDE
+  #define strncmp h_strncmp
+#endif
+#ifndef strncpy_OVERRIDE
+  #define strncpy h_strncpy
+#endif
+#ifndef strndup_OVERRIDE
+  #define strndup h_strndup
+#endif
+#ifndef strnlen_OVERRIDE
+  #define strnlen h_strnlen
+#endif
+#ifndef strpbrk_OVERRIDE
+  #define strpbrk h_strpbrk
+#endif
+#ifndef strptime_OVERRIDE
+  #define strptime h_strptime
+#endif
+#ifndef strrchr_OVERRIDE
+  #define strrchr h_strrchr
+#endif
+#ifndef strsep_OVERRIDE
+  #define strsep h_strsep
+#endif
+#ifndef strsignal_OVERRIDE
+  #define strsignal h_strsignal
+#endif
+#ifndef strspn_OVERRIDE
+  #define strspn h_strspn
+#endif
+#ifndef strstr_OVERRIDE
+  #define strstr h_strstr
+#endif
+#ifndef strtod_OVERRIDE
+  #define strtod h_strtod
+#endif
+#ifndef strtof_OVERRIDE
+  #define strtof h_strtof
+#endif
+#ifndef strtoimax_OVERRIDE
+  #define strtoimax h_strtoimax
+#endif
+#ifndef strtok_OVERRIDE
+  #define strtok h_strtok
+#endif
+#ifndef strtok_r_OVERRIDE
+  #define strtok_r h_strtok_r
+#endif
+#ifndef strtol_OVERRIDE
+  #define strtol h_strtol
+#endif
+#ifndef strtold_OVERRIDE
+  #define strtold h_strtold
+#endif
+#ifndef strtoll_OVERRIDE
+  #define strtoll h_strtoll
+#endif
+#ifndef strtoq_OVERRIDE
+  #define strtoq h_strtoq
+#endif
+#ifndef strtoul_OVERRIDE
+  #define strtoul h_strtoul
+#endif
+#ifndef strtoull_OVERRIDE
+  #define strtoull h_strtoull
+#endif
+#ifndef strtoumax_OVERRIDE
+  #define strtoumax h_strtoumax
+#endif
+#ifndef strtouq_OVERRIDE
+  #define strtouq h_strtouq
+#endif
+#ifndef strverscmp_OVERRIDE
+  #define strverscmp h_strverscmp
+#endif
+#ifndef strxfrm_OVERRIDE
+  #define strxfrm h_strxfrm
+#endif
+#ifndef swapcontext_OVERRIDE
+  #define swapcontext h_swapcontext
+#endif
+#ifndef swprintf_OVERRIDE
+  #define swprintf h_swprintf
+#endif
+#ifndef swscanf_OVERRIDE
+  #define swscanf h_swscanf
+#endif
+#ifndef symlink_OVERRIDE
+  #define symlink h_symlink
+#endif
+#ifndef sync_OVERRIDE
+  #define sync h_sync
+#endif
+#ifndef syscall_OVERRIDE
+  #define syscall h_syscall
+#endif
+#ifndef sysconf_OVERRIDE
+  #define sysconf h_sysconf
+#endif
+#ifndef syslog_OVERRIDE
+  #define syslog h_syslog
+#endif
+#ifndef system_OVERRIDE
+  #define system h_system
+#endif
+#ifndef sysv_signal_OVERRIDE
+  #define sysv_signal h_sysv_signal
+#endif
+#ifndef tan_OVERRIDE
+  #define tan h_tan
+#endif
+#ifndef tanf_OVERRIDE
+  #define tanf h_tanf
+#endif
+#ifndef tanh_OVERRIDE
+  #define tanh h_tanh
+#endif
+#ifndef tanhf_OVERRIDE
+  #define tanhf h_tanhf
+#endif
+#ifndef tanhl_OVERRIDE
+  #define tanhl h_tanhl
+#endif
+#ifndef tanl_OVERRIDE
+  #define tanl h_tanl
+#endif
+#ifndef tcdrain_OVERRIDE
+  #define tcdrain h_tcdrain
+#endif
+#ifndef tcflow_OVERRIDE
+  #define tcflow h_tcflow
+#endif
+#ifndef tcflush_OVERRIDE
+  #define tcflush h_tcflush
+#endif
+#ifndef tcgetattr_OVERRIDE
+  #define tcgetattr h_tcgetattr
+#endif
+#ifndef tcgetpgrp_OVERRIDE
+  #define tcgetpgrp h_tcgetpgrp
+#endif
+#ifndef tcgetsid_OVERRIDE
+  #define tcgetsid h_tcgetsid
+#endif
+#ifndef tcsendbreak_OVERRIDE
+  #define tcsendbreak h_tcsendbreak
+#endif
+#ifndef tcsetattr_OVERRIDE
+  #define tcsetattr h_tcsetattr
+#endif
+#ifndef tcsetpgrp_OVERRIDE
+  #define tcsetpgrp h_tcsetpgrp
+#endif
+#ifndef tdelete_OVERRIDE
+  #define tdelete h_tdelete
+#endif
 // #define tdestroy h_tdestroy
-#define telldir h_telldir
-#define tempnam h_tempnam
-#define textdomain h_textdomain
-#define tfind h_tfind
-#define tgamma h_tgamma
-#define tgammaf h_tgammaf
-#define tgammal h_tgammal
-#define tgkill h_tgkill
-#define time h_time
-#define timegm h_timegm
-#define timelocal h_timelocal
-#define times h_times
-#define tmpfile h_tmpfile
-#define tmpfile64 h_tmpfile64
-#define tmpnam h_tmpnam
-#define tmpnam_r h_tmpnam_r
-#define tolower h_tolower
-#define toupper h_toupper
-#define towctrans h_towctrans
-#define towlower h_towlower
-#define towupper h_towupper
-#define trunc h_trunc
-#define truncate h_truncate
-#define truncate64 h_truncate64
-#define truncf h_truncf
-#define truncl h_truncl
-#define tsearch h_tsearch
-#define ttyname h_ttyname
-#define ttyname_r h_ttyname_r
-#define twalk h_twalk
-#define twalk_r h_twalk_r
-#define tzset h_tzset
-#define ufromfp h_ufromfp
-#define ufromfpf h_ufromfpf
-#define ufromfpl h_ufromfpl
-#define ufromfpx h_ufromfpx
-#define ufromfpxf h_ufromfpxf
-#define ufromfpxl h_ufromfpxl
-#define ulimit h_ulimit
-#define umask h_umask
-#define umount h_umount
-#define umount2 h_umount2
-#define uname h_uname
-#define ungetc h_ungetc
-#define ungetwc h_ungetwc
-#define unlink h_unlink
-#define unlockpt h_unlockpt
-#define unsetenv h_unsetenv
-#define updwtmp h_updwtmp
-#define utime h_utime
-#define utimes h_utimes
-#define utmpname h_utmpname
-#define utmpxname h_utmpxname
-#define vprintf h_vprintf
-#define valloc h_valloc
-#define versionsort h_versionsort
-#define versionsort64 h_versionsort64
-#define vfork h_vfork
-#define vlimit h_vlimit
-#define wait h_wait
-#define wait3 h_wait3
-#define wait4 h_wait4
-#define waitpid h_waitpid
-#define warn h_warn
-#define warnx h_warnx
-#define wcpcpy h_wcpcpy
-#define wcpncpy h_wcpncpy
-#define wcrtomb h_wcrtomb
-#define wcscasecmp h_wcscasecmp
-#define wcscat h_wcscat
-#define wcschr h_wcschr
-#define wcschrnul h_wcschrnul
-#define wcscmp h_wcscmp
-#define wcscoll h_wcscoll
-#define wcscpy h_wcscpy
-#define wcscspn h_wcscspn
-#define wcsdup h_wcsdup
-#define wcsftime h_wcsftime
-#define wcslen h_wcslen
-#define wcsncasecmp h_wcsncasecmp
-#define wcsncat h_wcsncat
-#define wcsncmp h_wcsncmp
-#define wcsncpy h_wcsncpy
-#define wcsnlen h_wcsnlen
-#define wcsnrtombs h_wcsnrtombs
-#define wcspbrk h_wcspbrk
-#define wcsrchr h_wcsrchr
-#define wcsrtombs h_wcsrtombs
-#define wcsspn h_wcsspn
-#define wcsstr h_wcsstr
-#define wcstod h_wcstod
-#define wcstof h_wcstof
-#define wcstoimax h_wcstoimax
-#define wcstok h_wcstok
-#define wcstol h_wcstol
-#define wcstold h_wcstold
-#define wcstoll h_wcstoll
-#define wcstombs h_wcstombs
-#define wcstoq h_wcstoq
-#define wcstoul h_wcstoul
-#define wcstoull h_wcstoull
-#define wcstoumax h_wcstoumax
-#define wcstouq h_wcstouq
-#define wcswcs h_wcswcs
-#define wcsxfrm h_wcsxfrm
-#define wctob h_wctob
-#define wctomb h_wctomb
-#define wctrans h_wctrans
-#define wctype h_wctype
-#define wmemchr h_wmemchr
-#define wmemcmp h_wmemcmp
-#define wmemcpy h_wmemcpy
-#define wmemmove h_wmemmove
-#define wmempcpy h_wmempcpy
-#define wmemset h_wmemset
-#define wordexp h_wordexp
-#define wordfree h_wordfree
-#define wprintf h_wprintf
-#define write h_write
-#define writev h_writev
-#define wscanf h_wscanf
-#define y0 h_y0
-#define y0f h_y0f
-#define y0l h_y0l
-#define y1 h_y1
-#define y1f h_y1f
-#define y1l h_y1l
-#define yn h_yn
-#define ynf h_ynf
-#define ynl h_ynl
+#ifndef telldir_OVERRIDE
+  #define telldir h_telldir
+#endif
+#ifndef tempnam_OVERRIDE
+  #define tempnam h_tempnam
+#endif
+#ifndef textdomain_OVERRIDE
+  #define textdomain h_textdomain
+#endif
+#ifndef tfind_OVERRIDE
+  #define tfind h_tfind
+#endif
+#ifndef tgamma_OVERRIDE
+  #define tgamma h_tgamma
+#endif
+#ifndef tgammaf_OVERRIDE
+  #define tgammaf h_tgammaf
+#endif
+#ifndef tgammal_OVERRIDE
+  #define tgammal h_tgammal
+#endif
+#ifndef tgkill_OVERRIDE
+  #define tgkill h_tgkill
+#endif
+#ifndef time_OVERRIDE
+  #define time h_time
+#endif
+#ifndef timegm_OVERRIDE
+  #define timegm h_timegm
+#endif
+#ifndef timelocal_OVERRIDE
+  #define timelocal h_timelocal
+#endif
+#ifndef times_OVERRIDE
+  #define times h_times
+#endif
+#ifndef tmpfile_OVERRIDE
+  #define tmpfile h_tmpfile
+#endif
+#ifndef tmpfile64_OVERRIDE
+  #define tmpfile64 h_tmpfile64
+#endif
+#ifndef tmpnam_OVERRIDE
+  #define tmpnam h_tmpnam
+#endif
+#ifndef tmpnam_r_OVERRIDE
+  #define tmpnam_r h_tmpnam_r
+#endif
+#ifndef tolower_OVERRIDE
+  #define tolower h_tolower
+#endif
+#ifndef toupper_OVERRIDE
+  #define toupper h_toupper
+#endif
+#ifndef towctrans_OVERRIDE
+  #define towctrans h_towctrans
+#endif
+#ifndef towlower_OVERRIDE
+  #define towlower h_towlower
+#endif
+#ifndef towupper_OVERRIDE
+  #define towupper h_towupper
+#endif
+#ifndef trunc_OVERRIDE
+  #define trunc h_trunc
+#endif
+#ifndef truncate_OVERRIDE
+  #define truncate h_truncate
+#endif
+#ifndef truncate64_OVERRIDE
+  #define truncate64 h_truncate64
+#endif
+#ifndef truncf_OVERRIDE
+  #define truncf h_truncf
+#endif
+#ifndef truncl_OVERRIDE
+  #define truncl h_truncl
+#endif
+#ifndef tsearch_OVERRIDE
+  #define tsearch h_tsearch
+#endif
+#ifndef ttyname_OVERRIDE
+  #define ttyname h_ttyname
+#endif
+#ifndef ttyname_r_OVERRIDE
+  #define ttyname_r h_ttyname_r
+#endif
+#ifndef twalk_OVERRIDE
+  #define twalk h_twalk
+#endif
+#ifndef twalk_r_OVERRIDE
+  #define twalk_r h_twalk_r
+#endif
+#ifndef tzset_OVERRIDE
+  #define tzset h_tzset
+#endif
+#ifndef ufromfp_OVERRIDE
+  #define ufromfp h_ufromfp
+#endif
+#ifndef ufromfpf_OVERRIDE
+  #define ufromfpf h_ufromfpf
+#endif
+#ifndef ufromfpl_OVERRIDE
+  #define ufromfpl h_ufromfpl
+#endif
+#ifndef ufromfpx_OVERRIDE
+  #define ufromfpx h_ufromfpx
+#endif
+#ifndef ufromfpxf_OVERRIDE
+  #define ufromfpxf h_ufromfpxf
+#endif
+#ifndef ufromfpxl_OVERRIDE
+  #define ufromfpxl h_ufromfpxl
+#endif
+#ifndef ulimit_OVERRIDE
+  #define ulimit h_ulimit
+#endif
+#ifndef umask_OVERRIDE
+  #define umask h_umask
+#endif
+#ifndef umount_OVERRIDE
+  #define umount h_umount
+#endif
+#ifndef umount2_OVERRIDE
+  #define umount2 h_umount2
+#endif
+#ifndef uname_OVERRIDE
+  #define uname h_uname
+#endif
+#ifndef ungetc_OVERRIDE
+  #define ungetc h_ungetc
+#endif
+#ifndef ungetwc_OVERRIDE
+  #define ungetwc h_ungetwc
+#endif
+#ifndef unlink_OVERRIDE
+  #define unlink h_unlink
+#endif
+#ifndef unlockpt_OVERRIDE
+  #define unlockpt h_unlockpt
+#endif
+#ifndef unsetenv_OVERRIDE
+  #define unsetenv h_unsetenv
+#endif
+#ifndef updwtmp_OVERRIDE
+  #define updwtmp h_updwtmp
+#endif
+#ifndef utime_OVERRIDE
+  #define utime h_utime
+#endif
+#ifndef utimes_OVERRIDE
+  #define utimes h_utimes
+#endif
+#ifndef utmpname_OVERRIDE
+  #define utmpname h_utmpname
+#endif
+#ifndef utmpxname_OVERRIDE
+  #define utmpxname h_utmpxname
+#endif
+#ifndef vprintf_OVERRIDE
+  #define vprintf h_vprintf
+#endif
+#ifndef valloc_OVERRIDE
+  #define valloc h_valloc
+#endif
+#ifndef versionsort_OVERRIDE
+  #define versionsort h_versionsort
+#endif
+#ifndef versionsort64_OVERRIDE
+  #define versionsort64 h_versionsort64
+#endif
+#ifndef vfork_OVERRIDE
+  #define vfork h_vfork
+#endif
+#ifndef vlimit_OVERRIDE
+  #define vlimit h_vlimit
+#endif
+#ifndef wait_OVERRIDE
+  #define wait h_wait
+#endif
+#ifndef wait3_OVERRIDE
+  #define wait3 h_wait3
+#endif
+#ifndef wait4_OVERRIDE
+  #define wait4 h_wait4
+#endif
+
+#ifndef waitpid_OVERRIDE
+  // #define fork h_fork
+  #define waitpid h_waitpid
+#endif
+
+
+#ifndef warn_OVERRIDE
+  #define warn h_warn
+#endif
+#ifndef warnx_OVERRIDE
+  #define warnx h_warnx
+#endif
+#ifndef wcpcpy_OVERRIDE
+  #define wcpcpy h_wcpcpy
+#endif
+#ifndef wcpncpy_OVERRIDE
+  #define wcpncpy h_wcpncpy
+#endif
+#ifndef wcrtomb_OVERRIDE
+  #define wcrtomb h_wcrtomb
+#endif
+#ifndef wcscasecmp_OVERRIDE
+  #define wcscasecmp h_wcscasecmp
+#endif
+#ifndef wcscat_OVERRIDE
+  #define wcscat h_wcscat
+#endif
+#ifndef wcschr_OVERRIDE
+  #define wcschr h_wcschr
+#endif
+#ifndef wcschrnul_OVERRIDE
+  #define wcschrnul h_wcschrnul
+#endif
+#ifndef wcscmp_OVERRIDE
+  #define wcscmp h_wcscmp
+#endif
+#ifndef wcscoll_OVERRIDE
+  #define wcscoll h_wcscoll
+#endif
+#ifndef wcscpy_OVERRIDE
+  #define wcscpy h_wcscpy
+#endif
+#ifndef wcscspn_OVERRIDE
+  #define wcscspn h_wcscspn
+#endif
+#ifndef wcsdup_OVERRIDE
+  #define wcsdup h_wcsdup
+#endif
+#ifndef wcsftime_OVERRIDE
+  #define wcsftime h_wcsftime
+#endif
+#ifndef wcslen_OVERRIDE
+  #define wcslen h_wcslen
+#endif
+#ifndef wcsncasecmp_OVERRIDE
+  #define wcsncasecmp h_wcsncasecmp
+#endif
+#ifndef wcsncat_OVERRIDE
+  #define wcsncat h_wcsncat
+#endif
+#ifndef wcsncmp_OVERRIDE
+  #define wcsncmp h_wcsncmp
+#endif
+#ifndef wcsncpy_OVERRIDE
+  #define wcsncpy h_wcsncpy
+#endif
+#ifndef wcsnlen_OVERRIDE
+  #define wcsnlen h_wcsnlen
+#endif
+#ifndef wcsnrtombs_OVERRIDE
+  #define wcsnrtombs h_wcsnrtombs
+#endif
+#ifndef wcspbrk_OVERRIDE
+  #define wcspbrk h_wcspbrk
+#endif
+#ifndef wcsrchr_OVERRIDE
+  #define wcsrchr h_wcsrchr
+#endif
+#ifndef wcsrtombs_OVERRIDE
+  #define wcsrtombs h_wcsrtombs
+#endif
+#ifndef wcsspn_OVERRIDE
+  #define wcsspn h_wcsspn
+#endif
+#ifndef wcsstr_OVERRIDE
+  #define wcsstr h_wcsstr
+#endif
+#ifndef wcstod_OVERRIDE
+  #define wcstod h_wcstod
+#endif
+#ifndef wcstof_OVERRIDE
+  #define wcstof h_wcstof
+#endif
+#ifndef wcstoimax_OVERRIDE
+  #define wcstoimax h_wcstoimax
+#endif
+#ifndef wcstok_OVERRIDE
+  #define wcstok h_wcstok
+#endif
+#ifndef wcstol_OVERRIDE
+  #define wcstol h_wcstol
+#endif
+#ifndef wcstold_OVERRIDE
+  #define wcstold h_wcstold
+#endif
+#ifndef wcstoll_OVERRIDE
+  #define wcstoll h_wcstoll
+#endif
+#ifndef wcstombs_OVERRIDE
+  #define wcstombs h_wcstombs
+#endif
+#ifndef wcstoq_OVERRIDE
+  #define wcstoq h_wcstoq
+#endif
+#ifndef wcstoul_OVERRIDE
+  #define wcstoul h_wcstoul
+#endif
+#ifndef wcstoull_OVERRIDE
+  #define wcstoull h_wcstoull
+#endif
+#ifndef wcstoumax_OVERRIDE
+  #define wcstoumax h_wcstoumax
+#endif
+#ifndef wcstouq_OVERRIDE
+  #define wcstouq h_wcstouq
+#endif
+#ifndef wcswcs_OVERRIDE
+  #define wcswcs h_wcswcs
+#endif
+#ifndef wcsxfrm_OVERRIDE
+  #define wcsxfrm h_wcsxfrm
+#endif
+#ifndef wctob_OVERRIDE
+  #define wctob h_wctob
+#endif
+#ifndef wctomb_OVERRIDE
+  #define wctomb h_wctomb
+#endif
+#ifndef wctrans_OVERRIDE
+  #define wctrans h_wctrans
+#endif
+#ifndef wctype_OVERRIDE
+  #define wctype h_wctype
+#endif
+#ifndef wmemchr_OVERRIDE
+  #define wmemchr h_wmemchr
+#endif
+#ifndef wmemcmp_OVERRIDE
+  #define wmemcmp h_wmemcmp
+#endif
+#ifndef wmemcpy_OVERRIDE
+  #define wmemcpy h_wmemcpy
+#endif
+#ifndef wmemmove_OVERRIDE
+  #define wmemmove h_wmemmove
+#endif
+#ifndef wmempcpy_OVERRIDE
+  #define wmempcpy h_wmempcpy
+#endif
+#ifndef wmemset_OVERRIDE
+  #define wmemset h_wmemset
+#endif
+#ifndef wordexp_OVERRIDE
+  #define wordexp h_wordexp
+#endif
+#ifndef wordfree_OVERRIDE
+  #define wordfree h_wordfree
+#endif
+#ifndef wprintf_OVERRIDE
+  #define wprintf h_wprintf
+#endif
+#ifndef write_OVERRIDE
+  #define write h_write
+#endif
+#ifndef writev_OVERRIDE
+  #define writev h_writev
+#endif
+#ifndef wscanf_OVERRIDE
+  #define wscanf h_wscanf
+#endif
+#ifndef y0_OVERRIDE
+  #define y0 h_y0
+#endif
+#ifndef y0f_OVERRIDE
+  #define y0f h_y0f
+#endif
+#ifndef y0l_OVERRIDE
+  #define y0l h_y0l
+#endif
+#ifndef y1_OVERRIDE
+  #define y1 h_y1
+#endif
+#ifndef y1f_OVERRIDE
+  #define y1f h_y1f
+#endif
+#ifndef y1l_OVERRIDE
+  #define y1l h_y1l
+#endif
+#ifndef yn_OVERRIDE
+  #define yn h_yn
+#endif
+#ifndef ynf_OVERRIDE
+  #define ynf h_ynf
+#endif
+#ifndef ynl_OVERRIDE
+  #define ynl h_ynl
+#endif
 
 
 /* Type representing floating-point control modes.  */

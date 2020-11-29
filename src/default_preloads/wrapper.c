@@ -3316,7 +3316,7 @@ FILE * h_fopencookie (void *cookie, const char *opentype, cookie_io_functions_t 
 
 
 
-pid_t h_fork (){
+pid_t h_fork (void){
     pid_t  (*original_func)();
     original_func = dlsym(RTLD_NEXT, "fork");
     return original_func();
