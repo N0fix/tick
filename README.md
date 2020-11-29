@@ -4,17 +4,8 @@ Beta currently working.
 
 TODO : 
 * Print formated arguments for functions
-* finish README
-* Fix the 
-```C
-#ifndef waitpid_OVERRIDE
-  // #define fork h_fork
-  #define waitpid h_waitpid
-#endif
-```
-thing in wrapper.h file
 * Proper printf handling with pid print etc
-* Note down which functions are not being logged
+* Note down which functions are not being logged (due to compatibility and linkage issues)
 
 ### Inner workings
 
@@ -27,3 +18,7 @@ make && env LD_PRELOAD=./libcu.so ./test_binary/break
 ```
 
 Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's `TARGET` variable.
+
+### Adding custom functions
+
+You can add custom preloaded functions in `custom_preloads.c`. If you do so, be sure to add `#define {func_name}_OVERRIDE` in `custom_preload.h`, indicating that you are creating a custom preload for this function.
