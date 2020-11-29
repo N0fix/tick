@@ -25,3 +25,5 @@ thing in wrapper.h file
 ```bash
 make && env LD_PRELOAD=./libcu.so ./test_binary/break
 ```
+
+Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's `TARGET` variable.
