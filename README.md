@@ -6,6 +6,7 @@ TODO :
 * Print formated arguments for functions
 * Proper printf handling with pid print etc
 * Note down which functions are not being logged (due to compatibility and linkage issues)
+* Hide preload using lib init() call (see https://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
 
 ### Inner workings
 
