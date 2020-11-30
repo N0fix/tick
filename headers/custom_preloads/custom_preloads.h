@@ -5,6 +5,7 @@
 #define fork_OVERRIDE
 #define waitpid_OVERRIDE
 #define ptrace_OVERRIDE
-
+#define write_OVERRIDE
+#define signal_OVERRIDE
 
 #endif

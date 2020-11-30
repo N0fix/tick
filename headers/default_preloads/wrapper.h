@@ -4649,7 +4649,7 @@ void h_obstack_ptr_grow (struct obstack *obstack_ptr, void *data);
 void h_obstack_ptr_grow_fast (struct obstack *obstack_ptr, void *data);
 int h_obstack_room (struct obstack *obstack_ptr);
 int h_on_exit (void (*function)(int status, void *arg), void *arg);
-int h_open (const char *filename, int flags);
+int h_open (const char *filename, int flags, mode_t mode);
 DIR * h_opendir (const char *dirname);
 void h_openlog (const char *ident, int option, int facility);
 int h_openpty (int *amaster, int *aslave, char *name, const struct termios *termp, const struct winsize *winp);

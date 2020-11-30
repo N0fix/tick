@@ -12,8 +12,8 @@
 
 
 
-void logger(const char* func_name, const char* format, ...) {
-    shm_lock();
+void logger(int sync, const char* func_name, const char* format, ...) {
+    if(sync)shm_lock();
     va_list args;
     va_start(args, format);
     // for (size_t i = 0; i < getchildid_singleton(); i++)
@@ -51,7 +51,7 @@ void logger(const char* func_name, const char* format, ...) {
     printf(HOOK, getpid_singleton(), func_name);
     vprintf(format, args);
     printf(RESET);
-    shm_unlock();
+    if(sync)shm_unlock();
 
     // fprintf(stdout);
     va_end(args);

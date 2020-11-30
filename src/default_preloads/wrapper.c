@@ -6704,10 +6704,10 @@ int h_on_exit (void (*function)(int status, void *arg), void *arg){
 
 
 
-int h_open (const char *filename, int flags){
-    int  (*original_func)(const char *filename, int flags);
+int h_open (const char *filename, int flags, mode_t mode){
+    int  (*original_func)(const char *filename, int flags, mode_t mode);
     original_func = dlsym(RTLD_NEXT, "open");
-    return original_func(filename,flags);
+    return original_func(filename,flags, mode);
 }
 
 
@@ -8652,8 +8652,8 @@ unsigned int h_sleep (unsigned int seconds){
 int h_snprintf (char *s, size_t size, const char *template, ...){
     va_list ap;
     va_start(ap, template);
-    int  (*original_func)(char *s, size_t size, const char *template, ...);
-    original_func = dlsym(RTLD_NEXT, "snprintf");
+    int  (*original_func)(char *s, size_t size, const char *template, va_list ap);
+    original_func = dlsym(RTLD_NEXT, "vsnprintf");
     int  ret_val = original_func(s,size,template,ap);
     va_end(ap);
     return ret_val;
@@ -8680,8 +8680,8 @@ int h_socketpair (int namespace, int style, int protocol, int filedes[2]){
 int h_sprintf (char *s, const char *template, ...){
     va_list ap;
     va_start(ap, template);
-    int  (*original_func)(char *s, const char *template, ...);
-    original_func = dlsym(RTLD_NEXT, "sprintf");
+    int  (*original_func)(char *s, const char *template, va_list ap);
+    original_func = dlsym(RTLD_NEXT, "vsprintf");
     int  ret_val = original_func(s,template,ap);
     va_end(ap);
     return ret_val;

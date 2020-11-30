@@ -1,9 +1,9 @@
 #define _GNU_SOURCE
 #include <unistd.h>
-pid_t fork(void);
 #include "default_preloads/wrapper.h" //mandatory
 #include "pid_handling.h"
 #include "logger.h"
+#include "utils.h"
 #include <dlfcn.h>
 #include <sys/ptrace.h>
 #include <stdarg.h>
@@ -11,7 +11,7 @@ pid_t fork(void);
 #include <sys/types.h>
 #include <unistd.h>
 #define preload_log(FORMAT, ...) \
-    do { logger(__func__, FORMAT, __VA_ARGS__); } while(0)
+    do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
 pid_t fork(void){
     int (*o_fork)(void);
@@ -23,16 +23,16 @@ pid_t fork(void){
         shm_add_pid(getpid());
         self_pid = getpid(); // gets the new pid for logging 
         self_childid++;
-        logger(__func__, "[child pid %d]", self_pid);
+        logger(SYNC, __func__, "[child pid %d]", self_pid);
         return ret_pid;
     }
-    logger(__func__, "%d", ret_pid);
+    logger(SYNC, __func__, "%d", ret_pid);
     return ret_pid;
 }
 
 
 pid_t waitpid(pid_t pid, int *wstatus, int options){
-    logger(__func__, "%s", "");
+    logger(SYNC, __func__, "%s", "");
     pid_t (*original_waitpid)(pid_t pid, int *wstatus, int options);
     original_waitpid = dlsym(RTLD_NEXT, "waitpid");
     pid_t p = original_waitpid(pid, wstatus, options);
@@ -115,7 +115,7 @@ long ptrace(enum __ptrace_request request, ...){
         preload_log("ptrace(PTRACE_SYS_EMU, %d)", pid);
     } 
     else if(request == PTRACE_CONT){
-        preload_log("ptrace(PTRACE_CONT, %d) | [Delivered signal %s]: %s", pid, getsig(data));
+        preload_log("ptrace(PTRACE_CONT, %d) | [Delivered signal %s]: %s", pid, strsignal(data));
     } 
     else if (request == PTRACE_GETREGS){
         #ifdef __x86_64__
@@ -169,3 +169,23 @@ long ptrace(enum __ptrace_request request, ...){
     
     return original_ptrace(request, pid, addr, data);
 }
+
+ssize_t write (int filedes, const void *buffer, size_t size){
+    ssize_t  (*original_func)(int filedes, const void *buffer, size_t size);
+    original_func = dlsym(RTLD_NEXT, "write");
+    char* hexbuf = hexstr(buffer, size);
+    char* filename = dump_data(buffer, size);
+    preload_log("write(%d, [hex formated] %.2000s..., %ld). \nContent saved to file %s.", filedes, hexbuf, size, filename);
+    free(filename);
+    free(hexbuf);
+    return original_func(filedes,buffer,size);
+}
+
+sighandler_t signal (int signum, sighandler_t action){
+    sighandler_t  (*original_func)(int signum, sighandler_t action);
+    original_func = dlsym(RTLD_NEXT, "signal");
+    sighandler_t ret = original_func(signum,action);
+    logger(UNSYNC, __func__, "signal(%s, %p)", strsignal(signum), action);
+    return ret;
+}
+

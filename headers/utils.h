@@ -14,6 +14,7 @@
 // } array;
 
 
-
+char* hexstr(char* buf, int buf_len);
+char* dump_data(void* data, size_t size);
 
 #endif

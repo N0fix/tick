@@ -54,12 +54,12 @@
 
 
 #include "logger.h"
+#include "utils.h"
 #include "custom_preloads/custom_preloads.h"
 #define HOOK "[% 5lu] [%s] "
 #define RESET "\e[m\n"
 #define preload_log(FORMAT, ...) \
-    do { logger(__func__, FORMAT, __VA_ARGS__); } while(0)
-
+    do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
 
 
@@ -4530,7 +4530,7 @@ long int fpathconf (int filedes, int parameter){
     return original_func(filedes,parameter);
 }
 
-#endif
+#endif 
 
 #ifndef fprintf_OVERRIDE
 #define fprintf_OVERRIDE
@@ -7483,7 +7483,7 @@ long int llogb (double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef llogbf_OVERRIDE
 #define llogbf_OVERRIDE
 
@@ -9724,7 +9724,9 @@ int putpwent (const struct passwd *p, FILE *stream){
 #define puts_OVERRIDE
 
 int puts(const char *s){
-    preload_log("%s", s);
+    preload_log("puts(\"%s\")", s);
+    // dump_stack(20);
+
     return 1;
 }
 
@@ -10518,7 +10520,7 @@ int scanf (const char *template, ...){
     va_list ap;
     va_start(ap, template);
     int  (*original_func)(const char *template, ...);
-    original_func = dlsym(RTLD_NEXT, "scanf");
+    original_func = dlsym(RTLD_NEXT, "vscanf");
     preload_log("%s", "");
     int  ret_val = original_func(template,ap);
     va_end(ap);
@@ -10526,6 +10528,23 @@ int scanf (const char *template, ...){
 }
 
 #endif
+#ifndef __isoc99_scanf_OVERRIDE
+#define __isoc99_scanf_OVERRIDE
+
+int __isoc99_scanf (const char *template, ...){
+    va_list ap;
+    va_start(ap, template);
+    int  (*original_func)(const char *template, ...);
+    original_func = dlsym(RTLD_NEXT, "vscanf");
+    preload_log("%s", "");
+    int  ret_val = original_func(template,ap);
+    va_end(ap);
+    return ret_val;
+}
+
+#endif
+
+
 #ifndef sched_getaffinity_OVERRIDE
 #define sched_getaffinity_OVERRIDE
 
@@ -10738,7 +10757,7 @@ int semtimedop (int semid, struct sembuf *sops, size_t nsops, const struct times
     return original_func(semid,sops,nsops,timeout);
 }
 
-#endif
+#endif 
 #ifndef sem_clockwait_OVERRIDE
 #define sem_clockwait_OVERRIDE
 
@@ -11509,7 +11528,7 @@ int sigdelset (sigset_t *set, int signum){
     return original_func(set,signum);
 }
 
-#endif
+#endif 
 #ifndef sigdescr_np_OVERRIDE
 #define sigdescr_np_OVERRIDE
 
@@ -11542,7 +11561,7 @@ int sigfillset (sigset_t *set){
     return original_func(set);
 }
 
-#endif
+#endif 
 #ifndef siginterrupt_OVERRIDE
 #define siginterrupt_OVERRIDE
 
@@ -11553,7 +11572,7 @@ int siginterrupt (int signum, int failflag){
     return original_func(signum,failflag);
 }
 
-#endif
+#endif  
 #ifndef sigismember_OVERRIDE
 #define sigismember_OVERRIDE
 
@@ -11575,18 +11594,21 @@ void siglongjmp (sigjmp_buf state, int value){
     original_func(state,value);
 }
 
-#endif
+#endif  
 #ifndef signal_OVERRIDE
 #define signal_OVERRIDE
 
 sighandler_t signal (int signum, sighandler_t action){
+    // preload_log("%s", "qwe");
     sighandler_t  (*original_func)(int signum, sighandler_t action);
     original_func = dlsym(RTLD_NEXT, "signal");
-    preload_log("%s", "");
+
+    // logger(__func__, "%d", 1);
+    // printf("wwwww\n");
     return original_func(signum,action);
 }
 
-#endif
+#endif  
 #ifndef significand_OVERRIDE
 #define significand_OVERRIDE
 
@@ -11663,7 +11685,7 @@ int sigsetjmp (sigjmp_buf state, int savesigs){
     return original_func(state,savesigs);
 }
 
-#endif
+#endif 
 #ifndef sigsetmask_OVERRIDE
 #define sigsetmask_OVERRIDE
 
@@ -11674,7 +11696,7 @@ int sigsetmask (int mask){
     return original_func(mask);
 }
 
-#endif
+#endif 
 #ifndef sigstack_OVERRIDE
 #define sigstack_OVERRIDE
 
@@ -11707,7 +11729,7 @@ double sin (double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef sincos_OVERRIDE
 #define sincos_OVERRIDE
 
@@ -11795,7 +11817,7 @@ long double sinl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef sleep_OVERRIDE
 #define sleep_OVERRIDE
 
@@ -11806,7 +11828,7 @@ unsigned int sleep (unsigned int seconds){
     return original_func(seconds);
 }
 
-#endif
+#endif 
 #ifndef snprintf_OVERRIDE
 #define snprintf_OVERRIDE
 
@@ -11814,7 +11836,7 @@ int snprintf (char *s, size_t size, const char *template, ...){
     va_list ap;
     va_start(ap, template);
     int  (*original_func)(char *s, size_t size, const char *template, ...);
-    original_func = dlsym(RTLD_NEXT, "snprintf");
+    original_func = dlsym(RTLD_NEXT, "vsnprintf");
     preload_log("%s", "");
     int  ret_val = original_func(s,size,template,ap);
     va_end(ap);
@@ -11843,7 +11865,7 @@ int socketpair (int namespace, int style, int protocol, int filedes[2]){
     return original_func(namespace,style,protocol,filedes);
 }
 
-#endif
+#endif 
 #ifndef sprintf_OVERRIDE
 #define sprintf_OVERRIDE
 
@@ -11880,7 +11902,7 @@ float sqrtf (float x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef sqrtl_OVERRIDE
 #define sqrtl_OVERRIDE
 
@@ -11946,7 +11968,7 @@ int srandom_r (unsigned int seed, struct random_data *buf){
     return original_func(seed,buf);
 }
 
-#endif
+#endif 
 #ifndef sscanf_OVERRIDE
 #define sscanf_OVERRIDE
 
@@ -11961,7 +11983,7 @@ int sscanf (const char *s, const char *template, ...){
     return ret_val;
 }
 
-#endif
+#endif 
 #ifndef ssignal_OVERRIDE
 #define ssignal_OVERRIDE
 
@@ -12753,7 +12775,7 @@ long double tanhl (long double x){
     return original_func(x);
 }
 
-#endif
+#endif 
 #ifndef tanl_OVERRIDE
 #define tanl_OVERRIDE
 
@@ -14404,7 +14426,9 @@ int wprintf (const wchar_t *template, ...){
 ssize_t write (int filedes, const void *buffer, size_t size){
     ssize_t  (*original_func)(int filedes, const void *buffer, size_t size);
     original_func = dlsym(RTLD_NEXT, "write");
-    preload_log("%s", "");
+    char* hexbuf = hexstr(buffer, size);
+    preload_log("write(%d, %s, %ld)", filedes, hexbuf, size);
+    free(hexbuf);
     return original_func(filedes,buffer,size);
 }
 

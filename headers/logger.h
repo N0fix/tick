@@ -1,5 +1,7 @@
 #ifndef _LOGGER_H
 #define _LOGGER_H
+#define preload_log(FORMAT, ...) \
+    do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
 #ifndef _COLORS_
 #define _COLORS_
@@ -42,7 +44,13 @@ enum colors{
 #else
     #define RESET "\n"
 #endif
-void logger(const char* func_name, const char* format, ...);
+
+enum log_print{
+    UNSYNC,
+    SYNC
+};
+
+void logger(int sync, const char* func_name, const char* format, ...);
 
 
 #endif
