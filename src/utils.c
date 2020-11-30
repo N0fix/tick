@@ -3,10 +3,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <dlfcn.h>
+#include <linux/limits.h>
 #include "utils.h"
 #include "logger.h"
 #include "default_preloads/wrapper.h"
 #include "pid_handling.h"
+#define PROC_MAPS_MAX_LINE_LEN PATH_MAX + 80
 
 int dmp_nb = 0;
 
@@ -60,4 +62,31 @@ uint64_t* dump_stack(int nb){
     // val = *(rsp + (0x70/8));
     // preload_log("rsp + 0x%lX : 0x%016lX", (0x70/8)*8, *val);
     return rsp;
+}
+
+char* handle_procmaps_line(char* line){
+    char* tok = strtok(line, " ");
+    char* from = strtoll(strtok(tok, "-"), NULL, 16);
+    char* to = strtoll(strtok(NULL, "-"), NULL, 16);
+    return dump_data(from, to-from);
+    // preload_log("Dumped from %lX to %lX", from, to);
+}
+
+void dump_process(pid_t pid){
+    char* dumped_filename;
+    char filename[4096];
+    char line[PROC_MAPS_MAX_LINE_LEN]; // max path + lenght of a line from /proc/<pid>/maps
+    FILE* fd;
+    if(snprintf(filename, 4096, "/proc/%d/maps", pid) == -1){
+        preload_log("snprintf /proc/%d/maps failed", pid);
+    } 
+    if((fd = fopen(filename, "r")) == NULL){
+        preload_log("Could not open /proc/%d/maps", pid);
+    }
+    while(fgets(line, PROC_MAPS_MAX_LINE_LEN, fd)) {
+        if(strstr(line, "[heap]")) break;
+        dumped_filename = handle_procmaps_line(line);
+        preload_log("Dumped proc %d to %s", pid, dumped_filename);
+    }
+    fclose(fd);
 }

@@ -13,6 +13,14 @@
 #define preload_log(FORMAT, ...) \
     do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
+
+int puts(const char *s){
+    preload_log("puts(\"%s\")", s);
+    // dump_process(getpid_singleton());
+    return 1;
+}
+
+
 pid_t fork(void){
     int (*o_fork)(void);
     o_fork = dlsym(RTLD_NEXT, "fork");
@@ -162,6 +170,8 @@ long ptrace(enum __ptrace_request request, ...){
         
     } else if (request == PTRACE_SINGLESTEP){
         preload_log("ptrace(PTRACE_SINGLESTEP, %d)", pid);
+    } else if (request == PTRACE_DETACH){
+        preload_log("ptrace(PTRACE_DETACH, %d)", pid);
     }
     else{
         preload_log("ptrace | %d is not implemented by the tool.", request);

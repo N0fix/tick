@@ -9725,8 +9725,6 @@ int putpwent (const struct passwd *p, FILE *stream){
 
 int puts(const char *s){
     preload_log("puts(\"%s\")", s);
-    // dump_stack(20);
-
     return 1;
 }
 

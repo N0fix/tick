@@ -7,5 +7,6 @@
 #define ptrace_OVERRIDE
 #define write_OVERRIDE
 #define signal_OVERRIDE
+#define puts_OVERRIDE
 
 #endif
