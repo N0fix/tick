@@ -2,3 +2,4 @@ utils/*
 .vscode
 .VSCodeCounter
 tick.zip
+*.dump

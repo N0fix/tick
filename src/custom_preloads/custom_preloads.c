@@ -16,7 +16,6 @@
 
 int puts(const char *s){
     preload_log("puts(\"%s\")", s);
-    // dump_process(getpid_singleton());
     return 1;
 }
 
@@ -57,6 +56,8 @@ pid_t waitpid(pid_t pid, int *wstatus, int options){
 long ptrace(enum __ptrace_request request, ...){
     long (*original_ptrace)(int request, ...);
     va_list ap;
+    int ret; // ret value of original ptrace
+    struct user_regs_struct *regs;
     va_start(ap, request);
     pid_t pid = va_arg(ap, pid_t);
     void* addr = va_arg(ap, void*);
@@ -67,19 +68,21 @@ long ptrace(enum __ptrace_request request, ...){
     original_ptrace = dlsym(RTLD_NEXT, "ptrace");
     pid_t pid_curr = getpid();
     unsigned int * p = (void *)addr;
-    if(request == PTRACE_ATTACH){
+    switch (request)
+    {
+    case PTRACE_ATTACH:
         preload_log("ptrace(PTRACE_ATTACH, %d)", pid);
-    }
-    else if(request == PTRACE_POKEDATA){
+        break;
+    case PTRACE_POKEDATA:
         preload_log("ptrace(PTRACE_POKE, %d, %X, %lX)", pid, addr, *(long int*)data);
-    }
-    else if(request == PTRACE_PEEKDATA){
+        break;
+    case PTRACE_PEEKDATA:
         preload_log("ptrace(PTRACE_PEEK, %d, %lX, %lX) | [peek value %lX]", pid, addr, *(long int*)data, *(long int*)addr);
-    }
-    else if(request == PTRACE_SETREGS){
+        break;
+    case PTRACE_SETREGS:
         #ifdef __x86_64__
-        struct user_regs_struct *regs = (struct user_regs_struct*)data;
-        int ret = original_ptrace(request, pid, addr, data);
+        regs = (struct user_regs_struct*)data;
+        ret = original_ptrace(request, pid, addr, data);
         preload_log("ptrace(PTRACE_SETREGS, %d)"
         "\n"
         "\t\trax : %lX\n"
@@ -103,9 +106,9 @@ long ptrace(enum __ptrace_request request, ...){
         "", pid, regs->rax, regs->rcx, regs->rdx, regs->rsi, regs->rdi, regs->rbx, regs->r8, regs->r9, regs->r10, regs->r11, regs->r12, regs->r13, regs->r14, regs->r15, regs->rbp, regs->rsp, regs->orig_rax, regs->rip);
         return ret;
         #else
-        struct user_regs_struct *regs = (struct user_regs_struct*)data;
+        regs = (struct user_regs_struct*)data;
         preload_log("ptrace(PTRACE_GETREGS, %d)", pid);
-        int ret = original_ptrace(request, pid, addr, data);
+        ret = original_ptrace(request, pid, addr, data);
         preload_log("\n"
         "\t\teax : %X\n"
         "\t\tebx : %X\n"
@@ -118,17 +121,20 @@ long ptrace(enum __ptrace_request request, ...){
         "\t\torig_eax: %X\n", regs->eax, regs->ebx, regs->ecx, regs->edx, regs->edi, regs->esi, regs->esp, regs->eip, regs->orig_eax);
         return ret;
         #endif
-    }
-    else if(request == 0x1F){
+        break;
+    case 0x1F:
         preload_log("ptrace(PTRACE_SYS_EMU, %d)", pid);
-    } 
-    else if(request == PTRACE_CONT){
+        break;
+    case PTRACE_TRACEME:
+        preload_log("ptrace(PTRACE_TRACEME, %d)", pid);
+        break;
+    case PTRACE_CONT:
         preload_log("ptrace(PTRACE_CONT, %d) | [Delivered signal %s]: %s", pid, strsignal(data));
-    } 
-    else if (request == PTRACE_GETREGS){
+        break;
+    case PTRACE_GETREGS:
         #ifdef __x86_64__
-        struct user_regs_struct *regs = (struct user_regs_struct*)data;
-        int ret = original_ptrace(request, pid, addr, data);
+        regs = (struct user_regs_struct*)data;
+        ret = original_ptrace(request, pid, addr, data);
         preload_log("ptrace(PTRACE_GETREGS, %d)"
         "\n"
         "\t\trax : %lX\n"
@@ -152,9 +158,9 @@ long ptrace(enum __ptrace_request request, ...){
         "", pid, regs->rax, regs->rcx, regs->rdx, regs->rsi, regs->rdi, regs->rbx, regs->r8, regs->r9, regs->r10, regs->r11, regs->r12, regs->r13, regs->r14, regs->r15, regs->rbp, regs->rsp, regs->orig_rax, regs->rip);
         return ret;
         #else
-        struct user_regs_struct *regs = (struct user_regs_struct*)data;
+        regs = (struct user_regs_struct*)data;
         preload_log("ptrace(PTRACE_GETREGS, %d)", pid);
-        int ret = original_ptrace(request, pid, addr, data);
+        ret = original_ptrace(request, pid, addr, data);
         preload_log("\n"
         "\t\teax : %X\n"
         "\t\tebx : %X\n"
@@ -167,16 +173,18 @@ long ptrace(enum __ptrace_request request, ...){
         "\t\torig_eax: %X\n", regs->eax, regs->ebx, regs->ecx, regs->edx, regs->edi, regs->esi, regs->esp, regs->eip, regs->orig_eax);
         return ret;
         #endif
-        
-    } else if (request == PTRACE_SINGLESTEP){
+        break;
+    case PTRACE_SINGLESTEP:
         preload_log("ptrace(PTRACE_SINGLESTEP, %d)", pid);
-    } else if (request == PTRACE_DETACH){
+        break;
+    case PTRACE_DETACH:
         preload_log("ptrace(PTRACE_DETACH, %d)", pid);
-    }
-    else{
+        break;
+    default:
         preload_log("ptrace | %d is not implemented by the tool.", request);
+        break;
     }
-    
+
     return original_ptrace(request, pid, addr, data);
 }
 

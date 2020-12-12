@@ -1,28 +1,28 @@
 
 #define _GNU_SOURCE
 #include <dlfcn.h>
-#include <stdio.h>
+// #include <stdio.h>
 #include <inttypes.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <math.h>
-#include <errno.h>
-#include <stddef.h>
+// #include <sys/types.h>
+// #include <unistd.h>
+// #include <math.h>
+// #include <errno.h>
+// #include <stddef.h>
 #include <wchar.h>
 #include <wctype.h>
 #include <complex.h> 
-#include <stdlib.h>
+// #include <stdlib.h>
 #include <nl_types.h>
 #include <termio.h>
-#include <sys/types.h>
+// #include <sys/types.h>
 #include <dirent.h>
 #include <ftw.h>
-#include <ucontext.h>
+// #include <ucontext.h>
 #include <setjmp.h>
 #include <regex.h>
 #include <sched.h>
 #include <semaphore.h>
-#include <signal.h>
+// #include <signal.h>
 #include <search.h>
 #include <wordexp.h>
 #include <fenv.h>
@@ -30,28 +30,28 @@
 #include <iconv.h>
 #include <mcheck.h>
 #include <malloc.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+// #include <sys/socket.h>
+// #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <net/if.h>
-#include <sys/utsname.h>
-#include <sys/time.h>
-#include <sys/times.h>
+// #include <net/if.h>
+// #include <sys/utsname.h>
+// #include <sys/time.h>
+// #include <sys/times.h>
 #include <sys/wait.h>
-#include <utime.h>
-#include <sys/types.h>
-#include <aio.h>
-#include <sys/resource.h>
-#include <mntent.h>
-#include <sys/resource.h>
-#include <sys/timex.h>
+// #include <utime.h>
+// #include <sys/types.h>
+// #include <aio.h>
+// #include <sys/resource.h>
+// #include <mntent.h>
+// #include <sys/resource.h>
+// #include <sys/timex.h>
 #include <argp.h>
-#include <crypt.h>
-#include <utmpx.h>
-#include <sys/ipc.h>
-#include <sys/sem.h>
+// #include <crypt.h>
+// #include <utmpx.h>
+// #include <sys/ipc.h>
+// #include <sys/sem.h>
 #include <stdarg.h>
-
+#include <linux/memfd.h>
 
 #include "logger.h"
 #include "utils.h"
@@ -2094,8 +2094,9 @@ complex long double clogl (complex long double z){
 
 int close (int filedes){
     int  (*original_func)(int filedes);
+    int ret;
     original_func = dlsym(RTLD_NEXT, "close");
-    preload_log("%s", "");
+    preload_log("close(%d)", filedes);
     return original_func(filedes);
 }
 
@@ -7930,7 +7931,12 @@ void * lsearch (const void *key, void *base, size_t *nmemb, size_t size, int(*co
 off_t lseek (int filedes, off_t offset, int whence){
     off_t  (*original_func)(int filedes, off_t offset, int whence);
     original_func = dlsym(RTLD_NEXT, "lseek");
-    preload_log("%s", "");
+    preload_log("lseek(%d, %d,%s%s%s%s%s)", filedes, offset, 
+        (whence == SEEK_SET) ? " SEEK_SET" :"", 
+        (whence ==  SEEK_CUR) ? " SEEK_CUR":"",
+        (whence ==  SEEK_END) ? " SEEK_END":"",
+        (whence == SEEK_DATA) ? " SEEK_DATA":"",
+        (whence == SEEK_HOLE) ? " SEEK_HOLE":"");
     return original_func(filedes,offset,whence);
 }
 
@@ -8202,8 +8208,13 @@ void * memcpy (void *restrict to, const void *restrict from, size_t size){
 int memfd_create (const char *name, unsigned int flags){
     int  (*original_func)(const char *name, unsigned int flags);
     original_func = dlsym(RTLD_NEXT, "memfd_create");
-    preload_log("%s", "");
-    return original_func(name,flags);
+    int ret = original_func(name,flags);
+    preload_log("memfd_create(\"%s\",%s%s%s%s) : %d", name, (flags & MFD_CLOEXEC) != 0 ? " MFD_CLOEXEC" : "", 
+    (flags & MFD_ALLOW_SEALING) != 0 ? " MFD_ALLOW_SEALING " : "",
+    (flags & MFD_HUGETLB) != 0 ? " MFD_HUGETLB " : "",
+    (flags & MFD_HUGE_2MB) != 0 ? " MFD_HUGE_2MB " : "",
+    ret);
+    return ret;
 }
 
 #endif
@@ -9145,8 +9156,9 @@ int on_exit (void (*function)(int status, void *arg), void *arg){
 int open (const char *filename, int flags){
     int  (*original_func)(const char *filename, int flags);
     original_func = dlsym(RTLD_NEXT, "open");
-    preload_log("%s", "");
-    return original_func(filename,flags);
+    int ret = original_func(filename,flags);
+    preload_log("open(\"%s\") : %d", filename, ret);
+    return ret;
 }
 
 #endif
@@ -10011,7 +10023,7 @@ void * rawmemchr (const void *block, int c){
 ssize_t read (int filedes, void *buffer, size_t size){
     ssize_t  (*original_func)(int filedes, void *buffer, size_t size);
     original_func = dlsym(RTLD_NEXT, "read");
-    preload_log("%s", "");
+    preload_log("read(%d, buff, %d)", filedes, size);
     return original_func(filedes,buffer,size);
 }
 
@@ -10522,6 +10534,7 @@ int scanf (const char *template, ...){
     preload_log("%s", "");
     int  ret_val = original_func(template,ap);
     va_end(ap);
+    
     return ret_val;
 }
 
@@ -10537,6 +10550,7 @@ int __isoc99_scanf (const char *template, ...){
     preload_log("%s", "");
     int  ret_val = original_func(template,ap);
     va_end(ap);
+    // dump_stack(30); 
     return ret_val;
 }
 
@@ -12311,7 +12325,7 @@ char * strncat (char *restrict to, const char *restrict from, size_t size){
 int strncmp (const char *s1, const char *s2, size_t size){
     int  (*original_func)(const char *s1, const char *s2, size_t size);
     original_func = dlsym(RTLD_NEXT, "strncmp");
-    preload_log("%s", "");
+    preload_log("strncmp(%s, %s, %d)", s1, s2, size);
     return original_func(s1,s2,size);
 }
 

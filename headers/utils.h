@@ -17,5 +17,5 @@
 char* hexstr(char* buf, int buf_len);
 char* dump_data(void* data, size_t size);
 void dump_process(pid_t pid);
-
+u_int64_t* dump_stack(int nb);
 #endif

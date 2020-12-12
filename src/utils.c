@@ -50,18 +50,30 @@ char* dump_data(void* data, size_t size){
  * 
  * @return filename where the data has been dumped to.
  */
-uint64_t* dump_stack(int nb){
+u_int64_t* dump_stack(int nb){
+    #ifdef __x86_64__
     uint64_t *rsp;
     uint64_t *val;
     __asm__ __volatile__("mov %%rsp, %0\n\t"
                          : "=a"(rsp));
-    for (size_t i = 0; i < nb; i++)
+    for (int i = 0; i < nb; i++)
     {
        preload_log("rsp + 0x%lX : 0x%016lX", i*8, *(rsp + i));
     }
     // val = *(rsp + (0x70/8));
     // preload_log("rsp + 0x%lX : 0x%016lX", (0x70/8)*8, *val);
     return rsp;
+    #else
+    uint32_t *esp;
+    uint32_t *val;
+    __asm__ __volatile__("mov %%esp, %0\n\t"
+                         : "=a"(esp));
+    for (int i = 0; i < nb; i++)
+    {
+       preload_log("esp + 0x%lX : 0x%08lX", i*4, *(esp + i));
+    }
+    return esp;
+    #endif
 }
 
 char* handle_procmaps_line(char* line){
