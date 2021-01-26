@@ -4,7 +4,7 @@ Beta currently working.
 
 This utility can be used on dynamically compiled binaries that uses `ptrace`, preventing you from using `strace -f` or `ltrace -f` to get print calls their arguments. It uses the LD_PRELOAD env variable to preload most of libc's functions, thus avoiding many dbg prevention based on ptrace. It's not perfect, but it helps.
 
-**If the binary you want to trace do not have any ptrace anti-dbg-ish thing, there is no need to use this project. You better use ltrace, strace, or one of the many many public github projects created to log functions. **
+**If the binary you want to trace do not have any ptrace anti-dbg-ish thing, there is no need to use this project. You better use ltrace, strace, or one of the many many public github projects created to log functions.**
 
 ## Features
 
