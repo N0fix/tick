@@ -3,10 +3,11 @@ Tick - An LD_PRELOAD logging utility
 Beta currently working.
 
 TODO : 
-* Print formated arguments for functions
-* Proper printf handling with pid print etc
-* Note down which functions are not being logged (due to compatibility and linkage issues)
-* Hide preload using lib init() call (see https://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
+ - [ ] Print formated arguments for functions
+ - [ ] ~~Proper printf handling with pid print etc~~ (should be working now)
+ - [ ] Note down which functions are not being logged (due to compatibility and linkage issues)
+ - [ ] Hide preload using lib init() call (see https://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
+ - [ ] Write a proper 32bits/64bits compilation flag in the makefile
 
 ### Inner workings
 
