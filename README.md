@@ -36,8 +36,13 @@ Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's 
 
 ### Demo
 
+"Dharma" - DG'Hack2020
 [![asciicast](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK.svg)](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK)
+
+"break" - Flare-on 2020 - Challenge 10
 [![asciicast](https://asciinema.org/a/TPZXu3pJvNtQGIPrYYWUZLeBD.svg)](https://asciinema.org/a/TPZXu3pJvNtQGIPrYYWUZLeBD)
+
+"Ringgit" - Root-me - Reverse - 110 pts
 [![asciicast](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA.svg)](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA)
 ### Adding custom functions
 
