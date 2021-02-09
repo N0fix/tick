@@ -192,9 +192,13 @@ ssize_t write (int filedes, const void *buffer, size_t size){
     ssize_t  (*original_func)(int filedes, const void *buffer, size_t size);
     original_func = dlsym(RTLD_NEXT, "write");
     char* hexbuf = hexstr(buffer, size);
-    char* filename = dump_data(buffer, size);
-    preload_log("write(%d, [hex formated] %.2000s..., %ld). \nContent saved to file %s.", filedes, hexbuf, size, filename);
-    free(filename);
+    if (size >= 50) {
+        char* filename = dump_data(buffer, size);
+        preload_log("write(%d, [hex formated] %.2000s..., %ld). \nContent saved to file %s.", filedes, hexbuf, size, filename);
+        free(filename);
+    } else {
+        preload_log("write(%d, [hex formated] %s, %ld). ", filedes, hexbuf, size);
+    }
     free(hexbuf);
     return original_func(filedes,buffer,size);
 }

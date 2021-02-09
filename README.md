@@ -37,7 +37,8 @@ Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's 
 ### Demo
 
 [![asciicast](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK.svg)](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK)
-
+[![asciicast](https://asciinema.org/a/TPZXu3pJvNtQGIPrYYWUZLeBD.svg)](https://asciinema.org/a/TPZXu3pJvNtQGIPrYYWUZLeBD)
+[![asciicast](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA.svg)](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA)
 ### Adding custom functions
 
 You can add custom preloaded functions in `custom_preloads.c`. If you do so, be sure to add `#define {func_name}_OVERRIDE` in `custom_preload.h` (see `./headers/custom_preloads/custom_preload.h`), indicating that you are creating a custom preload for this function.
