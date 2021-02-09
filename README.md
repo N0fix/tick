@@ -6,7 +6,7 @@ This utility can be used on dynamically compiled binaries that uses `ptrace`, pr
 
 **If the binary you want to trace do not have any ptrace anti-dbg-ish thing, there is no need to use this project. You better use ltrace, strace, or one of the many many public github projects created to log functions.**
 
-*Oh, and if you are wondering, yup, files of this project got generated, but much, much, much things have been fixed with my bare hands, some coffee and a great deal of patience. No kidding, generating a preloading function for all specific shits of all libc functions, you don't want to mess with that. Hope I can prevent the mental illness of someone with this project.*
+*Oh, and if you are wondering, yup, there is a single file that preloads 95% of lib's function, and it got generated from https://www.gnu.org/software/libc/manual/html_node/Function-Index.html with a small python script. But much, much, much things have been fixed with my bare hands, some coffee and a great deal of patience. No kidding, having a file with generated preload functions for all specific shits of all libc functions, you don't want to mess with that. I've seen things going trough all those functions. Hope I can prevent the mental illness of someone with this project.*
 
 ## Features
 
