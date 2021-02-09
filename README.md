@@ -49,9 +49,9 @@ Because no one reads the doc anyway, and because a good demo is way much worth t
 "Ringgit" - Root-me - Reverse - 110 pts
 
 [![asciicast](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA.svg)](https://asciinema.org/a/vlewnOYfSF4VAfesm1wBWmNoA)
-### Adding custom functions
+### Adding custom functions of modifying preloads
 
-You can add custom preloaded functions in `custom_preloads.c`. If you do so, be sure to add `#define {func_name}_OVERRIDE` in `custom_preload.h` (see `./headers/custom_preloads/custom_preload.h`), indicating that you are creating a custom preload for this function.
+You can add custom preloaded functions or modify existant preloads (which is basicaly the same thing) in `custom_preloads.c`. If you do so, be sure to add `#define {func_name}_OVERRIDE` in `custom_preload.h` (see `./headers/custom_preloads/custom_preload.h`), indicating that you are creating a custom preload for this function.
 Adding any function somewhere else might cause a segfault due to `wrapper.h` not properly being imported and linked.
 
 ### Troubleshooting
