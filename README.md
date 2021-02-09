@@ -6,6 +6,8 @@ This utility can be used on dynamically compiled binaries that uses `ptrace`, pr
 
 **If the binary you want to trace do not have any ptrace anti-dbg-ish thing, there is no need to use this project. You better use ltrace, strace, or one of the many many public github projects created to log functions.**
 
+*Oh, and if you are wondering, yup, files of this project got generated, but much, much, much things have been fixed with my bare hands, some coffee and a great deal of patience. No kidding, generating a preloading function for all specific shits of all libc functions, you don't want to mess with that. Hope I can prevent the mental illness of someone with this project.*
+
 ## Features
 
  * Preload a good amount of libc's function using LD_PRELOAD
@@ -36,6 +38,8 @@ Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's 
 
 ### Demo
 
+Because no one reads the doc anyway, and because a good demo is way much worth than this whole README.md file.
+
 "Dharma" - DG'Hack2020
 [![asciicast](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK.svg)](https://asciinema.org/a/1KeaXypx0OBNLlTpZbvHsHZMK)
 
@@ -52,4 +56,7 @@ Adding any function somewhere else might cause a segfault due to `wrapper.h` not
 
 ### Troubleshooting
 
-I don't have many different libcs versions to test on, so there might be a chance that the lib makes things crash a bit. If so, please feel free to create an issue with your OS and your libc version.
+Preloading the whole libc can sometimes go wrong. Sometimes. Only sometimes, I promise.
+As I don't have many different libcs versions to test on, there might be a chance that the lib makes things crash a bit for you. If so, please feel free to create an issue with your OS and your libc version.
+
+
