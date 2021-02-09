@@ -42,3 +42,7 @@ Target (32 or 64 bits) can be changed using flag `-m32` or `-m64` in makefile's 
 
 You can add custom preloaded functions in `custom_preloads.c`. If you do so, be sure to add `#define {func_name}_OVERRIDE` in `custom_preload.h` (see `./headers/custom_preloads/custom_preload.h`), indicating that you are creating a custom preload for this function.
 Adding any function somewhere else might cause a segfault due to `wrapper.h` not properly being imported and linked.
+
+### Troubleshooting
+
+I don't have many different libcs versions to test on, so there might be a chance that the lib makes things crash a bit. If so, please feel free to create an issue with your OS and your libc version.
