@@ -2695,6 +2695,18 @@ char * dgettext (const char *domainname, const char *msgid){
 }
 
 #endif
+
+// #ifndef dlopen_OVERRIDE
+// #define dlopen_OVERRIDE
+// void *dlopen(const char *filename, int flags){
+//     void * (*original_func)(const char *filename, int flags);
+//     original_func = dlsym(RTLD_NEXT, "difftime");
+//     preload_log("%s", "");
+//     return original_func(end,begin);
+// }
+// #endif
+
+
 #ifndef difftime_OVERRIDE
 #define difftime_OVERRIDE
 

@@ -44,7 +44,7 @@ pid_t waitpid(pid_t pid, int *wstatus, int options){
     original_waitpid = dlsym(RTLD_NEXT, "waitpid");
     pid_t p = original_waitpid(pid, wstatus, options);
     int signo = (*wstatus & 0xFF00) >> 8;
-    preload_log("Waitpid received signal %02d : %s", signo, strsignal(signo));
+    preload_log("Waitpid received signal %02d : %s from %d", signo, strsignal(signo), pid);
     return p;
 }
 
