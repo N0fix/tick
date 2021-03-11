@@ -129,7 +129,7 @@ long ptrace(enum __ptrace_request request, ...){
         preload_log("ptrace(PTRACE_TRACEME, %d)", pid);
         break;
     case PTRACE_CONT:
-        preload_log("ptrace(PTRACE_CONT, %d) | [Delivered signal %s]: %s", pid, strsignal(data));
+        preload_log("ptrace(PTRACE_CONT, %d) | [Delivered signal]: [%s]", pid, strsignal(data));
         break;
     case PTRACE_GETREGS:
         #ifdef __x86_64__
@@ -211,3 +211,13 @@ sighandler_t signal (int signum, sighandler_t action){
     return ret;
 }
 
+
+int SHA256_Update(SHA256_CTX *c, const void *data, size_t len){
+    int  (*original_func)(SHA256_CTX *c, const void *data, size_t len);
+    original_func = dlsym(RTLD_NEXT, "SHA256_Update");
+    char* hexbuf = hexstr(data, len);
+    logger(SYNC, __func__, "SHA256_Update(ctx, 0x%s, %ld)", hexbuf, len);
+    free(hexbuf);
+
+    return original_func(c, data, len);
+}

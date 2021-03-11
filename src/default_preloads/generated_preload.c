@@ -55,6 +55,7 @@
 
 #include "logger.h"
 #include "utils.h"
+#include "default_preloads/openssl_sha.h"
 #include "custom_preloads/custom_preloads.h"
 #define HOOK "[% 5lu] [%s] "
 #define RESET "\e[m\n"
@@ -3760,17 +3761,17 @@ int fegetexceptflag (fexcept_t *flagp, int excepts){
 }
 
 #endif
-#ifndef fegetmode_OVERRIDE
-#define fegetmode_OVERRIDE
-
-int fegetmode (femode_t *modep){
-    int  (*original_func)(femode_t *modep);
-    original_func = dlsym(RTLD_NEXT, "fegetmode");
-    preload_log("%s", "");
-    return original_func(modep);
-}
-
-#endif
+//#ifndef fegetmode_OVERRIDE
+//#define fegetmode_OVERRIDE
+//
+//int fegetmode (femode_t *modep){
+//    int  (*original_func)(femode_t *modep);
+//    original_func = dlsym(RTLD_NEXT, "fegetmode");
+//    preload_log("%s", "");
+//    return original_func(modep);
+//}
+//
+//#endif
 #ifndef fegetround_OVERRIDE
 #define fegetround_OVERRIDE
 
@@ -3882,17 +3883,17 @@ int fesetexceptflag (const fexcept_t *flagp, int excepts){
 }
 
 #endif
-#ifndef fesetmode_OVERRIDE
-#define fesetmode_OVERRIDE
-
-int fesetmode (const femode_t *modep){
-    int  (*original_func)(const femode_t *modep);
-    original_func = dlsym(RTLD_NEXT, "fesetmode");
-    preload_log("%s", "");
-    return original_func(modep);
-}
-
-#endif
+//#ifndef fesetmode_OVERRIDE
+//#define fesetmode_OVERRIDE
+//
+//int fesetmode (const femode_t *modep){
+//    int  (*original_func)(const femode_t *modep);
+//    original_func = dlsym(RTLD_NEXT, "fesetmode");
+//    preload_log("%s", "");
+//    return original_func(modep);
+//}
+//
+//#endif
 #ifndef fesetround_OVERRIDE
 #define fesetround_OVERRIDE
 
@@ -10551,22 +10552,22 @@ int scanf (const char *template, ...){
 }
 
 #endif
-#ifndef __isoc99_scanf_OVERRIDE
-#define __isoc99_scanf_OVERRIDE
-
-int __isoc99_scanf (const char *template, ...){
-    va_list ap;
-    va_start(ap, template);
-    int  (*original_func)(const char *template, ...);
-    original_func = dlsym(RTLD_NEXT, "vscanf");
-    preload_log("%s", "");
-    int  ret_val = original_func(template,ap);
-    va_end(ap);
-    // dump_stack(30); 
-    return ret_val;
-}
-
-#endif
+//#ifndef __isoc99_scanf_OVERRIDE
+//#define __isoc99_scanf_OVERRIDE
+//
+//int __isoc99_scanf (const char *template, ...){
+//    va_list ap;
+//    va_start(ap, template);
+//    int  (*original_func)(const char *template, ...);
+//    original_func = dlsym(RTLD_NEXT, "vscanf");
+//    preload_log("%s", "");
+//    int  ret_val = original_func(template,ap);
+//    va_end(ap);
+//    // dump_stack(30); 
+//    return ret_val;
+//}
+//
+//#endif
 
 
 #ifndef sched_getaffinity_OVERRIDE
@@ -12304,7 +12305,7 @@ size_t strftime (char *s, size_t size, const char *template, const struct tm *br
 size_t strlen (const char *s){
     size_t  (*original_func)(const char *s);
     original_func = dlsym(RTLD_NEXT, "strlen");
-    // preload_log("%s", "");
+    //preload_log("%s", "");
     return original_func(s);
 }
 
@@ -14582,4 +14583,32 @@ long double ynl (int n, long double x){
     return original_func(n,x);
 }
 
+#endif
+
+#ifndef SHA256_Init_OVERRIDE
+#define SHA256_Init_OVERRIDE
+int SHA256_Init(SHA256_CTX *c) {
+    int  (*original_func)(SHA256_CTX *c);
+    original_func = dlsym(RTLD_NEXT, "SHA256_Init");
+    preload_log("%s", "");
+    return original_func(c);
+}
+#endif
+#ifndef SHA256_Update_OVERRIDE
+#define SHA256_Update_OVERRIDE
+int SHA256_Update(SHA256_CTX *c, const void *data, size_t len){
+    int  (*original_func)(SHA256_CTX *c, const void *data, size_t len);
+    original_func = dlsym(RTLD_NEXT, "SHA256_Update");
+    preload_log("%s", "");
+    return original_func(c, data, len);
+}
+#endif
+#ifndef SHA256_Final_OVERRIDE
+#define SHA256_Final_OVERRIDE
+int SHA256_Final(unsigned char *md, SHA256_CTX *c){
+    int  (*original_func)(unsigned char *md, SHA256_CTX *c);
+    original_func = dlsym(RTLD_NEXT, "SHA256_Final");
+    preload_log("%s", "");
+    return original_func(md, c);
+}
 #endif

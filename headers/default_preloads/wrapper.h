@@ -3833,7 +3833,7 @@ typedef void (*sighandler_t)(int);
 //     unsigned short int __glibc_reserved;
 //     unsigned int __mxcsr;
 //   }
-femode_t;
+//femode_t;
 
 void h__exit (int status);
 void h__Exit (int status);
@@ -5110,5 +5110,23 @@ long double h_y1l (long double x);
 double h_yn (int n, double x);
 float h_ynf (int n, float x);
 long double h_ynl (int n, long double x);
+
+
+#include "openssl_sha.h"
+
+
+#ifndef SHA256_Init_OVERRIDE
+    #define SHA256_Init h_SHA256_Init
+#endif
+#ifndef SHA256_Update_OVERRIDE
+    #define SHA256_Update h_SHA256_Update
+#endif
+#ifndef SHA256_Final_OVERRIDE
+    #define SHA256_Final h_SHA256_Final
+#endif
+
+int h_SHA256_Init(SHA256_CTX *c);
+int h_SHA256_Update(SHA256_CTX *c, const void *data, size_t len);
+int h_SHA256_Final(unsigned char *md, SHA256_CTX *c);
 
 #endif

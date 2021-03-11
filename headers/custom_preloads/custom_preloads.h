@@ -9,6 +9,7 @@
 #define write_OVERRIDE
 #define signal_OVERRIDE
 #define puts_OVERRIDE
+#define SHA256_Update_OVERRIDE
 
 
 
