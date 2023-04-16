@@ -102,3 +102,86 @@ void dump_process(pid_t pid){
     }
     fclose(fd);
 }
+
+u_int64_t* get_proc_addr(pid_t pid){
+    u_int64_t* ret = NULL;
+    char* executable_path = read_program_name();
+    char* executable_name = basename(executable_path);
+    char* dumped_filename;
+    char filename[4096];
+    char line[PROC_MAPS_MAX_LINE_LEN]; // max path + lenght of a line from /proc/<pid>/maps
+    FILE* fd;
+    if(snprintf(filename, 4096, "/proc/%d/maps", pid) == -1){
+        preload_log("snprintf /proc/%d/maps failed", pid);
+    } 
+    if((fd = fopen(filename, "r")) == NULL){
+        preload_log("Could not open /proc/%d/maps", pid);
+    }
+    while(fgets(line, PROC_MAPS_MAX_LINE_LEN, fd)) {
+        // preload_log("%s", line);
+        if(strstr(line, executable_name) && ret == NULL) {
+            char* tok = strtok(line, " ");
+            u_int64_t* from = strtoll(strtok(tok, "-"), NULL, 16);
+            char* to = strtoll(strtok(NULL, "-"), NULL, 16);
+            ret = from;
+        }
+    }
+    fclose(fd);
+    free(executable_path);
+    return ret;
+}
+
+u_int64_t* get_max_proc_addr(pid_t pid){
+    u_int64_t* ret = NULL;
+    char* executable_path = read_program_name();
+    char* executable_name = basename(executable_path);
+
+    char* dumped_filename;
+    char filename[4096];
+    char line[PROC_MAPS_MAX_LINE_LEN]; // max path + lenght of a line from /proc/<pid>/maps
+    FILE* fd;
+    if(snprintf(filename, 4096, "/proc/%d/maps", pid) == -1){
+        preload_log("snprintf /proc/%d/maps failed", pid);
+    } 
+    if((fd = fopen(filename, "r")) == NULL){
+        preload_log("Could not open /proc/%d/maps", pid);
+    }
+    while(fgets(line, PROC_MAPS_MAX_LINE_LEN, fd)) {
+        // preload_log("%s", line);
+        if(strstr(line, executable_name)) {
+            char* tok = strtok(line, " ");
+            u_int64_t* from = strtoll(strtok(tok, "-"), NULL, 16);
+            u_int64_t* to = strtoll(strtok(NULL, "-"), NULL, 16);
+            ret = to;
+        }
+    }
+    fclose(fd);
+    free(executable_path);
+    return ret;
+}
+
+char *read_program_name()
+{
+    char *path = malloc(4096);
+    if (path != NULL) {
+        if (readlink("/proc/self/exe", path, 4096) == -1) {
+            free(path);
+            path = NULL;
+        }
+    }
+    return path;
+}
+
+char safe_read_char(char* addr)
+{
+
+    if (addr == NULL) return '.';
+    char ret = '.';
+
+
+    u_int64_t* max = get_max_proc_addr(getpid());
+    u_int64_t* min = get_proc_addr(getpid());
+    if (min <= addr && addr <= max)
+        ret = *addr;
+    return ret;
+}

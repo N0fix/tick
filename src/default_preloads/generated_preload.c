@@ -4681,7 +4681,7 @@ size_t fread_unlocked (void *data, size_t size, size_t count, FILE *stream){
 void free (void *ptr){
     void  (*original_func)(void *ptr);
     original_func = dlsym(RTLD_NEXT, "free");
-    preload_log("%s", "");
+    // preload_log("%s", "");
     return original_func(ptr);
 }
 

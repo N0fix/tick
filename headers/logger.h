@@ -1,7 +1,7 @@
 #ifndef _LOGGER_H
 #define _LOGGER_H
 #define preload_log(FORMAT, ...) \
-    do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
+    do { logger(UNSYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
 #ifndef _COLORS_
 #define _COLORS_

@@ -14,11 +14,6 @@
     do { logger(SYNC, __func__, FORMAT, __VA_ARGS__); } while(0)
 
 
-int puts(const char *s){
-    preload_log("puts(\"%s\")", s);
-    return 1;
-}
-
 
 pid_t fork(void){
     int (*o_fork)(void);
@@ -43,16 +38,21 @@ pid_t waitpid(pid_t pid, int *wstatus, int options){
     pid_t (*original_waitpid)(pid_t pid, int *wstatus, int options);
     original_waitpid = dlsym(RTLD_NEXT, "waitpid");
     pid_t p = original_waitpid(pid, wstatus, options);
-    int signo = (*wstatus & 0xFF00) >> 8;
-    preload_log("Waitpid received signal %02d : %s from %d", signo, strsignal(signo), pid);
+    if (wstatus != NULL)
+    {
+        int signo = (*wstatus & 0xFF00) >> 8;
+        preload_log("Waitpid received signal %02d : %s from %d", signo, strsignal(signo), pid);
+    }
     return p;
 }
 
-// long peekdata(int pid, int reg, int offset){
-//     long (*original_ptrace)(int request, pid_t pid, void *addr, void *data);
-//     original_ptrace = dlsym(RTLD_NEXT, "ptrace");
-//     return original_ptrace(PTRACE_PEEKDATA, pid, reg + offset, 0);
-// }
+
+
+long peekdata(int pid, int reg, int offset){
+    long (*original_ptrace)(int request, pid_t pid, void *addr, void *data);
+    original_ptrace = dlsym(RTLD_NEXT, "ptrace");
+    return original_ptrace(PTRACE_PEEKDATA, pid, reg + offset, 0);
+}
 long ptrace(enum __ptrace_request request, ...){
     long (*original_ptrace)(int request, ...);
     va_list ap;
@@ -64,20 +64,33 @@ long ptrace(enum __ptrace_request request, ...){
     void* data = va_arg(ap, void*);
     va_end(ap);
 
-
+    u_int64_t proc_addr = get_proc_addr(getpid());
     original_ptrace = dlsym(RTLD_NEXT, "ptrace");
     pid_t pid_curr = getpid();
     unsigned int * p = (void *)addr;
+    const int PTRACE_PEEKTEXT = 1;
     switch (request)
     {
+        case PTRACE_PEEKTEXT:
+            char* str = addr;
+            preload_log("ptrace(PTRACE_PEEKTEXT, %d, %02x%02x%02x%02x (%p))", 
+                pid,
+                (unsigned) safe_read_char(str+0) & 0xffU,
+                (unsigned) safe_read_char(str+1) & 0xffU,
+                (unsigned) safe_read_char(str+2) & 0xffU,
+                (unsigned) safe_read_char(str+3) & 0xffU, addr);
+            break;
     case PTRACE_ATTACH:
         preload_log("ptrace(PTRACE_ATTACH, %d)", pid);
         break;
-    case PTRACE_POKEDATA:
-        preload_log("ptrace(PTRACE_POKE, %d, %X, %lX)", pid, addr, *(long int*)data);
-        break;
     case PTRACE_PEEKDATA:
-        preload_log("ptrace(PTRACE_PEEK, %d, %lX, %lX) | [peek value %lX]", pid, addr, *(long int*)data, *(long int*)addr);
+        preload_log("ptrace(PTRACE_PEEK,     pid %d, @ %#lx, %lX) | [peek value %lX]", pid, addr, *(long int*)data, *(long int*)addr);
+        break;
+    case PTRACE_POKEDATA:
+        preload_log("ptrace(PTRACE_POKEDATA, pid %d, @ %#lx) | data : %lX", pid, addr, data);
+        break;
+    case PTRACE_POKEUSER:
+        preload_log("ptrace(PTRACE_POKEUSER, pid %d, @ %#lx) | data : %lX", pid, addr, data);
         break;
     case PTRACE_SETREGS:
         #ifdef __x86_64__
