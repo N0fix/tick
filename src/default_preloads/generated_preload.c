@@ -10735,21 +10735,21 @@ int select (int nfds, fd_set *read_fds, fd_set *write_fds, fd_set *except_fds, s
 }
 
 #endif
-#ifndef semctl_OVERRIDE
-#define semctl_OVERRIDE
+// #ifndef semctl_OVERRIDE
+// #define semctl_OVERRIDE
 
-int semctl (int semid, int semnum, int cmd, ...){
-    int  (*original_func)(int semid, int semnum, int cmd, ...);
-    va_list ap;
-    va_start(ap, cmd);
-    original_func = dlsym(RTLD_NEXT, "semctl");
-    preload_log("%s", "");
-    original_func(semid,semnum,cmd, ap);
-    va_end(ap);
-    return ;
-}
+// int semctl (int semid, int semnum, int cmd, ...){
+//     int  (*original_func)(int semid, int semnum, int cmd, ...);
+//     va_list ap;
+//     va_start(ap, cmd);
+//     original_func = dlsym(RTLD_NEXT, "semctl");
+//     preload_log("%s", "");
+//     original_func(semid,semnum,cmd, ap);
+//     va_end(ap);
+//     return original_func(semid, semnum, cmd);
+// }
 
-#endif
+// #endif
 #ifndef semget_OVERRIDE
 #define semget_OVERRIDE
 
@@ -12530,17 +12530,17 @@ long double strtold (const char *string, char **tailptr){
 }
 
 #endif
-#ifndef strtoll_OVERRIDE
-#define strtoll_OVERRIDE
+// #ifndef strtoll_OVERRIDE
+// #define strtoll_OVERRIDE
 
-long long int strtoll (const char *restrict string, char **restrict tailptr, int base){
-    long long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
-    original_func = dlsym(RTLD_NEXT, "strtoll");
-    preload_log("%s", "");
-    return original_func(string,tailptr,base);
-}
+// long long int strtoll (const char *restrict string, char **restrict tailptr, int base){
+//     long long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
+//     original_func = dlsym(RTLD_NEXT, "strtoll");
+//     preload_log("%s", "");
+//     return original_func(string,tailptr,base);
+// }
 
-#endif
+// #endif
 #ifndef strtoq_OVERRIDE
 #define strtoq_OVERRIDE
 
@@ -12552,28 +12552,28 @@ long long int strtoq (const char *restrict string, char **restrict tailptr, int 
 }
 
 #endif
-#ifndef strtoul_OVERRIDE
-#define strtoul_OVERRIDE
+// #ifndef strtoul_OVERRIDE
+// #define strtoul_OVERRIDE
 
-unsigned long int strtoul (const char *restrict string, char **restrict tailptr, int base){
-    unsigned long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
-    original_func = dlsym(RTLD_NEXT, "strtoul");
-    preload_log("%s", "");
-    return original_func(string,tailptr,base);
-}
+// unsigned long int strtoul (const char *restrict string, char **restrict tailptr, int base){
+//     unsigned long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
+//     original_func = dlsym(RTLD_NEXT, "strtoul");
+//     preload_log("%s", "");
+//     return original_func(string,tailptr,base);
+// }
 
-#endif
-#ifndef strtoull_OVERRIDE
-#define strtoull_OVERRIDE
+// #endif
+// #ifndef strtoull_OVERRIDE
+// #define strtoull_OVERRIDE
 
-unsigned long long int strtoull (const char *restrict string, char **restrict tailptr, int base){
-    unsigned long long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
-    original_func = dlsym(RTLD_NEXT, "strtoull");
-    preload_log("%s", "");
-    return original_func(string,tailptr,base);
-}
+// unsigned long long int strtoull (const char *restrict string, char **restrict tailptr, int base){
+//     unsigned long long int  (*original_func)(const char *restrict string, char **restrict tailptr, int base);
+//     original_func = dlsym(RTLD_NEXT, "strtoull");
+//     preload_log("%s", "");
+//     return original_func(string,tailptr,base);
+// }
 
-#endif
+// #endif
 #ifndef strtoumax_OVERRIDE
 #define strtoumax_OVERRIDE
 
@@ -14199,17 +14199,17 @@ long double wcstold (const wchar_t *string, wchar_t **tailptr){
 }
 
 #endif
-#ifndef wcstoll_OVERRIDE
-#define wcstoll_OVERRIDE
+// #ifndef wcstoll_OVERRIDE
+// #define wcstoll_OVERRIDE
 
-long long int wcstoll (const wchar_t *restrict string, wchar_t **restrict tailptr, int base){
-    long long int  (*original_func)(const wchar_t *restrict string, wchar_t **restrict tailptr, int base);
-    original_func = dlsym(RTLD_NEXT, "wcstoll");
-    preload_log("%s", "");
-    return original_func(string,tailptr,base);
-}
+// long long int wcstoll (const wchar_t *restrict string, wchar_t **restrict tailptr, int base){
+//     long long int  (*original_func)(const wchar_t *restrict string, wchar_t **restrict tailptr, int base);
+//     original_func = dlsym(RTLD_NEXT, "wcstoll");
+//     preload_log("%s", "");
+//     return original_func(string,tailptr,base);
+// }
 
-#endif
+// #endif
 #ifndef wcstombs_OVERRIDE
 #define wcstombs_OVERRIDE
 
@@ -14243,17 +14243,17 @@ unsigned long int wcstoul (const wchar_t *restrict string, wchar_t **restrict ta
 }
 
 #endif
-#ifndef wcstoull_OVERRIDE
-#define wcstoull_OVERRIDE
+// #ifndef wcstoull_OVERRIDE
+// #define wcstoull_OVERRIDE
 
-unsigned long long int wcstoull (const wchar_t *restrict string, wchar_t **restrict tailptr, int base){
-    unsigned long long int  (*original_func)(const wchar_t *restrict string, wchar_t **restrict tailptr, int base);
-    original_func = dlsym(RTLD_NEXT, "wcstoull");
-    preload_log("%s", "");
-    return original_func(string,tailptr,base);
-}
+// unsigned long long int wcstoull (const wchar_t *restrict string, wchar_t **restrict tailptr, int base){
+//     unsigned long long int  (*original_func)(const wchar_t *restrict string, wchar_t **restrict tailptr, int base);
+//     original_func = dlsym(RTLD_NEXT, "wcstoull");
+//     preload_log("%s", "");
+//     return original_func(string,tailptr,base);
+// }
 
-#endif
+// #endif
 #ifndef wcstoumax_OVERRIDE
 #define wcstoumax_OVERRIDE
 

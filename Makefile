@@ -1,6 +1,6 @@
 _OBJS= logger.o generated_preload.o wrapper.o pid_handling.o custom_preloads.o utils.o
 HEADER_DIR=./headers/
-CFLAGS+= -w   -fPIC 
+CFLAGS+= -w -fPIC  -Wno-error
 INCLUDES=-I$(HEADER_DIR)
 ARCH= -m64
 LINK=-lrt -ldl -lcrypt -pthread -lssl

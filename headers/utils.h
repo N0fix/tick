@@ -7,7 +7,7 @@
 #define handle_error(msg) \
     do { perror(PRELOAD_ERROR msg); exit(EXIT_FAILURE); } while (0)
 
-
+char safe_read_char(char* addr);
 char* hexstr(char* buf, int buf_len);
 char* dump_data(void* data, size_t size);
 void dump_process(pid_t pid);

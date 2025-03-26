@@ -8,7 +8,7 @@ typedef struct shm_pid_list {
     unsigned long number_of_pid;
     pid_t pids[];
 } shm_pid_list;
-
+void __shm_create_lock();
 void shm_free_shared_memory();
 shm_pid_list* shm_get_pid_list_copy();
 pid_t shm_get_pid(unsigned long n);

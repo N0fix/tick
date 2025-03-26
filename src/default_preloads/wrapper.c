@@ -7835,15 +7835,15 @@ int h_select (int nfds, fd_set *read_fds, fd_set *write_fds, fd_set *except_fds,
 
 
 
-int h_semctl (int semid, int semnum, int cmd, ...){
-    int  (*original_func)(int semid, int semnum, int cmd, ...);
-    va_list ap;
-    va_start(ap, cmd);
-    original_func = dlsym(RTLD_NEXT, "semctl");
-    original_func(semid,semnum,cmd, ap);
-    va_end(ap);
-    return ;
-}
+// int h_semctl (int semid, int semnum, int cmd, ...){
+//     int  (*original_func)(int semid, int semnum, int cmd, ...);
+//     va_list ap;
+//     va_start(ap, cmd);
+//     original_func = dlsym(RTLD_NEXT, "semctl");
+//     original_func(semid,semnum,cmd, ap);
+//     va_end(ap);
+//     return ;
+// }
 
 
 
